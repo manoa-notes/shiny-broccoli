@@ -12,7 +12,7 @@ const makeSchema = (allInterests, allParticipants) => new SimpleSchema({
   title: String,
   description: String,
   course: String,
-  pictures: String,
+  pictures:  String,
   interests: { type: Array, label: 'Interests', optional: false },
   'interests.$': { type: String, allowedValues: allInterests },
   participants: { type: Array, label: 'Participants', optional: true },
@@ -31,7 +31,7 @@ const AddNote = () => {
               <Card.Body>
                 <Row>
                   <Col xs={4}><TextField id={ComponentIDs.addProjectFormName} name="title" showInlineError placeholder="Note Title" /></Col>
-                  <Col xs={4}><TextField id={ComponentIDs.addProjectFormPicture} name="picture" showInlineError placeholder="Project picture URL" /></Col>
+                  <Col xs={4}><TextField id={ComponentIDs.addProjectFormPicture} name="picture" showInlineError placeholder="Notes" /></Col>
                   <Col xs={4}><TextField id={ComponentIDs.addProjectFormHomePage} name="homepage" showInlineError placeholder="Homepage URL" /></Col>
                 </Row>
                 <LongTextField id={ComponentIDs.addProjectFormDescription} name="description" placeholder="Describe the notes here" />
