@@ -12,7 +12,7 @@ const makeSchema = (allInterests, allParticipants) => new SimpleSchema({
   title: String,
   description: String,
   course: String,
-  picture: String,
+  pictures: String,
   interests: { type: Array, label: 'Interests', optional: false },
   'interests.$': { type: String, allowedValues: allInterests },
   participants: { type: Array, label: 'Participants', optional: true },
