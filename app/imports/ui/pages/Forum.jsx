@@ -17,15 +17,17 @@ const Forum = () => (
         </h3>
         <h3>
           <NavDropdown id="navbar-current-user" title="TOP">
-            <NavDropdown.Item id="navbar-profile" as={NavLink} to="/profile">
+            <NavDropdown.Item id="navbar-profile" as={NavLink} to="/">
               ALL TIME
-              <br />
+            </NavDropdown.Item>
+            <NavDropdown.Item id="navbar-profile" as={NavLink} to="/">
               THIS YEAR
-              <br />
+            </NavDropdown.Item>
+            <NavDropdown.Item id="navbar-profile" as={NavLink} to="/">
               THIS MONTH
-              <br />
+            </NavDropdown.Item>
+            <NavDropdown.Item id="navbar-profile" as={NavLink} to="/">
               TODAY
-              <br />
             </NavDropdown.Item>
           </NavDropdown>
         </h3>
