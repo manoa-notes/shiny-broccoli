@@ -6,11 +6,13 @@ const Forum = () => (
   <Container className="py-3">
     <Row>
       <Col className="text-center col-md-auto">
-        <h2>SEARCH</h2>
+        <form>
+          <h2><input type="text" placeholder="SEARCH..." /></h2>
+        </form>
         <h2>SEARCH BY</h2>
         <h3>
           <NavDropdown id="navbar-current-user" title="COURSE">
-            <NavDropdown.Item id="navbar-profile" as={NavLink} to="/profile">
+            <NavDropdown.Item id="navbar-profile" as={NavLink} to="/">
               COURSES
             </NavDropdown.Item>
           </NavDropdown>
@@ -31,7 +33,7 @@ const Forum = () => (
             </NavDropdown.Item>
           </NavDropdown>
         </h3>
-        <h3>HOT</h3>
+        <a href="/" style={{ color: 'black', textDecoration: 'none' }}><h3>HOT</h3></a>
       </Col>
       <Col className="text-center">
         <h2>Forums here</h2>
