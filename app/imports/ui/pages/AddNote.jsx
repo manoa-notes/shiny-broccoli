@@ -8,15 +8,13 @@ import { pageStyle } from './pageStyles';
 import { Courses } from './ListCourses';
 import { ComponentIDs, PageIDs } from '../utilities/ids';
 
-const makeSchema = (allInterests, allParticipants) => new SimpleSchema({
+const makeSchema = (allInterests) => new SimpleSchema({
   title: String,
   description: String,
   course: String,
-  pictures:  String,
-  interests: { type: Array, label: 'Interests', optional: false },
+  picture: String,
+  interests: { type: Array, label: 'Course', optional: false },
   'interests.$': { type: String, allowedValues: allInterests },
-  participants: { type: Array, label: 'Participants', optional: true },
-  'participants.$': { type: String, allowedValues: allParticipants },
 });
 const AddNote = () => {
   const formSchema = makeSchema(_.pluck(Courses, 'name'));
@@ -31,16 +29,12 @@ const AddNote = () => {
               <Card.Body>
                 <Row>
                   <Col xs={4}><TextField id={ComponentIDs.addProjectFormName} name="title" showInlineError placeholder="Note Title" /></Col>
-                  <Col xs={4}><TextField id={ComponentIDs.addProjectFormPicture} name="picture" showInlineError placeholder="Notes" /></Col>
-                  <Col xs={4}><TextField id={ComponentIDs.addProjectFormHomePage} name="homepage" showInlineError placeholder="Homepage URL" /></Col>
+                  <Col xs={4}><input type="file" name="picture" id={ComponentIDs.addProjectFormPicture} /> </Col>
                 </Row>
                 <LongTextField id={ComponentIDs.addProjectFormDescription} name="description" placeholder="Describe the notes here" />
                 <Row>
                   <Col xs={6} id={ComponentIDs.addProjectFormInterests}>
-                    <SelectField name="interests" showInlineError placeholder="Interests" multiple checkboxes />
-                  </Col>
-                  <Col xs={6} id={ComponentIDs.addProjectFormParticipants}>
-                    <SelectField name="participants" showInlineError placeholder="Participants" multiple checkboxes />
+                    <SelectField name="interests" showInlineError placeholder="Course" multiple checkboxes />
                   </Col>
                 </Row>
                 <SubmitField id={ComponentIDs.addProjectFormSubmit} value="Submit" />
