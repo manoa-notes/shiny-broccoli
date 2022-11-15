@@ -2,15 +2,17 @@
 @import url("https://fonts.googleapis.com/css?family=Open+Sans:300,400,500,700|Source+Code+Pro:300,400,500,700");
 
 /* Create some Rainbow Notes CSS variables. */
-/* Custom color palette
-
-
- */
 :root {
-  --rainbow-notes-navbar-bg: #376551;
-  --rainbow-notes-navbar-bg-rgb: 55, 101, 81;
-  --rainbow-notes-navbar-text: white;
+  --rainbow-notes-navbar-bg: #A3BCB6;
+  --rainbow-notes-navbar-bg-rgb: 163, 188, 182;
+  --rainbow-notes-navbar-bg2: #3C403D;
+  --rainbow-notes-navbar-text: #3C403D;
   --rainbow-notes-navbar-highlight-text: var(--bs-gray-500);
+  --olive: #A3BCB6;
+  --green-leaf: #39603D;
+  --brown-grey: #3C403D;
+  --tanly: #DADED4;
+  --whitey: #FFFFFF;
 }
 /* Change bootstrap variable values.
  See https://getbootstrap.com/docs/5.2/customize/css-variables/
@@ -56,6 +58,7 @@ body {
 .landing-photo-background {
   background-image: url("https://cdn9.dissolve.com/p/D984_72_013/D984_72_013_1200.jpg");
   background-size: cover;
+  padding-top: 20px;
 }
 
 .reset-margins {
