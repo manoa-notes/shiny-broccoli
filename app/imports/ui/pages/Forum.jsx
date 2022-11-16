@@ -63,7 +63,7 @@ const Forum = () => (
         <h2>Forums</h2>
         {Forums.map(forum => (
           <Row className="py-1">
-            <Button variant="success" size="lg" as={Link} to={`/courses/${forum.name.replace(/\s+/g, '')}`}>{forum.name}</Button>
+            <Button variant="success" size="lg" as={Link} to={`/forum/${forum.name.replace(/\s+/g, '')}`}>{forum.name}</Button>
           </Row>
         ))}
       </Col>
