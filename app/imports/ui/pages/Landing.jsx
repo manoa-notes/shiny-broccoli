@@ -7,10 +7,10 @@ const Landing = () => (
   <div id={PageIDs.landingPage}>
     <div className="landing-green-background">
       <Container className="text-center">
-        <h1 style={{ paddingTop: '20px', color: 'white', fontSize: '36pt' }}>
-          Welcome to Rainbow Notes
+        <h1 style={{ paddingTop: '20px', color: '#DADED4', fontSize: '36pt' }}>
+          E komo mai Rainbow Notes!
         </h1>
-        <h3 style={{ paddingBottom: '20px', color: 'white', marginBottom: 0 }}>
+        <h3 style={{ paddingBottom: '20px', color: '#DADED4', marginBottom: 0 }}>
           Kokua your fellow students
         </h3>
       </Container>
@@ -22,7 +22,7 @@ const Landing = () => (
             <Row>
               <Form>
                 <InputGroup size="lg">
-                  <Form.Control placeholder="Search for your course here to get started"/>
+                  <Form.Control placeholder="Search for your course code here to get started"/>
                   <Button variant="primary" type="submit">
                     Shoots!
                   </Button>
