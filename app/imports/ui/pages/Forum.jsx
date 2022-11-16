@@ -1,13 +1,37 @@
 import React from 'react';
-import { Col, Container, NavDropdown, Row } from 'react-bootstrap';
-import { NavLink } from 'react-router-dom';
+import { Button, Col, Container, NavDropdown, Row } from 'react-bootstrap';
+import { Link, NavLink } from 'react-router-dom';
+
+export const Forums = [
+  {
+    name: 'How do pointers work',
+  },
+  {
+    name: 'Electromagnetics',
+  },
+  {
+    name: 'What is addition?',
+  },
+  {
+    name: 'Object oriented programming',
+  },
+  {
+    name: 'How to add integers',
+  },
+  {
+    name: 'What is rainbow notes?',
+  },
+  {
+    name: 'Bruh',
+  },
+];
 
 const Forum = () => (
   <Container className="py-3">
     <Row>
       <Col className="text-center col-md-auto">
         <form>
-          <h2><input type="text" placeholder="SEARCH..." /></h2>
+          <h2><input className="text-center" type="text" placeholder="SEARCH..." /></h2>
         </form>
         <h2>SEARCH BY</h2>
         <h3>
@@ -35,8 +59,13 @@ const Forum = () => (
         </h3>
         <a href="/" style={{ color: 'black', textDecoration: 'none' }}><h3>HOT</h3></a>
       </Col>
-      <Col className="text-center">
-        <h2>Forums here</h2>
+      <Col className="text-center d-grid">
+        <h2>Forums</h2>
+        {Forums.map(forum => (
+          <Row className="py-1">
+            <Button variant="success" size="lg" as={Link} to={`/courses/${forum.name.replace(/\s+/g, '')}`}>{forum.name}</Button>
+          </Row>
+        ))}
       </Col>
     </Row>
   </Container>
