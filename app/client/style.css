@@ -55,10 +55,15 @@ body {
   padding-top: 20px;
 }
 
+.landing-grey-background {
+  background-color: var(--tanly);
+}
+
 .landing-photo-background {
-  background-image: url("https://cdn9.dissolve.com/p/D984_72_013/D984_72_013_1200.jpg");
+  background-image: url("https://cdn9.dissolve.com/p/D984_72_013/D984_72_013_1200.jpg") ;
   background-size: cover;
-  padding-top: 20px;
+  padding-top: 400px;
+  height: 800px;
 }
 
 .reset-margins {
