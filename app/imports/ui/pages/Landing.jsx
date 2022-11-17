@@ -1,11 +1,11 @@
 import React from 'react';
-import { Container, Form, Image, InputGroup, Row, Button } from 'react-bootstrap';
+import { Col, Container, Form, Image, InputGroup, Row, Button } from 'react-bootstrap';
 import { PageIDs } from '../utilities/ids';
 
 /* A simple static component to render some text for the landing page. */
 const Landing = () => (
   <div id={PageIDs.landingPage}>
-    <div className="landing-green-background">
+    <div style={{ borderTop: '1px solid var(--tanly)' }} className="landing-green-background">
       <Container className="text-lg-start">
         <h1 className="ekomomai" style={{ fontSize: '50pt' }}>
           Rainbow Notes
@@ -44,22 +44,24 @@ const Landing = () => (
         </Container>
       </div>
     </Container>
-    <div className="landing-green-background">
+    <div className="landing-grey-background">
       <Container className="justify-content-center text-center">
-        <h2 style={{ color: '#DADED4' }}>HOW TO GET STARTED</h2>
+        <h2 style={{ color: 'var(--brown-grey)' }}>HOW TO GET STARTED</h2>
         <Row>
-          <Row>
+          <Col className="pb-4">
             <h3>STEP 1: Searching for your course</h3>
-            <Image src="/images/search-course-page.png" width={450} />
-          </Row>
-          <Row>
+            <Image style={{ border: '10px solid var(--brown-grey)', padding: 0 }} src="/images/search-course-page.png" className="w-100" />
+          </Col>
+          <Col className="pb-4">
             <h3>STEP 2: Share your notes</h3>
-            <Image src="/images/add-notes-page.png" width={450} />
-          </Row>
-          <Row>
+            <Image style={{ border: '10px solid var(--brown-grey)', padding: 0 }} src="/images/add-notes-page.png" className="w-100" />
+          </Col>
+        </Row>
+        <Row className="pb-4">
+          <Col>
             <h3>STEP 3: Review Notes</h3>
-            <Image src="/images/sample-note-1.jpg" width={450} />
-          </Row>
+            <Image style={{ border: '10px solid var(--brown-grey)', padding: 0 }} src="/images/sample-note-1.jpg" width={400}/>
+          </Col>
         </Row>
       </Container>
     </div>
