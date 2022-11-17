@@ -1,5 +1,6 @@
 import React from 'react';
 import { Button, Col, Container, NavDropdown, Row } from 'react-bootstrap';
+import { Fire } from 'react-bootstrap-icons';
 import { Link, NavLink } from 'react-router-dom';
 
 export const Forums = [
@@ -38,17 +39,17 @@ const Forum = () => (
     <Row>
       <Col className="text-center col-md-auto">
         <form>
-          <h2><input className="text-center" type="text" placeholder="SEARCH..." /></h2>
+          <h4><input className="text-center" type="text" placeholder="SEARCH..." /></h4>
         </form>
-        <h2>SEARCH BY</h2>
-        <h3>
+        <h4>SEARCH BY</h4>
+        <h5>
           <NavDropdown id="navbar-current-user" title="COURSE">
             <NavDropdown.Item id="navbar-profile" as={NavLink} to="/">
               COURSES
             </NavDropdown.Item>
           </NavDropdown>
-        </h3>
-        <h3>
+        </h5>
+        <h5>
           <NavDropdown id="navbar-current-user" title="TOP">
             <NavDropdown.Item id="navbar-profile" as={NavLink} to="/">
               ALL TIME
@@ -63,8 +64,8 @@ const Forum = () => (
               TODAY
             </NavDropdown.Item>
           </NavDropdown>
-        </h3>
-        <a href="/" style={{ color: 'black', textDecoration: 'none' }}><h3>HOT</h3></a>
+        </h5>
+        <a href="/" style={{ color: 'black', textDecoration: 'none' }}><h5>HOT <Fire /></h5></a>
       </Col>
       <Col className="text-center d-grid">
         <h2>Forums</h2>
