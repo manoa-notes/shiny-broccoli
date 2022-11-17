@@ -15,7 +15,7 @@ const Landing = () => (
         </h3>
       </Container>
     </div>
-    <div className="landing-photo-background">
+    <Container fluid className="container-xxl landing-photo-background">
       <div className="landing-photo-bg">
         <Container className="landing-message">
           <h1 style={{ fontSize: '50pt' }}>
@@ -43,7 +43,7 @@ const Landing = () => (
           </Row>
         </Container>
       </div>
-    </div>
+    </Container>
     <div className="landing-green-background">
       <Container className="justify-content-center text-center">
         <h2 style={{ color: '#DADED4' }}>HOW TO GET STARTED</h2>
