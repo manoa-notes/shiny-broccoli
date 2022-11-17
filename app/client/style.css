@@ -55,13 +55,53 @@ body {
   padding-top: 20px;
 }
 
-.landing-photo-background {
-  background-image: url("https://cdn9.dissolve.com/p/D984_72_013/D984_72_013_1200.jpg");
-  background-size: cover;
-  padding-top: 20px;
+.landing-grey-background {
+  background-color: var(--tanly);
 }
 
+.landing-div-bg{
+  background-color: var(--olive);
+}
+.landing-photo-background {
+  background-image: url("https://manoa.hawaii.edu/wp/wp-content/uploads/2017/09/uhm-first-year.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  padding-top: 400px;
+  height: 800px;
+  filter: grayscale(0%);
+}
+.landing-photo-bg{
+  position: relative;
+}
 .reset-margins {
   margin-top: 0;
   margin-bottom: 0;
+}
+.ekomomai{
+  color: #DADED4;
+  text-align: center;
+  letter-spacing: 0.50rem;
+  text-transform: uppercase;
+  text-shadow: -4px 4px #ef3550,
+  -8px 8px #f48fb1,
+  -12px 12px #7e57c2,
+  -16px 16px #2196f3,
+  -20px 20px #26c6da,
+  -24px 24px #43a047,
+  -28px 28px #eeff41,
+  -32px 32px #f9a825,
+  -36px 36px #ff5722;
+  margin-bottom: 30px;
+}
+.landing-message{
+  text-shadow: -2px 2px 2px var(--brown-grey);
+  color: var(--tanly);
+}
+
+.sign-out-img{
+  background-image: url("https://cdn9.dissolve.com/p/D984_72_013/D984_72_013_1200.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  padding-top: 400px;
+  height: 1000px;
 }
