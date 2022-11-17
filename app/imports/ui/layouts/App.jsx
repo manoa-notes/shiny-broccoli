@@ -15,10 +15,10 @@ import Projects from '../pages/Projects';
 import Interests from '../pages/Interests';
 import Home from '../pages/Home';
 import Filter from '../pages/Filter';
-import AddProject from '../pages/AddProject';
 import ListCourses from '../pages/ListCourses';
 import Profile from '../pages/Profile';
-import Forum from '../pages/Forum';
+import AddNote from '../pages/AddNote';
+import Forum from '../pages/Forum'
 
 /* Top-level layout component for this application. Called in imports/startup/client/startup.jsx. */
 const App = () => (
@@ -37,8 +37,11 @@ const App = () => (
         <Route path="/home" element={<ProtectedRoute><Home /></ProtectedRoute>} />
         <Route path="/profile" element={<ProtectedRoute><Profile /></ProtectedRoute>} />
         <Route path="/filter" element={<ProtectedRoute><Filter /></ProtectedRoute>} />
-        <Route path="/addproject" element={<ProtectedRoute><AddProject /></ProtectedRoute>} />
+        <Route path="/addnotes" element={<ProtectedRoute><AddNote /></ProtectedRoute>} />
         <Route path="/courses" element={<ProtectedRoute><ListCourses /></ProtectedRoute>} />
+        <Route path="/notes" element={<ProtectedRoute><ListCourses /></ProtectedRoute>} />
+        <Route path="/rating" element={<ProtectedRoute><ListCourses /></ProtectedRoute>} />
+        <Route path="/forums" element={<ProtectedRoute><ListCourses /></ProtectedRoute>} />
         <Route path="/notauthorized" element={<NotAuthorized />} />
         <Route path="*" element={<NotFound />} />
       </Routes>

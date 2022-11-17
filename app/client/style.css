@@ -2,15 +2,17 @@
 @import url("https://fonts.googleapis.com/css?family=Open+Sans:300,400,500,700|Source+Code+Pro:300,400,500,700");
 
 /* Create some Rainbow Notes CSS variables. */
-/* Custom color palette
-
-
- */
 :root {
-  --rainbow-notes-navbar-bg: #376551;
-  --rainbow-notes-navbar-bg-rgb: 55, 101, 81;
-  --rainbow-notes-navbar-text: white;
+  --rainbow-notes-navbar-bg: #A3BCB6;
+  --rainbow-notes-navbar-bg-rgb: 163, 188, 182;
+  --rainbow-notes-navbar-bg2: #3C403D;
+  --rainbow-notes-navbar-text: #3C403D;
   --rainbow-notes-navbar-highlight-text: var(--bs-gray-500);
+  --olive: #A3BCB6;
+  --green-leaf: #39603D;
+  --brown-grey: #3C403D;
+  --tanly: #DADED4;
+  --whitey: #FFFFFF;
 }
 /* Change bootstrap variable values.
  See https://getbootstrap.com/docs/5.2/customize/css-variables/
@@ -53,12 +55,45 @@ body {
   padding-top: 20px;
 }
 
+.landing-grey-background {
+  background-color: var(--tanly);
+}
+
+.landing-div-bg{
+  background-color: var(--olive);
+}
 .landing-photo-background {
   background-image: url("https://cdn9.dissolve.com/p/D984_72_013/D984_72_013_1200.jpg");
   background-size: cover;
+  background-repeat: no-repeat;
+  padding-top: 400px;
+  height: 800px;
+  filter: grayscale(40%);
 }
-
+.landing-photo-bg{
+  position: relative;
+}
 .reset-margins {
   margin-top: 0;
   margin-bottom: 0;
+}
+.ekomomai{
+  color: #DADED4;
+  text-align: center;
+  letter-spacing: 0.50rem;
+  text-transform: uppercase;
+  text-shadow: -4px 4px #ef3550,
+  -8px 8px #f48fb1,
+  -12px 12px #7e57c2,
+  -16px 16px #2196f3,
+  -20px 20px #26c6da,
+  -24px 24px #43a047,
+  -28px 28px #eeff41,
+  -32px 32px #f9a825,
+  -36px 36px #ff5722;
+  margin-bottom: 30px;
+}
+.landing-message{
+  text-shadow: -2px 2px 2px var(--brown-grey);
+  color: var(--tanly);
 }
