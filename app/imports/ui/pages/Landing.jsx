@@ -33,7 +33,9 @@ const Landing = () => (
               <InputGroup size="lg">
                 <Form.Control placeholder="Search for your course code here to get started" />
                 <Button
-                  variant="success" type="submit">
+                  variant="success"
+                  type="submit"
+                >
                   SHOOTS
                 </Button>
               </InputGroup>
