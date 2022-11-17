@@ -16,6 +16,7 @@ import Interests from '../pages/Interests';
 import Home from '../pages/Home';
 import Filter from '../pages/Filter';
 import ListCourses from '../pages/ListCourses';
+import ListNotes from '../pages/ListNotes';
 import Profile from '../pages/Profile';
 import AddNote from '../pages/AddNote';
 import Forum from '../pages/Forum'

@@ -13,7 +13,8 @@ class NotesCollection {
     this.collection = new Mongo.Collection(this.name);
     // Define the structure of each document in the collection.
     this.schema = new SimpleSchema({
-      note: String,
+      title: String,
+      course: String,
       owner: String,
       rating: {
         type: Object,
@@ -33,5 +34,5 @@ class NotesCollection {
  * The singleton instance of the NotesCollection.
  * @type {NotesCollection}
  */
-const Notes = new NotesCollection();
+export const Notes = new NotesCollection();
 export default Notes;
