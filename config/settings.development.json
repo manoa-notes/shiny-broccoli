@@ -130,5 +130,11 @@
       "picture": "https://www.hawaii.edu/its/wp-content/uploads/sites/2/2019/01/LAVAlogo-300x192-300x192.png"
     }
   ],
+  "defaultNote": [{
+    "title": "Circuit Notes Week 4",
+    "course": "EE 205",
+    "image":"https://www.learn.org.au/wp-content/uploads/2016/02/Voila_Capture-2016-02-29_08-56-45_PM.png"
+  }
+  ],
   "loadAssetsFile":  false
 }
