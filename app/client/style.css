@@ -5,8 +5,8 @@
 :root {
   --rainbow-notes-navbar-bg: #A3BCB6;
   --rainbow-notes-navbar-bg-rgb: 163, 188, 182;
-  --rainbow-notes-navbar-bg2: #3C403D;
-  --rainbow-notes-navbar-text: #3C403D;
+  --rainbow-notes-navbar-bg2: #DADED4;
+  --rainbow-notes-navbar-text: #DADED4;
   --rainbow-notes-navbar-highlight-text: var(--bs-gray-500);
   --olive: #A3BCB6;
   --green-leaf: #39603D;
@@ -34,7 +34,7 @@ body {
 
 /* When logged in we highlight the selected route. */
 .bg-dark a.nav-link.active {
-  color: var(--rainbow-notes-navbar-highlight-text);
+  color: var(--brown-grey);
 }
 
 /* Override the color on the dropdown when logged in. */
