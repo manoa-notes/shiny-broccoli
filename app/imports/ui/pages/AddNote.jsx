@@ -31,7 +31,7 @@ const AddNote = () => {
                   <Col xs={6}><TextField id={ComponentIDs.addProjectFormName} name="title" showInlineError placeholder="Note Title" /></Col>
                   <Col xs={6}>
                     Upload File <br />
-                    <input type="file" name="image" id={ComponentIDs.addProjectFormPicture} />
+                    <input className="pt-1" type="file" name="image" id={ComponentIDs.addProjectFormPicture} />
                   </Col>
                 </Row>
                 <LongTextField id={ComponentIDs.addProjectFormDescription} name="description" placeholder="Describe the notes here" />
