@@ -45,22 +45,22 @@ const Landing = () => (
       </div>
     </Container>
     <div className="landing-grey-background">
-      <Container className="justify-content-center text-center">
-        <h2 style={{ color: 'var(--brown-grey)' }}>HOW TO GET STARTED</h2>
+      <Container className="justify-content-center text-center pt-3">
+        <h2>HOW TO GET STARTED</h2>
         <Row>
           <Col className="pb-4">
             <h3>STEP 1: Searching for your course</h3>
-            <Image style={{ border: '10px solid var(--brown-grey)', padding: 0 }} src="/images/search-course-page.png" className="w-100" />
+            <Image style={{ border: '10px solid var(--green-leaf)', padding: 0 }} src="/images/search-course-page.png" className="w-100" />
           </Col>
           <Col className="pb-4">
             <h3>STEP 2: Share your notes</h3>
-            <Image style={{ border: '10px solid var(--brown-grey)', padding: 0 }} src="/images/add-notes-page.png" className="w-100" />
+            <Image style={{ border: '10px solid var(--green-leaf)', padding: 0 }} src="/images/add-notes-page.png" className="w-100" />
           </Col>
         </Row>
         <Row className="pb-4">
           <Col>
             <h3>STEP 3: Review Notes</h3>
-            <Image style={{ border: '10px solid var(--brown-grey)', padding: 0 }} src="/images/sample-note-1.jpg" width={400}/>
+            <Image style={{ border: '10px solid var(--green-leaf)', padding: 0 }} src="/images/sample-note-1.jpg" width={400} />
           </Col>
         </Row>
       </Container>
