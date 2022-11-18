@@ -35,4 +35,3 @@ class NotesCollection {
  * @type {NotesCollection}
  */
 export const Notes = new NotesCollection();
-export default Notes;

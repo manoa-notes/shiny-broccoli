@@ -15,35 +15,37 @@ const Landing = () => (
         </h3>
       </Container>
     </div>
-    <Container fluid className="container-xxl landing-photo-background">
-      <div className="landing-photo-bg">
-        <Container className="landing-message">
-          <h1 style={{ fontSize: '50pt' }}>
-            University wide note sharing
-          </h1>
-          <h2>
-            at the click of a button.
-          </h2>
-          <br />
-          <br />
-        </Container>
-        <Container className="justify-content-center text-center">
-          <Row>
-            <Form>
-              <InputGroup size="lg">
-                <Form.Control placeholder="Search for your course code here to get started" />
-                <Button
-                  variant="success"
-                  type="submit"
-                >
-                  SHOOTS
-                </Button>
-              </InputGroup>
-            </Form>
-          </Row>
-        </Container>
-      </div>
-    </Container>
+    <div className="landing-green-background pt-0">
+      <Container fluid className="container-xxl landing-photo-background">
+        <div className="landing-photo-bg">
+          <Container className="landing-message">
+            <h1 style={{ fontSize: '50pt' }}>
+              University wide note sharing
+            </h1>
+            <h2>
+              at the click of a button.
+            </h2>
+            <br />
+            <br />
+          </Container>
+          <Container className="justify-content-center text-center">
+            <Row>
+              <Form>
+                <InputGroup size="lg">
+                  <Form.Control placeholder="Search for your course code here to get started" />
+                  <Button
+                    variant="success"
+                    type="submit"
+                  >
+                    SHOOTS
+                  </Button>
+                </InputGroup>
+              </Form>
+            </Row>
+          </Container>
+        </div>
+      </Container>
+    </div>
     <div className="landing-grey-background">
       <Container className="justify-content-center text-center pt-3">
         <h2>HOW TO GET STARTED</h2>
