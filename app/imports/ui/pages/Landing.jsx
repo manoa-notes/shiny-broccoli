@@ -1,61 +1,71 @@
 import React from 'react';
-import { Col, Container, Image, Row } from 'react-bootstrap';
+import { Col, Container, Form, Image, InputGroup, Row, Button } from 'react-bootstrap';
 import { PageIDs } from '../utilities/ids';
 
 /* A simple static component to render some text for the landing page. */
 const Landing = () => (
   <div id={PageIDs.landingPage}>
-    <div className="landing-green-background">
-      <Container className="text-center">
-        <h1 style={{ paddingTop: '20px', color: 'white', fontSize: '36pt' }}>
-          Welcome to Bowfolios
+    <div style={{ borderTop: '1px solid var(--tanly)' }} className="landing-green-background">
+      <Container className="text-lg-start">
+        <h1 className="ekomomai" style={{ fontSize: '50pt' }}>
+          Rainbow Notes
         </h1>
-        <h3 style={{ paddingBottom: '20px', color: 'white' }}>
-          Profiles, projects, and interest areas for the UH Community
+        <h3 style={{ paddingBottom: '20px', color: '#DADED4', marginBottom: 0, textAlign: 'center' }}>
+          <strong>Kōkua your fellow students</strong>
         </h3>
       </Container>
     </div>
-    <div className="landing-white-background">
-      <Container className="justify-content-center text-center">
-        <h2 style={{ color: '#376551' }}>Start by making your profile....</h2>
-        <Row md={1} lg={2}>
-          <Col xs={6}>
-            <Image src="/images/home-page.png" width={500} />
+    <Container fluid className="container-xxl landing-photo-background">
+      <div className="landing-photo-bg">
+        <Container className="landing-message">
+          <h1 style={{ fontSize: '50pt' }}>
+            University wide note sharing
+          </h1>
+          <h2>
+            at the click of a button.
+          </h2>
+          <br />
+          <br />
+        </Container>
+        <Container className="justify-content-center text-center">
+          <Row>
+            <Form>
+              <InputGroup size="lg">
+                <Form.Control placeholder="Search for your course code here to get started" />
+                <Button
+                  variant="success"
+                  type="submit"
+                >
+                  SHOOTS
+                </Button>
+              </InputGroup>
+            </Form>
+          </Row>
+        </Container>
+      </div>
+    </Container>
+    <div className="landing-grey-background">
+      <Container className="justify-content-center text-center pt-3">
+        <h2>HOW TO GET STARTED</h2>
+        <Row>
+          <Col className="pb-4">
+            <h3>STEP 1: Searching for your course</h3>
+            <Image style={{ border: '10px solid var(--green-leaf)', padding: 0 }} src="/images/search-course-page.png" className="w-100" />
           </Col>
-          <Col xs={6}>
-            <Image src="/images/profiles-page.png" width={500} />
+          <Col className="pb-4">
+            <h3>STEP 2: Share your notes</h3>
+            <Image style={{ border: '10px solid var(--green-leaf)', padding: 0 }} src="/images/add-notes-page.png" className="w-100" />
+          </Col>
+        </Row>
+        <Row className="pb-4">
+          <Col>
+            <h3>STEP 3: Review Notes</h3>
+            <Image style={{ border: '10px solid var(--green-leaf)', padding: 0 }} src="/images/sample-note-1.jpg" width={400} />
           </Col>
         </Row>
       </Container>
     </div>
-    <div className="landing-green-background">
-      <Container className="justify-content-center text-center">
-        <h2 style={{ color: 'white' }}>...then add your projects</h2>
-        <Row md={1} lg={2}>
-          <Col xs={6}>
-            <Image src="/images/add-project-page.png" width={500} />
-          </Col>
-          <Col xs={6}>
-            <Image src="/images/projects-page.png" width={500} />
-          </Col>
-        </Row>
-      </Container>
-    </div>
-    <div className="landing-white-background text-center">
-      <h2 style={{ color: '#376551' }}>
-        Connect to people and projects with shared interests!
-      </h2>
-      <Container>
-        <Row md={1} lg={2}>
-          <Col xs={6}>
-            <Image src="/images/interests-page.png" width={500} />
-          </Col>
-          <Col xs={6}>
-            <Image src="/images/filter-page.png" width={500} />
-          </Col>
-        </Row>
-      </Container>
-    </div>
+
   </div>
 );
 

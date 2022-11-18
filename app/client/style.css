@@ -1,55 +1,104 @@
 /* Use Open Sans as the default sans serif font. */
 @import url("https://fonts.googleapis.com/css?family=Open+Sans:300,400,500,700|Source+Code+Pro:300,400,500,700");
 
-/* Create some Bowfolio CSS variables. */
+/* Create some Rainbow Notes CSS variables. */
 :root {
-  --bowfolio-navbar-bg: #376551;
-  --bowfolio-navbar-bg-rgb: 55, 101, 81;
-  --bowfolio-navbar-text: white;
-  --bowfolio-navbar-highlight-text: var(--bs-gray-500);
+  /* Navbar variables */
+  --navbar-bg: #A3BCB6;
+  --navbar-bg-rgb: 163, 188, 182;
+  --navbar-text: #DADED4;
+  --navbar-highlight-text: #3C403D;
+
+  /* Color scheme variables */
+  --olive: #A3BCB6;
+  --green-leaf: #39603D;
+  --brown-grey: #3C403D;
+  --tanly: #DADED4;
 }
 /* Change bootstrap variable values.
  See https://getbootstrap.com/docs/5.2/customize/css-variables/
  */
 body {
-  --bs-dark: var(--bowfolio-navbar-bg);
-  --bs-dark-rgb: var(--bowfolio-navbar-bg-rgb);
+  --bs-dark: var(--navbar-bg);
+  --bs-dark-rgb: var(--navbar-bg-rgb);
 }
 
 /* Color the light Brand and links with dark color */
 .bg-light span, .bg-light a {
-  color:  var(--bowfolio-navbar-bg);
+  color: var(--navbar-bg);
 }
 
 /* When logged in we switch the NavBar to bg-dark so we need to override the styles to give light text. */
 .bg-dark span, .bg-dark a {
-  color: var(--bowfolio-navbar-text);
+  color: var(--navbar-text);
 }
 
 /* When logged in we highlight the selected route. */
 .bg-dark a.nav-link.active {
-  color: var(--bowfolio-navbar-highlight-text);
+  color: var(--navbar-highlight-text);
 }
 
 /* Override the color on the dropdown when logged in. */
 .bg-dark a.dropdown-item {
-  color: var(--bowfolio-navbar-bg);
+  color: var(--navbar-bg);
 }
 
-/* Landing page color blocking */
+/* Landing page*/
 .landing-green-background {
-  background-color: var(--bowfolio-navbar-bg);
-  color: var(--bowfolio-navbar-text);
+  background-color: var(--navbar-bg);
+  color: var(--navbar-text);
   padding-top: 20px;
 }
 
-.landing-white-background {
-  background-color: var(--bowfolio-navbar-text);
-  color: var(--bowfolio-navbar-bg);
+.landing-grey-background {
+  background-color: var(--tanly);
+  color: var(--brown-grey);
   padding-top: 20px;
 }
 
-.reset-margins {
-  margin-top: 0;
-  margin-bottom: 0;
+.landing-div-bg{
+  background-color: var(--olive);
+}
+
+.landing-photo-background {
+  background-image: url("https://manoa.hawaii.edu/wp/wp-content/uploads/2017/09/uhm-first-year.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  padding-top: 400px;
+  height: 800px;
+  filter: grayscale(0%);
+}
+.landing-photo-bg{
+  position: relative;
+}
+
+.ekomomai{
+  color: #DADED4;
+  text-align: center;
+  letter-spacing: 0.50rem;
+  text-transform: uppercase;
+  text-shadow: -4px 4px #ef3550,
+  -8px 8px #f48fb1,
+  -12px 12px #7e57c2,
+  -16px 16px #2196f3,
+  -20px 20px #26c6da,
+  -24px 24px #43a047,
+  -28px 28px #eeff41,
+  -32px 32px #f9a825,
+  -36px 36px #ff5722;
+  margin-bottom: 30px;
+}
+
+.landing-message{
+  text-shadow: -2px 2px 2px var(--brown-grey);
+  color: var(--tanly);
+}
+
+/* Sign out page */
+.sign-out-img{
+  background-image: url("https://cdn9.dissolve.com/p/D984_72_013/D984_72_013_1200.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  padding-top: 400px;
+  height: 1000px;
 }
