@@ -1,5 +1,5 @@
 import React from 'react';
-import { AutoForm, TextField, LongTextField, SubmitField, ErrorsField, SelectField } from 'uniforms-bootstrap5';
+import { AutoForm, TextField, LongTextField, SubmitField, ErrorsField, RadioField } from 'uniforms-bootstrap5';
 import { Card, Col, Container, Row } from 'react-bootstrap';
 import SimpleSchema2Bridge from 'uniforms-bridge-simple-schema-2';
 import { _ } from 'meteor/underscore';
@@ -13,7 +13,7 @@ const makeSchema = (allInterests) => new SimpleSchema({
   description: String,
   course: String,
   image: String,
-  interests: { type: Array, label: 'Course', optional: false },
+  interests: { type: Array, label: 'Course', optional: true },
   'interests.$': { type: String, allowedValues: allInterests },
 });
 const AddNote = () => {
@@ -28,15 +28,14 @@ const AddNote = () => {
             <Card>
               <Card.Body>
                 <Row>
-                  <Col xs={4}><TextField id={ComponentIDs.addProjectFormName} name="title" showInlineError placeholder="Note Title" /></Col>
-                  <Col xs={4}><input type="file" name="image" id={ComponentIDs.addProjectFormPicture} /> </Col>
-                </Row>
-                <LongTextField id={ComponentIDs.addProjectFormDescription} name="description" placeholder="Describe the notes here" />
-                <Row>
-                  <Col xs={6} id={ComponentIDs.addProjectFormInterests}>
-                    <SelectField name="interests" showInlineError placeholder="Course" multiple checkboxes />
+                  <Col xs={6}><TextField id={ComponentIDs.addProjectFormName} name="title" showInlineError placeholder="Note Title" /></Col>
+                  <Col xs={6}>
+                    Upload File <br />
+                    <input type="file" name="image" id={ComponentIDs.addProjectFormPicture} />
                   </Col>
                 </Row>
+                <LongTextField id={ComponentIDs.addProjectFormDescription} name="description" placeholder="Describe the notes here" />
+                <RadioField name="interests" showInlineError />
                 <SubmitField id={ComponentIDs.addProjectFormSubmit} value="Submit" />
                 <ErrorsField />
               </Card.Body>
