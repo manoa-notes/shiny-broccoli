@@ -20,6 +20,7 @@ import ListNotes from '../pages/ListNotes';
 import Profile from '../pages/Profile';
 import AddNote from '../pages/AddNote';
 import ListForums from '../pages/ListForums';
+import Course from '../pages/Course';
 
 /* Top-level layout component for this application. Called in imports/startup/client/startup.jsx. */
 const App = () => (
@@ -40,6 +41,7 @@ const App = () => (
         <Route path="/filter" element={<ProtectedRoute><Filter /></ProtectedRoute>} />
         <Route path="/addnotes" element={<ProtectedRoute><AddNote /></ProtectedRoute>} />
         <Route path="/courses" element={<ProtectedRoute><ListCourses /></ProtectedRoute>} />
+        <Route path="/courses/:path" element={<ProtectedRoute><Course /></ProtectedRoute>} />
         <Route path="/notes" element={<ProtectedRoute><ListNotes /></ProtectedRoute>} />
         <Route path="/rating" element={<ProtectedRoute><ListCourses /></ProtectedRoute>} />
         <Route path="/forums" element={<ProtectedRoute><ListCourses /></ProtectedRoute>} />
