@@ -16,9 +16,9 @@ import Interests from '../pages/Interests';
 import Home from '../pages/Home';
 import Filter from '../pages/Filter';
 import ListCourses from '../pages/ListCourses';
-import ListNotes from '../pages/ListNotes';
 import Profile from '../pages/Profile';
 import AddNote from '../pages/AddNote';
+import DisplayNote from '../pages/DisplayNote';
 import ListForums from '../pages/ListForums';
 import Course from '../pages/Course';
 
@@ -40,9 +40,11 @@ const App = () => (
         <Route path="/profile" element={<ProtectedRoute><Profile /></ProtectedRoute>} />
         <Route path="/filter" element={<ProtectedRoute><Filter /></ProtectedRoute>} />
         <Route path="/addnotes" element={<ProtectedRoute><AddNote /></ProtectedRoute>} />
+        <Route path="/notes" element={<ProtectedRoute><AddNote /></ProtectedRoute>} />
         <Route path="/courses" element={<ProtectedRoute><ListCourses /></ProtectedRoute>} />
         <Route path="/courses/:path" element={<ProtectedRoute><Course /></ProtectedRoute>} />
         <Route path="/notes" element={<ProtectedRoute><ListNotes /></ProtectedRoute>} />
+        <Route path="/displaynote" element={<ProtectedRoute><DisplayNote /></ProtectedRoute>} />
         <Route path="/rating" element={<ProtectedRoute><ListCourses /></ProtectedRoute>} />
         <Route path="/forums" element={<ProtectedRoute><ListCourses /></ProtectedRoute>} />
         <Route path="/notauthorized" element={<NotAuthorized />} />

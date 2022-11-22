@@ -5,6 +5,7 @@ import { ProfilesInterests } from '../../api/profiles/ProfilesInterests';
 import { ProfilesProjects } from '../../api/profiles/ProfilesProjects';
 import { Projects } from '../../api/projects/Projects';
 import { ProjectsInterests } from '../../api/projects/ProjectsInterests';
+import { Notes } from '../../api/note/Note';
 import { Courses } from '../../api/course/Courses';
 
 /** Define a publication to publish all interests. */
@@ -24,6 +25,9 @@ Meteor.publish(Projects.userPublicationName, () => Projects.collection.find());
 
 /** Define a publication to publish this collection. */
 Meteor.publish(ProjectsInterests.userPublicationName, () => ProjectsInterests.collection.find());
+
+/** Define a publication to publish this note. */
+Meteor.publish(Notes.userPublicationName, () => Notes.collection.find());
 
 /** Define a publication to publish this collection. */
 Meteor.publish(Courses.userPublicationName, () => Courses.collection.find());
