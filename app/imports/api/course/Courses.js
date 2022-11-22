@@ -14,10 +14,7 @@ class CoursesCollection {
     // Define the structure of each document in the collection.
     this.schema = new SimpleSchema({
       name: String,
-      notes: {
-        type: Array,
-        optional: true,
-      },
+      path: String,
     }, { tracker: Tracker });
     // Attach the schema to the collection, so all attempts to insert a document are checked against schema.
     this.collection.attachSchema(this.schema);
@@ -31,5 +28,4 @@ class CoursesCollection {
  * The singleton instance of the CoursesCollection.
  * @type {CoursesCollection}
  */
-const Courses = new CoursesCollection();
-export default Courses;
+export const Courses = new CoursesCollection();
