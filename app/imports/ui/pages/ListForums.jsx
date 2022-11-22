@@ -34,7 +34,7 @@ export const Forums = [
   },
 ];
 
-const Forum = () => (
+const ListForums = () => (
   <Container className="py-3">
     <Row>
       <Col className="text-center col-md-auto">
@@ -84,4 +84,4 @@ const Forum = () => (
   </Container>
 );
 
-export default Forum;
+export default ListForums;
