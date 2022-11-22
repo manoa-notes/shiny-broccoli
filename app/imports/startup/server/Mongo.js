@@ -7,6 +7,7 @@ import { Profiles } from '../../api/profiles/Profiles';
 import { ProfilesProjects } from '../../api/profiles/ProfilesProjects';
 import { ProfilesInterests } from '../../api/profiles/ProfilesInterests';
 import { Interests } from '../../api/interests/Interests';
+import { Courses } from '../../api/course/Courses';
 
 /* eslint-disable no-console */
 
@@ -73,4 +74,18 @@ if ((Meteor.settings.loadAssetsFile) && (Meteor.users.find().count() < 7)) {
   const jsonData = JSON.parse(Assets.getText(assetsFileName));
   jsonData.profiles.map(profile => addProfile(profile));
   jsonData.projects.map(project => addProject(project));
+}
+
+// Initialize the database with a default data document.
+const addCourse = (course) => {
+  console.log(`  Adding: ${course.name}`);
+  Courses.collection.insert(course);
+};
+
+// Initialize the StuffsCollection if empty.
+if (Courses.collection.find().count() === 0) {
+  if (Meteor.settings.defaultCourses) {
+    console.log('Creating default courses.');
+    Meteor.settings.defaultCourses.forEach(course => addCourse(course));
+  }
 }
