@@ -1,4 +1,8 @@
 {
+  "defaultAccounts": [
+    { "email": "admin@foo.com", "password": "changeme", "role": "admin" },
+    { "email": "john@foo.com", "password": "changeme" }
+  ],
   "defaultProfiles": [
     {
       "firstName": "Philip",
@@ -135,6 +139,36 @@
     "course": "EE 205",
     "image":"https://www.learn.org.au/wp-content/uploads/2016/02/Voila_Capture-2016-02-29_08-56-45_PM.png"
   }
+  ],
+  "defaultCourses": [
+    {
+      "name": "ICS 111",
+      "path": "ICS111"
+    },
+    {
+      "name": "ICS 211",
+      "path": "ICS111"
+    },
+    {
+      "name": "ICS 241",
+      "path": "ICS241"
+    },
+    {
+      "name": "ICS 314",
+      "path": "ICS314"
+    },
+    {
+      "name": "EE 160",
+      "path": "EE160"
+    },
+    {
+      "name": "EE 205",
+      "path": "EE205"
+    },
+    {
+      "name": "EE 211",
+      "path": "EE211"
+    }
   ],
   "loadAssetsFile":  false
 }

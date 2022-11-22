@@ -6,6 +6,7 @@ import { ProfilesProjects } from '../../api/profiles/ProfilesProjects';
 import { Projects } from '../../api/projects/Projects';
 import { ProjectsInterests } from '../../api/projects/ProjectsInterests';
 import { Notes } from '../../api/note/Note';
+import { Courses } from '../../api/course/Courses';
 
 /** Define a publication to publish all interests. */
 Meteor.publish(Interests.userPublicationName, () => Interests.collection.find());
@@ -27,6 +28,9 @@ Meteor.publish(ProjectsInterests.userPublicationName, () => ProjectsInterests.co
 
 /** Define a publication to publish this note. */
 Meteor.publish(Notes.userPublicationName, () => Notes.collection.find());
+
+/** Define a publication to publish this collection. */
+Meteor.publish(Courses.userPublicationName, () => Courses.collection.find());
 
 // alanning:roles publication
 // Recommended code to publish roles for each user.

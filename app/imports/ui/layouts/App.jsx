@@ -20,6 +20,7 @@ import Profile from '../pages/Profile';
 import AddNote from '../pages/AddNote';
 import Forum from '../pages/Forum';
 import DisplayNote from '../pages/DisplayNote';
+import ListForums from '../pages/ListForums';
 
 /* Top-level layout component for this application. Called in imports/startup/client/startup.jsx. */
 const App = () => (
@@ -34,7 +35,7 @@ const App = () => (
         <Route path="/interests" element={<Interests />} />
         <Route path="/profiles" element={<Profiles />} />
         <Route path="/projects" element={<Projects />} />
-        <Route path="/forum" element={<Forum />} />
+        <Route path="/forum" element={<ListForums />} />
         <Route path="/home" element={<ProtectedRoute><Home /></ProtectedRoute>} />
         <Route path="/profile" element={<ProtectedRoute><Profile /></ProtectedRoute>} />
         <Route path="/filter" element={<ProtectedRoute><Filter /></ProtectedRoute>} />
