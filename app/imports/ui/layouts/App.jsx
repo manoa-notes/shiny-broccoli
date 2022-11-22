@@ -18,7 +18,6 @@ import Filter from '../pages/Filter';
 import ListCourses from '../pages/ListCourses';
 import Profile from '../pages/Profile';
 import AddNote from '../pages/AddNote';
-import Forum from '../pages/Forum';
 import DisplayNote from '../pages/DisplayNote';
 import ListForums from '../pages/ListForums';
 
