@@ -8,6 +8,7 @@ import { ProfilesProjects } from '../../api/profiles/ProfilesProjects';
 import { ProfilesInterests } from '../../api/profiles/ProfilesInterests';
 import { Interests } from '../../api/interests/Interests';
 import { Courses } from '../../api/course/Courses';
+import { Notes } from '../../api/note/Note';
 
 /* eslint-disable no-console */
 
@@ -87,5 +88,18 @@ if (Courses.collection.find().count() === 0) {
   if (Meteor.settings.defaultCourses) {
     console.log('Creating default courses.');
     Meteor.settings.defaultCourses.forEach(course => addCourse(course));
+  }
+}
+
+const addNote = (note) => {
+  console.log(`  Adding: ${note.title}`);
+  Notes.collection.insert(note);
+};
+
+// Initialize the StuffsCollection if empty.
+if (Notes.collection.find().count() === 0) {
+  if (Meteor.settings.defaultNotes) {
+    console.log('Creating default notes.');
+    Meteor.settings.defaultNotes.forEach(note => addNote(note));
   }
 }

@@ -16,7 +16,7 @@ const ListCourses = () => {
     // Determine if the subscription is ready
     const rdy = subscription.ready();
     // Get the Stuff documents
-    const courseItems = Courses.collection.find({}).fetch();
+    const courseItems = Courses.collection.find({}, { sort: { name: 1 } }).fetch();
     return {
       courses: courseItems,
       ready: rdy,
@@ -32,10 +32,10 @@ const ListCourses = () => {
           </Col>
         ))}
       </Row>
-      <Row className="justify-content-center py-2">
-        <Col md={4} className="d-grid">
-          <Button variant="success" size="lg" as={Link} to="/addCourse">Add Course</Button>
-        </Col>
+      <Row className="text-center py-4">
+        <h4>Don&apos;t see a course? Add one here:
+          <Button className="ms-2" variant="success" as={Link} to="/addCourse">Add Course</Button>
+        </h4>
       </Row>
     </Container>
   ) : <LoadingSpinner />);
