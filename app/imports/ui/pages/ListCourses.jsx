@@ -27,7 +27,7 @@ const ListCourses = () => {
       <h1>Courses</h1>
       <Row>
         {courses.map(course => (
-          <Col md={3} className="d-grid py-2">
+          <Col md={3} className="d-grid py-2" key={course._id}>
             <Button variant="success" size="lg" as={Link} to={`/courses/${course.path}`}>{course.name}</Button>
           </Col>
         ))}
