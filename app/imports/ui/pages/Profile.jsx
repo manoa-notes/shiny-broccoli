@@ -4,8 +4,11 @@ import { AutoForm, LongTextField, SelectField, SubmitField, TextField } from 'un
 import SimpleSchema2Bridge from 'uniforms-bridge-simple-schema-2';
 import { _ } from 'meteor/underscore';
 import SimpleSchema from 'simpl-schema';
+import { useTracker } from 'meteor/react-meteor-data';
+import { Meteor } from 'meteor/meteor';
 import { pageStyle } from './pageStyles';
-import { Courses } from './ListCourses';
+import { Courses } from '../../api/course/Courses';
+import LoadingSpinner from '../components/LoadingSpinner';
 
 /* Create a schema to specify the structure of the data to appear in the form. */
 const makeSchema = (courses) => new SimpleSchema({
@@ -21,10 +24,25 @@ const makeSchema = (courses) => new SimpleSchema({
 });
 
 const Profile = () => {
-  const formSchema = makeSchema(_.pluck(Courses, 'name'));
+  // useTracker connects Meteor data to React components. https://guide.meteor.com/react.html#using-withTracker
+  const { ready, courses } = useTracker(() => {
+    // Note that this subscription will get cleaned up
+    // when your component is unmounted or deps change.
+    // Get access to Stuff documents.
+    const subscription = Meteor.subscribe(Courses.userPublicationName);
+    // Determine if the subscription is ready
+    const rdy = subscription.ready();
+    // Get the Stuff documents
+    const courseItems = Courses.collection.find({}, { sort: { name: 1 } }).fetch();
+    return {
+      courses: courseItems,
+      ready: rdy,
+    };
+  }, []);
+  const formSchema = makeSchema(_.pluck(courses, 'name'));
   const bridge = new SimpleSchema2Bridge(formSchema);
 
-  return (
+  return (ready ? (
     <Container className="justify-content-center" style={pageStyle}>
       <Col>
         <Col className="justify-content-center text-center"><h2>Your Profile</h2></Col>
@@ -48,7 +66,7 @@ const Profile = () => {
         </AutoForm>
       </Col>
     </Container>
-  );
+  ) : <LoadingSpinner />);
 };
 
 export default Profile;
