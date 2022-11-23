@@ -13,6 +13,7 @@
     "react-bootstrap": "^2.5.0",
     "react-bootstrap-icons": "^1.9.1",
     "react-dom": "^18.2.0",
+    "react-rating": "^2.0.5",
     "react-router-dom": "^6.4.3",
     "simpl-schema": "^3.0.1",
     "simpler-state": "^1.2.0",
