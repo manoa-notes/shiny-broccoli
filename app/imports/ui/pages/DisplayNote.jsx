@@ -1,13 +1,14 @@
 import React from 'react';
 import { Meteor } from 'meteor/meteor';
-import { Col, Container, Row } from 'react-bootstrap';
+import { Button, Card, Col, Container, Image, Row } from 'react-bootstrap';
 import { useTracker } from 'meteor/react-meteor-data';
+import { Link } from 'react-router-dom';
 import { Notes } from '../../api/note/Note';
 import LoadingSpinner from '../components/LoadingSpinner';
 
 /* Renders a table containing all of the Stuff documents. Use <StuffItem> to render each row. */
 const DisplayNote = () => {
-  const { ready } = useTracker(() => {
+  const { ready, notes } = useTracker(() => {
     // Note that this subscription will get cleaned up
     // when your component is unmounted or deps change.
     // Get access to Stuff documents.
@@ -24,12 +25,27 @@ const DisplayNote = () => {
 
   return (ready ? (
     <Container className="py-3">
-      <Row className="justify-content-center">
-        <Col md={7}>
-          <Col className="text-center">
-            <h2>List Notes</h2>
+      <h1>Notes</h1>
+      <Row>
+        {notes.map(note => (
+          <Col md={3}>
+            <Card className="h-100">
+              <Card.Header>
+                <Image src={note.image} style={{ maxHeight: '200px' }} />
+                <Card.Title>{note.title}</Card.Title>
+                <Card.Subtitle>{note.owner}</Card.Subtitle>
+              </Card.Header>
+              <Card.Body>
+                <Card.Text>
+                  {note.description}
+                  <br />
+                  Rating: {note.rating}/5
+                </Card.Text>
+                <Button variant="success" as={Link} to={`/notes/${note._id}`}>See more</Button>
+              </Card.Body>
+            </Card>
           </Col>
-        </Col>
+        ))}
       </Row>
     </Container>
   ) : <LoadingSpinner />);

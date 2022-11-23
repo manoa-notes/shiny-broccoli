@@ -15,22 +15,10 @@ class NotesCollection {
     this.schema = new SimpleSchema({
       title: String,
       course: String,
-      owner: {
-        type: String,
-        optional: true,
-      },
-      rating: {
-        type: Object,
-        optional: true,
-      },
-      image: {
-        type: String,
-        optional: true,
-      },
-      description: {
-        type: String,
-        optional: true,
-      },
+      owner: String,
+      rating: Number,
+      image: String,
+      description: String,
     }, { tracker: Tracker });
     // Attach the schema to the collection, so all attempts to insert a document are checked against schema.
     this.collection.attachSchema(this.schema);
