@@ -18,10 +18,9 @@ import Filter from '../pages/Filter';
 import ListCourses from '../pages/ListCourses';
 import Profile from '../pages/Profile';
 import AddNote from '../pages/AddNote';
-import DisplayNote from '../pages/DisplayNote';
+import ListNotes from '../pages/ListNotes';
 import ListForums from '../pages/ListForums';
 import Course from '../pages/Course';
-import ListNotes from '../pages/ListNotes';
 import AddCourse from '../components/AddCourse';
 
 /* Top-level layout component for this application. Called in imports/startup/client/startup.jsx. */
@@ -30,28 +29,35 @@ const App = () => (
     <div className="d-flex flex-column min-vh-100">
       <NavBar />
       <Routes>
+        {/* Routes from Bowfolios template */}
         <Route exact path="/" element={<Landing />} />
         <Route path="/signin" element={<SignIn />} />
         <Route path="/signup" element={<SignUp />} />
         <Route path="/signout" element={<SignOut />} />
+        <Route path="/home" element={<ProtectedRoute><Home /></ProtectedRoute>} />
+        <Route path="/profile" element={<ProtectedRoute><Profile /></ProtectedRoute>} />
+        <Route path="/notauthorized" element={<NotAuthorized />} />
+        <Route path="*" element={<NotFound />} />
+
+        {/* Course routes */}
+        <Route path="/courses" element={<ProtectedRoute><ListCourses /></ProtectedRoute>} />
+        <Route path="/courses/:path" element={<ProtectedRoute><Course /></ProtectedRoute>} />
+        <Route path="/addCourse" element={<ProtectedRoute><AddCourse /></ProtectedRoute>} />
+
+        {/* Note routes */}
+        <Route path="/notes" element={<ProtectedRoute><ListNotes /></ProtectedRoute>} />
+        <Route path="/addNote" element={<ProtectedRoute><AddNote /></ProtectedRoute>} />
+        <Route path="/rating" element={<ProtectedRoute><ListCourses /></ProtectedRoute>} />
+
+        {/* Forum routes */}
+        <Route path="/forum" element={<ListForums />} />
+        <Route path="/forums" element={<ProtectedRoute><ListCourses /></ProtectedRoute>} />
+        <Route path="/filter" element={<ProtectedRoute><Filter /></ProtectedRoute>} />
+
+        {/* Unused routes from Bowfolios template */}
         <Route path="/interests" element={<Interests />} />
         <Route path="/profiles" element={<Profiles />} />
         <Route path="/projects" element={<Projects />} />
-        <Route path="/forum" element={<ListForums />} />
-        <Route path="/home" element={<ProtectedRoute><Home /></ProtectedRoute>} />
-        <Route path="/profile" element={<ProtectedRoute><Profile /></ProtectedRoute>} />
-        <Route path="/filter" element={<ProtectedRoute><Filter /></ProtectedRoute>} />
-        <Route path="/addnotes" element={<ProtectedRoute><AddNote /></ProtectedRoute>} />
-        <Route path="/notes" element={<ProtectedRoute><AddNote /></ProtectedRoute>} />
-        <Route path="/courses" element={<ProtectedRoute><ListCourses /></ProtectedRoute>} />
-        <Route path="/addCourse" element={<ProtectedRoute><AddCourse /></ProtectedRoute>} />
-        <Route path="/courses/:path" element={<ProtectedRoute><Course /></ProtectedRoute>} />
-        <Route path="/notes" element={<ProtectedRoute><ListNotes /></ProtectedRoute>} />
-        <Route path="/displaynote" element={<ProtectedRoute><DisplayNote /></ProtectedRoute>} />
-        <Route path="/rating" element={<ProtectedRoute><ListCourses /></ProtectedRoute>} />
-        <Route path="/forums" element={<ProtectedRoute><ListCourses /></ProtectedRoute>} />
-        <Route path="/notauthorized" element={<NotAuthorized />} />
-        <Route path="*" element={<NotFound />} />
       </Routes>
       <Footer />
     </div>
