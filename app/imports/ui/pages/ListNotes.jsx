@@ -5,7 +5,6 @@ import { useTracker } from 'meteor/react-meteor-data';
 import { Link } from 'react-router-dom';
 import { Notes } from '../../api/note/Note';
 import LoadingSpinner from '../components/LoadingSpinner';
-import { PlusLg } from 'react-bootstrap-icons';
 
 /* Renders a table containing all of the Stuff documents. Use <StuffItem> to render each row. */
 const ListNotes = () => {
