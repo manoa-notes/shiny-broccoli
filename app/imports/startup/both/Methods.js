@@ -5,6 +5,7 @@ import { ProfilesInterests } from '../../api/profiles/ProfilesInterests';
 import { ProfilesProjects } from '../../api/profiles/ProfilesProjects';
 import { ProjectsInterests } from '../../api/projects/ProjectsInterests';
 import { Courses } from '../../api/course/Courses';
+import { Notes } from '../../api/note/Note';
 
 /**
  * In Bowfolios, insecure mode is enabled, so it is possible to update the server's Mongo database by making
@@ -79,4 +80,17 @@ Meteor.methods({
   },
 });
 
-export { updateProfileMethod, addProjectMethod, addCourseMethod };
+const addNoteMethod = 'Notes.add';
+
+Meteor.methods({
+  'Notes.add'({ name }) {
+    const path = name.replace(/\s+/g, '');
+    // eslint-disable-next-line no-empty
+    if (Notes.collection.find({ name: name }).count() !== 0) {
+      throw new Meteor.Error(`The note '${name}' already exists.`);
+    }
+    Notes.collection.insert({ name, path });
+  },
+});
+
+export { updateProfileMethod, addProjectMethod, addCourseMethod, addNoteMethod };

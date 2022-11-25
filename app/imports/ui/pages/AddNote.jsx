@@ -36,13 +36,14 @@ const AddNote = () => {
   }, []);
   const formSchema = makeSchema(_.pluck(courses, 'name'));
   const bridge = new SimpleSchema2Bridge(formSchema);
+  let fRef = null;
 
   return (ready ? (
     <Container style={pageStyle}>
       <h2 className="text-center">Add Notes</h2>
       <Row id={PageIDs.addProjectPage} className="justify-content-center">
         <Col xs={10}>
-          <AutoForm schema={bridge}>
+          <AutoForm ref={ref => { fRef = ref; }} schema={bridge} onSubmit={data => submit(data, fRef)}>
             <Card>
               <Card.Body>
                 <Row>
