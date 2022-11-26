@@ -21,7 +21,7 @@ import AddNote from '../pages/AddNote';
 import ListNotes from '../pages/ListNotes';
 import ListForums from '../pages/ListForums';
 import Course from '../pages/Course';
-import AddCourse from '../components/AddCourse';
+import AddCourse from '../pages/AddCourse';
 
 /* Top-level layout component for this application. Called in imports/startup/client/startup.jsx. */
 const App = () => (
