@@ -6,17 +6,19 @@ import { _ } from 'meteor/underscore';
 import SimpleSchema from 'simpl-schema';
 import { useTracker } from 'meteor/react-meteor-data';
 import { Meteor } from 'meteor/meteor';
+import swal from 'sweetalert';
 import { pageStyle } from './pageStyles';
 import { PageIDs } from '../utilities/ids';
 import { Courses } from '../../api/course/Courses';
 import LoadingSpinner from '../components/LoadingSpinner';
+import { addNoteMethod } from '../../startup/both/Methods';
+import { Profiles } from '../../api/profiles/Profiles';
 
 const makeSchema = (courses) => new SimpleSchema({
   title: String,
-  file: String,
+  course: { type: String, allowedValues: courses },
+  image: String,
   description: String,
-  courses: { type: Array, label: 'Course', optional: true },
-  'courses.$': { type: String, allowedValues: courses },
 });
 const AddNote = () => {
   // useTracker connects Meteor data to React components. https://guide.meteor.com/react.html#using-withTracker
@@ -24,9 +26,12 @@ const AddNote = () => {
     // Note that this subscription will get cleaned up
     // when your component is unmounted or deps change.
     // Get access to Stuff documents.
-    const subscription = Meteor.subscribe(Courses.userPublicationName);
+    const sub1 = Meteor.subscribe(Courses.userPublicationName);
+    const sub2 = Meteor.subscribe(Profiles.userPublicationName);
     // Determine if the subscription is ready
-    const rdy = subscription.ready();
+    const rdy1 = sub1.ready();
+    const rdy2 = sub2.ready();
+    const rdy = rdy1 && rdy2;
     // Get the Stuff documents
     const courseItems = Courses.collection.find({}, { sort: { name: 1 } }).fetch();
     return {
@@ -38,6 +43,20 @@ const AddNote = () => {
   const bridge = new SimpleSchema2Bridge(formSchema);
   let fRef = null;
 
+  // On submit, insert the data.
+  const submit = (data, formRef) => {
+    const { title, course, image, description } = data;
+    const profile = Profiles.collection.findOne({ email: Meteor.user().username });
+    const owner = `${profile.firstName} ${profile.lastName}`;
+    Meteor.call(addNoteMethod, { title, course, owner, image, description }, (error) => {
+      if (error) {
+        swal('Error', error.message, 'error');
+      } else {
+        swal('Success', 'Note added successfully', 'success').then(() => formRef.reset());
+      }
+    });
+  };
+
   return (ready ? (
     <Container style={pageStyle}>
       <h2 className="text-center">Add Notes</h2>
@@ -48,13 +67,10 @@ const AddNote = () => {
               <Card.Body>
                 <Row>
                   <Col xs={6}><TextField name="title" showInlineError placeholder="Note Title" /></Col>
-                  <Col xs={6}>
-                    Upload File <br />
-                    <input className="pt-1" type="file" name="file" />
-                  </Col>
+                  <Col xs={6}><TextField name="image" showInlineError placeholder="Image Link" /></Col>
                 </Row>
                 <LongTextField name="description" placeholder="Describe the notes here" />
-                <RadioField name="courses" showInlineError />
+                <RadioField name="course" showInlineError />
                 <SubmitField value="Submit" />
                 <ErrorsField />
               </Card.Body>

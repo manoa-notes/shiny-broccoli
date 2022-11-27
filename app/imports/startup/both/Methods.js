@@ -83,13 +83,9 @@ Meteor.methods({
 const addNoteMethod = 'Notes.add';
 
 Meteor.methods({
-  'Notes.add'({ name }) {
-    const path = name.replace(/\s+/g, '');
-    // eslint-disable-next-line no-empty
-    if (Notes.collection.find({ name: name }).count() !== 0) {
-      throw new Meteor.Error(`The note '${name}' already exists.`);
-    }
-    Notes.collection.insert({ name, path });
+  'Notes.add'({ title, course, owner, image, description }) {
+    const rating = 5;
+    Notes.collection.insert({ title, course, owner, rating, image, description });
   },
 });
 
