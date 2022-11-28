@@ -134,11 +134,53 @@
       "picture": "https://www.hawaii.edu/its/wp-content/uploads/sites/2/2019/01/LAVAlogo-300x192-300x192.png"
     }
   ],
-  "defaultNote": [{
-    "title": "Circuit Notes Week 4",
-    "course": "EE 205",
-    "image":"https://www.learn.org.au/wp-content/uploads/2016/02/Voila_Capture-2016-02-29_08-56-45_PM.png"
-  }
+  "defaultNotes": [
+    {
+      "title": "Circuit Notes Week 4",
+      "course": "EE 211",
+      "owner": "Philip Johnson",
+      "rating": 5,
+      "image":"https://www.learn.org.au/wp-content/uploads/2016/02/Voila_Capture-2016-02-29_08-56-45_PM.png",
+      "description": "Voltage divider notes"
+    },
+    {
+      "title": "Circuit Notes Week 5",
+      "course": "EE 211",
+      "owner": "Philip Johnson",
+      "rating": 4.5,
+      "image":"https://www.learn.org.au/wp-content/uploads/2016/08/Voila_Capture-2016-08-16_08-14-04_PM.png",
+      "description": "Solving DC circuit notes"
+    }
+  ],
+  "defaultCourses": [
+    {
+      "name": "ICS 111",
+      "path": "ICS111"
+    },
+    {
+      "name": "ICS 211",
+      "path": "ICS211"
+    },
+    {
+      "name": "ICS 241",
+      "path": "ICS241"
+    },
+    {
+      "name": "ICS 314",
+      "path": "ICS314"
+    },
+    {
+      "name": "EE 160",
+      "path": "EE160"
+    },
+    {
+      "name": "EE 205",
+      "path": "EE205"
+    },
+    {
+      "name": "EE 211",
+      "path": "EE211"
+    }
   ],
   "loadAssetsFile":  false
 }
