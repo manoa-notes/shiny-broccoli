@@ -3,9 +3,10 @@ import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 import { Button, Card, Col, Image } from 'react-bootstrap';
 import Rating from 'react-rating';
+import { StarFill } from 'react-bootstrap-icons';
 
 /** Renders a single note card. */
-const NoteCard = ({ note }) => (
+const NoteCard = ({ note, rating }) => (
   <Col md={3}>
     <Card className="h-100">
       <Card.Header>
@@ -15,18 +16,16 @@ const NoteCard = ({ note }) => (
       </Card.Header>
       <Card.Body>
         <Card.Text>
-          {note.description}
-          <br />
+          <p>{note.description}</p>
           <Rating
-            initialRating={note.rating}
-            fractions={2}
-            emptySymbol={<img src="/images/rating/star-grey.png" alt="grey-star" />}
-            placeholderSymbol={<img src="/images/rating/star-red.png" alt="red-star" />}
-            fullSymbol={<img src="/images/rating/star-yellow.png" alt="yellow-star" />}
-            onChange={(rate) => note.rating === rate}
+            initialRating={rating.stars}
+            emptySymbol={<StarFill color="gainsboro" />}
+            fullSymbol={<StarFill color="gold" />}
+            readonly
+            style={{ fontSize: '20px' }}
+            className="pe-2"
           />
-          <br />
-          Rating: {note.rating}/5
+          {rating.numUsers}
         </Card.Text>
         <Button variant="success" as={Link} to={`/notes/${note._id}`}>See more</Button>
       </Card.Body>
@@ -40,9 +39,14 @@ NoteCard.propTypes = {
     title: PropTypes.string,
     course: PropTypes.string,
     owner: PropTypes.string,
-    rating: PropTypes.number,
     image: PropTypes.string,
     description: PropTypes.string,
+    _id: PropTypes.string,
+  }).isRequired,
+  rating: PropTypes.shape({
+    noteID: PropTypes.string,
+    stars: PropTypes.number,
+    numUsers: PropTypes.number,
     _id: PropTypes.string,
   }).isRequired,
 };

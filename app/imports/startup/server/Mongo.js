@@ -9,6 +9,7 @@ import { ProfilesInterests } from '../../api/profiles/ProfilesInterests';
 import { Interests } from '../../api/interests/Interests';
 import { Courses } from '../../api/course/Courses';
 import { Notes } from '../../api/note/Note';
+import { Ratings } from '../../api/rating/Rating';
 
 /* eslint-disable no-console */
 
@@ -94,6 +95,8 @@ if (Courses.collection.find().count() === 0) {
 const addNote = (note) => {
   console.log(`  Adding: ${note.title}`);
   Notes.collection.insert(note);
+  const insertedNote = Notes.collection.findOne(note);
+  Ratings.collection.insert({ noteID: insertedNote._id, stars: 0, numUsers: 0 });
 };
 
 // Initialize the StuffsCollection if empty.
