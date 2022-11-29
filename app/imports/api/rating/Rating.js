@@ -13,11 +13,13 @@ class RatingsCollection {
     this.collection = new Mongo.Collection(this.name);
     // Define the structure of each document in the collection.
     this.schema = new SimpleSchema({
-      rating: {
+      noteID: String,
+      stars: {
         type: Number,
         min: 0,
         max: 5,
       },
+      numUsers: Number,
     }, { tracker: Tracker });
     // Attach the schema to the collection, so all attempts to insert a document are checked against schema.
     this.collection.attachSchema(this.schema);
@@ -31,5 +33,4 @@ class RatingsCollection {
  * The singleton instance of the RatingsCollection.
  * @type {RatingsCollection}
  */
-const Ratings = new RatingsCollection();
-export default Ratings;
+export const Ratings = new RatingsCollection();

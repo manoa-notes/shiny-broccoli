@@ -4,6 +4,7 @@ import { Button, Col, Container, Row } from 'react-bootstrap';
 import { useTracker } from 'meteor/react-meteor-data';
 import { Link } from 'react-router-dom';
 import { Notes } from '../../api/note/Note';
+import { Ratings } from '../../api/rating/Rating';
 import LoadingSpinner from '../components/LoadingSpinner';
 import NoteCard from '../components/NoteCard';
 
@@ -13,9 +14,12 @@ const ListNotes = () => {
     // Note that this subscription will get cleaned up
     // when your component is unmounted or deps change.
     // Get access to Stuff documents.
-    const subscription = Meteor.subscribe(Notes.userPublicationName);
+    const sub1 = Meteor.subscribe(Notes.userPublicationName);
+    const sub2 = Meteor.subscribe(Ratings.userPublicationName);
     // Determine if the subscription is ready
-    const rdy = subscription.ready();
+    const rdy1 = sub1.ready();
+    const rdy2 = sub2.ready();
+    const rdy = rdy1 && rdy2;
     // Get the Stuff documents
     const notesItems = Notes.collection.find({}).fetch();
     return {
@@ -35,7 +39,7 @@ const ListNotes = () => {
         </Col>
       </Row>
       <Row className="pt-2">
-        {notes.map(note => <NoteCard note={note} />)}
+        {notes.map(note => <NoteCard note={note} rating={Ratings.collection.findOne({ noteID: note._id })} />)}
       </Row>
     </Container>
   ) : <LoadingSpinner />);

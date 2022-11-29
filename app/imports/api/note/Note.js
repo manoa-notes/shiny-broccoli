@@ -16,7 +16,6 @@ class NotesCollection {
       title: String,
       course: String,
       owner: String,
-      rating: Number,
       image: String,
       description: String,
     }, { tracker: Tracker });
