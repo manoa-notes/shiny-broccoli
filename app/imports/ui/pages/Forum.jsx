@@ -7,30 +7,37 @@ export const Forums = [
   {
     name: 'How do pointers work',
     author: 'God™',
+    department: ['ECE', 'ICS'],
   },
   {
     name: 'Electromagnetics',
     author: 'Mark Johnson',
+    department: 'ECE',
   },
   {
     name: 'What is addition?',
     author: 'John Markson',
+    department: 'MATH',
   },
   {
     name: 'Object oriented programming',
     author: 'John',
+    department: ['ICS', 'ECE'],
   },
   {
     name: 'How to add integers',
     author: 'Mark',
+    department: 'MATH',
   },
   {
     name: 'What is rainbow notes?',
     author: 'Phillip Johnson',
+    department: 'MISC',
   },
   {
     name: 'Bruh',
     author: 'Bruh',
+    department: 'BRUH',
   },
 ];
 
