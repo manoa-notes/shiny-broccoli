@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 import { Button, Card, Col, Image } from 'react-bootstrap';
+import Rating from 'react-rating';
 
 /** Renders a single note card. */
 const NoteCard = ({ note }) => (
@@ -15,6 +16,15 @@ const NoteCard = ({ note }) => (
       <Card.Body>
         <Card.Text>
           {note.description}
+          <br />
+          <Rating
+            initialRating={note.rating}
+            fractions={2}
+            emptySymbol={<img src="/images/rating/star-grey.png" alt="grey-star" />}
+            placeholderSymbol={<img src="/images/rating/star-red.png" alt="red-star" />}
+            fullSymbol={<img src="/images/rating/star-yellow.png" alt="yellow-star" />}
+            onChange={(rate) => note.rating === rate}
+          />
           <br />
           Rating: {note.rating}/5
         </Card.Text>
