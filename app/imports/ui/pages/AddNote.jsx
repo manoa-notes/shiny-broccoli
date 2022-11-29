@@ -1,5 +1,5 @@
 import React from 'react';
-import { AutoForm, TextField, LongTextField, SubmitField, ErrorsField, RadioField } from 'uniforms-bootstrap5';
+import { AutoForm, ErrorsField, LongTextField, RadioField, SubmitField, TextField } from 'uniforms-bootstrap5';
 import { Card, Col, Container, Row } from 'react-bootstrap';
 import SimpleSchema2Bridge from 'uniforms-bridge-simple-schema-2';
 import { _ } from 'meteor/underscore';
@@ -11,7 +11,7 @@ import { pageStyle } from './pageStyles';
 import { PageIDs } from '../utilities/ids';
 import { Courses } from '../../api/course/Courses';
 import LoadingSpinner from '../components/LoadingSpinner';
-import { addNoteMethod } from '../../startup/both/Methods';
+import { addNoteMethod, addRatingMethod } from '../../startup/both/Methods';
 import { Profiles } from '../../api/profiles/Profiles';
 
 const makeSchema = (courses) => new SimpleSchema({
@@ -48,12 +48,13 @@ const AddNote = () => {
     const { title, course, image, description } = data;
     const profile = Profiles.collection.findOne({ email: Meteor.user().username });
     const owner = `${profile.firstName} ${profile.lastName}`;
-    Meteor.call(addNoteMethod, { title, course, owner, image, description }, (error) => {
+    Meteor.call(addNoteMethod, { title, course, owner, image, description }, (error, noteID) => {
       if (error) {
         swal('Error', error.message, 'error');
       } else {
         swal('Success', 'Note added successfully', 'success').then(() => formRef.reset());
       }
+      Meteor.call(addRatingMethod, { noteID });
     });
   };
 

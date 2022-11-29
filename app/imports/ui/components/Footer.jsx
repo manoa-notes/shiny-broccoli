@@ -14,7 +14,7 @@ const Footer = () => (
         Honolulu, HI 96822
         {' '}
         <br />
-        Created by:Alex Bozyck, Marc Ivan Manalac, Linda Nguyen, AJ Patalinghog, and Joshua Aaron Subia
+        Created by: Alex Bozyck, Marc Ivan Manalac, Linda Nguyen, AJ Patalinghog, and Joshua Aaron Subia
         {' '}
         <br />
         <a style={{ color: 'white' }} href="https://rainbow-notes.github.io">https://rainbow-notes.github.io</a>
