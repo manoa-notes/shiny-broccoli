@@ -6,6 +6,7 @@ import { ProfilesProjects } from '../../api/profiles/ProfilesProjects';
 import { ProjectsInterests } from '../../api/projects/ProjectsInterests';
 import { Courses } from '../../api/course/Courses';
 import { Notes } from '../../api/note/Note';
+import { Ratings } from '../../api/rating/Rating';
 
 /**
  * In Bowfolios, insecure mode is enabled, so it is possible to update the server's Mongo database by making
@@ -84,9 +85,26 @@ const addNoteMethod = 'Notes.add';
 
 Meteor.methods({
   'Notes.add'({ title, course, owner, image, description }) {
-    const rating = 5;
-    Notes.collection.insert({ title, course, owner, rating, image, description });
+    return Notes.collection.insert({ title, course, owner, image, description });
   },
 });
 
-export { updateProfileMethod, addProjectMethod, addCourseMethod, addNoteMethod };
+const addRatingMethod = 'Ratings.add';
+
+Meteor.methods({
+  'Ratings.add'({ noteID }) {
+    Ratings.collection.insert({ noteID: noteID, stars: 0, numUsers: 0 });
+  },
+});
+
+const updateRatingMethod = 'Ratings.update';
+
+Meteor.methods({
+  'Ratings.update'({ _id, userRating }) {
+    const ratingItem = Ratings.collection.findOne({ noteID: _id });
+    const newRating = (ratingItem.stars * ratingItem.numUsers + userRating) / (ratingItem.numUsers + 1);
+    Ratings.collection.update({ noteID: _id }, { $set: { stars: newRating }, $inc: { numUsers: 1 } });
+  },
+});
+
+export { updateProfileMethod, addProjectMethod, addCourseMethod, addNoteMethod, updateRatingMethod, addRatingMethod };

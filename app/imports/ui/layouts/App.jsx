@@ -22,6 +22,7 @@ import ListNotes from '../pages/ListNotes';
 import ListForums from '../pages/ListForums';
 import Course from '../pages/Course';
 import AddCourse from '../pages/AddCourse';
+import Note from '../pages/Note';
 
 /* Top-level layout component for this application. Called in imports/startup/client/startup.jsx. */
 const App = () => (
@@ -46,8 +47,8 @@ const App = () => (
 
         {/* Note routes */}
         <Route path="/notes" element={<ProtectedRoute><ListNotes /></ProtectedRoute>} />
+        <Route path="/notes/:_id" element={<ProtectedRoute><Note /></ProtectedRoute>} />
         <Route path="/addNote" element={<ProtectedRoute><AddNote /></ProtectedRoute>} />
-        <Route path="/rating" element={<ProtectedRoute><ListCourses /></ProtectedRoute>} />
 
         {/* Forum routes */}
         <Route path="/forum" element={<ListForums />} />
