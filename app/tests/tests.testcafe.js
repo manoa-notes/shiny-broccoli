@@ -52,7 +52,7 @@ test('Test the addNotes page', async (testController) => {
   await navBar.gotoListNotesPage(testController);
   await listNotesPage.gotoAddNotePage(testController);
   await addNotePage.isDisplayed(testController);
-  //await addNotePage.addNote(testController);
+  // await addNotePage.addNote(testController);
 });
 
 test('Test the Courses page', async (testController) => {
