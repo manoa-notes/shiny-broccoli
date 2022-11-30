@@ -45,14 +45,14 @@ test('Test the Notes page', async (testController) => {
   await listNotesPage.isDisplayed(testController);
 });
 
-test.only('Test the addNotes page', async (testController) => {
+test('Test the addNotes page', async (testController) => {
   await navBar.ensureLogout(testController);
   await navBar.gotoSignInPage(testController);
   await signInPage.signin(testController, credentials.username, credentials.password);
   await navBar.gotoListNotesPage(testController);
   await listNotesPage.gotoAddNotePage(testController);
   await addNotePage.isDisplayed(testController);
-  await addNotePage.addNote(testController);
+  //await addNotePage.addNote(testController);
 });
 
 test('Test the Courses page', async (testController) => {
