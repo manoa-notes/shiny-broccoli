@@ -2,6 +2,16 @@ import { Selector } from 'testcafe';
 import { ComponentIDs } from '../imports/ui/utilities/ids';
 
 class NavBar {
+  /* If logged in, go to the list courses page */
+  async gotoListCoursesPage(testController) {
+    await this.ensureLogout(testController);
+    const visible = await Selector(`#${ComponentIDs.basicNavbarNav}`).visible;
+    if (!visible) {
+      await testController.click('button.navbar-toggler');
+    }
+    await testController.click(`#${ComponentIDs.coursesLink}`);
+  }
+
   /* If logged in, go to the list notes page */
   async gotoListNotesPage(testController) {
     await this.ensureLogout(testController);

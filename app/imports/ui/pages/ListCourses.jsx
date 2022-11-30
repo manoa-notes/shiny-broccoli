@@ -5,6 +5,7 @@ import { useTracker } from 'meteor/react-meteor-data';
 import { Meteor } from 'meteor/meteor';
 import LoadingSpinner from '../components/LoadingSpinner';
 import { Courses } from '../../api/course/Courses';
+import { ComponentIDs, PageIDs } from '../utilities/ids';
 
 const ListCourses = () => {
   // useTracker connects Meteor data to React components. https://guide.meteor.com/react.html#using-withTracker
@@ -23,7 +24,7 @@ const ListCourses = () => {
     };
   }, []);
   return (ready ? (
-    <Container className="py-3">
+    <Container className="py-3" id={PageIDs.listCoursesPage}>
       <h1>Courses</h1>
       <Row>
         {courses.map(course => (

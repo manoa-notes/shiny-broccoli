@@ -7,6 +7,7 @@ import { Courses } from '../../api/course/Courses';
 import LoadingSpinner from '../components/LoadingSpinner';
 import { Notes } from '../../api/note/Note';
 import NoteCard from '../components/NoteCard';
+import { PageIDs } from '../utilities/ids';
 
 const Course = () => {
   const { path } = useParams();
@@ -29,7 +30,7 @@ const Course = () => {
     };
   }, []);
   return ready ? (
-    <Container className="py-3">
+    <Container className="py-3" id={PageIDs.listCoursesPage}>
       <h1>{course.name}</h1>
       <h2>Notes</h2>
       <Row className="py-2">
