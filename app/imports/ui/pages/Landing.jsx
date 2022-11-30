@@ -52,7 +52,7 @@ const Landing = () => (
         <Row>
           <Col className="pb-4">
             <h3>STEP 1: Searching for your course</h3>
-            <Image style={{ border: '10px solid var(--green-leaf)', padding: 0 }} src="/images/search-course-page.png" className="w-100" />
+            <Image style={{ border: '10px solid var(--green-leaf)', padding: 0 }} src="/images/list-course-page.png" className="w-100" />
           </Col>
           <Col className="pb-4">
             <h3>STEP 2: Share your notes</h3>
