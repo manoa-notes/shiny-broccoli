@@ -40,7 +40,8 @@ const Note = () => {
     };
   }, []);
   const numRatings = ratings.length;
-  const avgRating = _.reduce(ratings, (memo, rating) => memo + rating.rating, 0) / numRatings;
+  const TotalRating = _.reduce(ratings, (memo, rating) => memo + rating.rating, 0);
+  const avgRating = (numRatings === 0) ? 0 : TotalRating / numRatings;
 
   const addRating = (userRating) => {
     Meteor.call(addRatingMethod, { _id, owner, userRating }, (error) => {
