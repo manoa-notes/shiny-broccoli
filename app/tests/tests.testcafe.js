@@ -42,12 +42,3 @@ test('Test the Notes page', async (testController) => {
   await navBar.gotoListNotesPage(testController);
   await listNotesPage.isDisplayed(testController);
 });
-
-/* This passes */
-test.('Test the Notes page', async (testController) => {
-  await navBar.ensureLogout(testController);
-  await navBar.gotoSignInPage(testController);
-  await signInPage.signin(testController, credentials.username, credentials.password);
-  await navBar.gotoListNotesPage(testController);
-  await listNotesPage.isDisplayed(testController);
-});

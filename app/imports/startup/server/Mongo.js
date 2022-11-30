@@ -9,7 +9,6 @@ import { ProfilesInterests } from '../../api/profiles/ProfilesInterests';
 import { Interests } from '../../api/interests/Interests';
 import { Courses } from '../../api/course/Courses';
 import { Notes } from '../../api/note/Note';
-import { Ratings } from '../../api/rating/Rating';
 
 /* eslint-disable no-console */
 
