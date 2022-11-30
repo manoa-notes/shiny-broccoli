@@ -95,8 +95,6 @@ if (Courses.collection.find().count() === 0) {
 const addNote = (note) => {
   console.log(`  Adding: ${note.title}`);
   Notes.collection.insert(note);
-  const insertedNote = Notes.collection.findOne(note);
-  Ratings.collection.insert({ noteID: insertedNote._id, stars: 0, numUsers: 0 });
 };
 
 // Initialize the StuffsCollection if empty.

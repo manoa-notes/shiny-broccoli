@@ -44,6 +44,7 @@ test('Test the Notes page', async (testController) => {
   await listNotesPage.isDisplayed(testController);
 });
 
+
 test('Test the Courses page', async (testController) => {
   await navBar.ensureLogout(testController);
   await navBar.gotoSignInPage(testController);

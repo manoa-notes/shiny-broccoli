@@ -92,19 +92,13 @@ Meteor.methods({
 const addRatingMethod = 'Ratings.add';
 
 Meteor.methods({
-  'Ratings.add'({ noteID }) {
-    Ratings.collection.insert({ noteID: noteID, stars: 0, numUsers: 0 });
+  'Ratings.add'({ _id, owner, userRating }) {
+    if (Ratings.collection.findOne({ noteID: _id, ownerID: owner })) {
+      Ratings.collection.update({ noteID: _id, ownerID: owner }, { $set: { rating: userRating } });
+    } else {
+      Ratings.collection.insert({ noteID: _id, ownerID: owner, rating: userRating });
+    }
   },
 });
 
-const updateRatingMethod = 'Ratings.update';
-
-Meteor.methods({
-  'Ratings.update'({ _id, userRating }) {
-    const ratingItem = Ratings.collection.findOne({ noteID: _id });
-    const newRating = (ratingItem.stars * ratingItem.numUsers + userRating) / (ratingItem.numUsers + 1);
-    Ratings.collection.update({ noteID: _id }, { $set: { stars: newRating }, $inc: { numUsers: 1 } });
-  },
-});
-
-export { updateProfileMethod, addProjectMethod, addCourseMethod, addNoteMethod, updateRatingMethod, addRatingMethod };
+export { updateProfileMethod, addProjectMethod, addCourseMethod, addNoteMethod, addRatingMethod };

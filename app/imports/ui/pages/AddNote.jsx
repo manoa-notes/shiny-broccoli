@@ -11,7 +11,7 @@ import { pageStyle } from './pageStyles';
 import { ComponentIDs, PageIDs } from '../utilities/ids';
 import { Courses } from '../../api/course/Courses';
 import LoadingSpinner from '../components/LoadingSpinner';
-import { addNoteMethod, addRatingMethod } from '../../startup/both/Methods';
+import { addNoteMethod } from '../../startup/both/Methods';
 import { Profiles } from '../../api/profiles/Profiles';
 
 const makeSchema = (courses) => new SimpleSchema({
@@ -47,14 +47,14 @@ const AddNote = () => {
   const submit = (data, formRef) => {
     const { title, course, image, description } = data;
     const profile = Profiles.collection.findOne({ email: Meteor.user().username });
+    console.log(Profiles.collection.find().fetch());
     const owner = `${profile.firstName} ${profile.lastName}`;
-    Meteor.call(addNoteMethod, { title, course, owner, image, description }, (error, noteID) => {
+    Meteor.call(addNoteMethod, { title, course, owner, image, description }, (error) => {
       if (error) {
         swal('Error', error.message, 'error');
       } else {
         swal('Success', 'Note added successfully', 'success').then(() => formRef.reset());
       }
-      Meteor.call(addRatingMethod, { noteID });
     });
   };
 
