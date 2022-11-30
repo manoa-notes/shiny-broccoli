@@ -7,6 +7,7 @@ import { projectsPage } from './projects.page';
 import { interestsPage } from './interests.page';
 import { homePage } from './home.page';
 import { addProjectPage } from './addproject.page';
+import { addNotePage } from './addnote.page';
 import { filterPage } from './filter.page';
 import { navBar } from './navbar.component';
 
@@ -83,4 +84,13 @@ test('Test that filter page works', async (testController) => {
   await navBar.gotoFilterPage(testController);
   await filterPage.isDisplayed(testController);
   await filterPage.filter(testController);
+});
+
+test('Test the AddNotes page', async (testController) => {
+  await navBar.ensureLogout(testController);
+  await navBar.gotoSignInPage(testController);
+  await signInPage.signin(testController, credentials.username, credentials.password);
+  await navBar.gotoAddNotePage(testController);
+  await addNotePage.isDisplayed(testController);
+  await addNotePage.addNote(testController);
 });

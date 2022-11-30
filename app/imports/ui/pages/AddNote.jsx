@@ -8,7 +8,7 @@ import { useTracker } from 'meteor/react-meteor-data';
 import { Meteor } from 'meteor/meteor';
 import swal from 'sweetalert';
 import { pageStyle } from './pageStyles';
-import { PageIDs } from '../utilities/ids';
+import { ComponentIDs, PageIDs } from '../utilities/ids';
 import { Courses } from '../../api/course/Courses';
 import LoadingSpinner from '../components/LoadingSpinner';
 import { addNoteMethod, addRatingMethod } from '../../startup/both/Methods';
@@ -61,18 +61,18 @@ const AddNote = () => {
   return (ready ? (
     <Container style={pageStyle}>
       <h2 className="text-center">Add Notes</h2>
-      <Row id={PageIDs.addProjectPage} className="justify-content-center">
+      <Row id={PageIDs.addNotePage} className="justify-content-center">
         <Col xs={10}>
           <AutoForm ref={ref => { fRef = ref; }} schema={bridge} onSubmit={data => submit(data, fRef)}>
             <Card>
               <Card.Body>
                 <Row>
-                  <Col xs={6}><TextField name="title" showInlineError placeholder="Note Title" /></Col>
-                  <Col xs={6}><TextField name="image" showInlineError placeholder="Image Link" /></Col>
+                  <Col xs={6}><TextField id={ComponentIDs.addNoteFormTitle} name="title" showInlineError placeholder="Note Title" /></Col>
+                  <Col xs={6}><TextField id={ComponentIDs.addNoteFormPicture} name="image" showInlineError placeholder="Image Link" /></Col>
                 </Row>
-                <LongTextField name="description" placeholder="Describe the notes here" />
+                <LongTextField id={ComponentIDs.addNoteFormDescription} name="description" placeholder="Describe the notes here" />
                 <RadioField name="course" showInlineError />
-                <SubmitField value="Submit" />
+                <SubmitField id={ComponentIDs.addNoteFormSubmit} value="Submit" />
                 <ErrorsField />
               </Card.Body>
             </Card>
