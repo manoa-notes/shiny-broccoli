@@ -59,9 +59,9 @@ const AddNote = () => {
   };
 
   return (ready ? (
-    <Container style={pageStyle}>
+    <Container style={pageStyle} id={PageIDs.addNotePage}>
       <h2 className="text-center">Add Notes</h2>
-      <Row id={PageIDs.addNotePage} className="justify-content-center">
+      <Row className="justify-content-center">
         <Col xs={10}>
           <AutoForm ref={ref => { fRef = ref; }} schema={bridge} onSubmit={data => submit(data, fRef)}>
             <Card>
@@ -71,7 +71,7 @@ const AddNote = () => {
                   <Col xs={6}><TextField id={ComponentIDs.addNoteFormPicture} name="image" showInlineError placeholder="Image Link" /></Col>
                 </Row>
                 <LongTextField id={ComponentIDs.addNoteFormDescription} name="description" placeholder="Describe the notes here" />
-                <RadioField name="course" showInlineError />
+                <RadioField id={ComponentIDs.addNoteRadio} name="course" showInlineError />
                 <SubmitField id={ComponentIDs.addNoteFormSubmit} value="Submit" />
                 <ErrorsField />
               </Card.Body>

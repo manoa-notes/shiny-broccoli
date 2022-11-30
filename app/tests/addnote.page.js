@@ -24,7 +24,7 @@ class AddNotePage {
     await testController.typeText(`#${ComponentIDs.addNoteFormDescription}`, description);
 
     // Select one course.
-    const interestsSelector = Selector(`#${ComponentIDs.addProjectFormInterests} div.form-check input`);
+    const interestsSelector = Selector(`#${ComponentIDs.addNoteRadio} div.form-check input`);
     await testController.click(interestsSelector.nth(0));
 
     await testController.click(`#${ComponentIDs.addNoteFormSubmit} input.btn.btn-primary`);

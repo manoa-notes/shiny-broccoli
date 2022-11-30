@@ -1,5 +1,5 @@
 import { Selector } from 'testcafe';
-import { PageIDs } from '../imports/ui/utilities/ids';
+import { ComponentIDs, PageIDs } from '../imports/ui/utilities/ids';
 
 class ListNotesPage {
   constructor() {
@@ -12,6 +12,9 @@ class ListNotesPage {
     // This is first test to be run. Wait 20 seconds to avoid timeouts with GitHub Actions.
     await testController.wait(20000).expect(this.pageSelector.exists).ok();
   }
-}
 
+  async gotoAddNotePage(testController) {
+    await testController.click(`#${ComponentIDs.addNoteLink}`);
+  }
+}
 export const listNotesPage = new ListNotesPage();
