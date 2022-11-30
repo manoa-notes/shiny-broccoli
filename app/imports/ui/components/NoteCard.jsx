@@ -6,22 +6,25 @@ import Rating from 'react-rating';
 import { StarFill } from 'react-bootstrap-icons';
 import { Meteor } from 'meteor/meteor';
 import { useTracker } from 'meteor/react-meteor-data';
+import { _ } from 'meteor/underscore';
 import { Ratings } from '../../api/rating/Rating';
 import LoadingSpinner from './LoadingSpinner';
 
 /** Renders a single note card. */
 const NoteCard = ({ note }) => {
-  const { ready, rating } = useTracker(() => {
+  const { ready, ratings } = useTracker(() => {
     const sub = Meteor.subscribe(Ratings.userPublicationName);
     // Determine if the subscription is ready
     const rdy = sub.ready();
     // Get the Stuff documents
-    const ratingItem = Ratings.collection.findOne({ noteID: note._id });
+    const ratingItems = Ratings.collection.find({ noteID: note._id }).fetch();
     return {
-      rating: ratingItem,
+      ratings: ratingItems,
       ready: rdy,
     };
   }, []);
+  const numRatings = ratings.length;
+  const avgRating = _.reduce(ratings, (memo, rating) => memo + rating.rating, 0) / numRatings;
 
   return ready ? (
     <Col md={3}>
@@ -35,14 +38,14 @@ const NoteCard = ({ note }) => {
           <Card.Text>
             <p>{note.description}</p>
             <Rating
-              initialRating={rating.stars}
+              initialRating={avgRating}
               emptySymbol={<StarFill color="gainsboro" />}
               fullSymbol={<StarFill color="gold" />}
               readonly
               style={{ fontSize: '25px' }}
               className="pe-2"
             />
-            {rating.numUsers} ratings
+            {numRatings} ratings
           </Card.Text>
           <Button variant="success" as={Link} to={`/notes/${note._id}`}>See more</Button>
         </Card.Body>
