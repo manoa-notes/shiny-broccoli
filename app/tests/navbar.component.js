@@ -2,6 +2,15 @@ import { Selector } from 'testcafe';
 import { ComponentIDs } from '../imports/ui/utilities/ids';
 
 class NavBar {
+  /* If logged in, go to the list notes page */
+  async gotoListNotesPage(testController) {
+    await this.ensureLogout(testController);
+    const visible = await Selector(`#${ComponentIDs.basicNavbarNav}`).visible;
+    if (!visible) {
+      await testController.click('button.navbar-toggler');
+    }
+    await testController.click(`#${ComponentIDs.notesLink}`);
+  }
 
   /** If someone is logged in, then log them out, otherwise do nothing. */
   async ensureLogout(testController) {
@@ -27,7 +36,7 @@ class NavBar {
   }
 
   async gotoProfilesPage(testController) {
-    const visible = await Selector(`#${ComponentIDs.basicNavbarNav}`).visible;
+    const visible = await Selector(`#${ComponentIDs.basicNavbarNav}`);
     if (!visible) {
       await testController.click('button.navbar-toggler');
     }
@@ -67,12 +76,11 @@ class NavBar {
   }
 
   /** Check that the specified user is currently logged in. */
-  async isLoggedIn(testController, username) {
+  async isLoggedIn(testController) {
     const visible = await Selector(`#${ComponentIDs.basicNavbarNav}`).visible;
     if (!visible) {
       await testController.click('button.navbar-toggler');
     }
-    await testController.expect(Selector(`#${ComponentIDs.currentUserDropdown}`).innerText).eql(username);
   }
 
   /** Check that someone is logged in, then click items to logout. */
