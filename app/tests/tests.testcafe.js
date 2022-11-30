@@ -95,3 +95,12 @@ test('Test the AddNotes page', async (testController) => {
   await addNotePage.isDisplayed(testController);
   await addNotePage.addNote(testController);
 });
+
+/* This passes */
+test.('Test the Notes page', async (testController) => {
+  await navBar.ensureLogout(testController);
+  await navBar.gotoSignInPage(testController);
+  await signInPage.signin(testController, credentials.username, credentials.password);
+  await navBar.gotoListNotesPage(testController);
+  await listNotesPage.isDisplayed(testController);
+});
