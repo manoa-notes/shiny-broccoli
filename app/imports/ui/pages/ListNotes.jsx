@@ -6,7 +6,7 @@ import { Link } from 'react-router-dom';
 import { Notes } from '../../api/note/Note';
 import LoadingSpinner from '../components/LoadingSpinner';
 import NoteCard from '../components/NoteCard';
-import { PageIDs } from '../utilities/ids';
+import { ComponentIDs, PageIDs } from '../utilities/ids';
 
 /* Renders a table containing all of the Stuff documents. Use <StuffItem> to render each row. */
 const ListNotes = () => {
@@ -32,7 +32,7 @@ const ListNotes = () => {
           <h1>Notes</h1>
         </Col>
         <Col className="text-end">
-          <Button variant="success" as={Link} to="/addNote">Add notes</Button>
+          <Button id={ComponentIDs.addNoteLink} variant="success" as={Link} to="/addNote">Add notes</Button>
         </Col>
       </Row>
       <Row className="pt-2">
