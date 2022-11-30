@@ -35,6 +35,7 @@ export const ComponentIDs = {
   signUpFormEmail: 'signUpFormEmail',
   signUpFormPassword: 'signUpFormPassword',
   signUpFormSubmit: 'signUpFormSubmit',
+  notesLink: 'notesLink',
 };
 
 export const PageIDs = {
@@ -51,4 +52,5 @@ export const PageIDs = {
   signInPage: 'signInPage',
   signOutPage: 'signOutPage',
   signUpPage: 'signUpPage',
+  listNotesPage: 'listNotesPage',
 };

@@ -10,13 +10,14 @@ import { addProjectPage } from './addproject.page';
 import { addNotePage } from './addnote.page';
 import { filterPage } from './filter.page';
 import { navBar } from './navbar.component';
+import { listNotesPage } from './listNotes.page';
 
 /* global fixture:false, test:false */
 
 /** Credentials for one of the sample users defined in settings.development.json. */
 const credentials = { username: 'johnson@hawaii.edu', password: 'foo', firstName: 'Philip', lastName: 'Johnson' };
 
-fixture('Bowfolios localhost test with default db')
+fixture('Rainbow Notes localhost test with default db')
   .page('http://localhost:3000');
 
 test('Test that landing page shows up', async (testController) => {
