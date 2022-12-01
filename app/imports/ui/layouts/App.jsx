@@ -10,16 +10,11 @@ import SignOut from '../pages/SignOut';
 import NavBar from '../components/NavBar';
 import SignIn from '../pages/SignIn';
 import NotAuthorized from '../pages/NotAuthorized';
-import Profiles from '../pages/Profiles';
-import Projects from '../pages/Projects';
-import Interests from '../pages/Interests';
 import Home from '../pages/Home';
-import Filter from '../pages/Filter';
 import ListCourses from '../pages/ListCourses';
 import Profile from '../pages/Profile';
 import AddNote from '../pages/AddNote';
 import ListNotes from '../pages/ListNotes';
-import ListForums from '../pages/ListForums';
 import Course from '../pages/Course';
 import AddCourse from '../pages/AddCourse';
 import Note from '../pages/Note';
@@ -49,16 +44,6 @@ const App = () => (
         <Route path="/notes" element={<ProtectedRoute><ListNotes /></ProtectedRoute>} />
         <Route path="/notes/:_id" element={<ProtectedRoute><Note /></ProtectedRoute>} />
         <Route path="/addNote" element={<ProtectedRoute><AddNote /></ProtectedRoute>} />
-
-        {/* Forum routes */}
-        <Route path="/forum" element={<ListForums />} />
-        <Route path="/forums" element={<ProtectedRoute><ListCourses /></ProtectedRoute>} />
-        <Route path="/filter" element={<ProtectedRoute><Filter /></ProtectedRoute>} />
-
-        {/* Unused routes from Bowfolios template */}
-        <Route path="/interests" element={<Interests />} />
-        <Route path="/profiles" element={<Profiles />} />
-        <Route path="/projects" element={<Projects />} />
       </Routes>
       <Footer />
     </div>

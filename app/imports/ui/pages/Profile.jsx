@@ -17,8 +17,6 @@ const makeSchema = (courses) => new SimpleSchema({
   email: { type: String, label: 'Email', optional: true },
   bio: { type: String, label: 'Biography', optional: true },
   picture: { type: String, label: 'Picture URL', optional: true },
-  coursesTaken: { type: Array, label: 'Courses Taken', optional: true },
-  'coursesTaken.$': { type: String, allowedValues: courses },
   courseInterests: { type: Array, label: 'Courses Interested In', optional: true },
   'courseInterests.$': { type: String, allowedValues: courses },
 });
