@@ -14,9 +14,9 @@ class AddNotePage {
 
   /** Checks this page is displayed, then adds a new note */
   async addNote(testController) {
-    const name = `radgrad-${new Date().getTime()}`;
-    const picture = 'https://www.radgrad.org/img/radgrad_logo.png';
-    const description = 'Growing awesome computer scientists, one graduate at a time.';
+    const name = `Hello-World-${new Date().getTime()}`;
+    const picture = 'https://media.geeksforgeeks.org/wp-content/uploads/20191120113936/helloworld1.jpg';
+    const description = 'How to write your first C program';
     await this.isDisplayed(testController);
     // Define the new project
     await testController.typeText(`#${ComponentIDs.addNoteFormTitle}`, name);

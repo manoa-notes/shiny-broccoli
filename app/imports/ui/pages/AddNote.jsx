@@ -1,5 +1,5 @@
 import React from 'react';
-import { AutoForm, ErrorsField, LongTextField, RadioField, SubmitField, TextField } from 'uniforms-bootstrap5';
+import { AutoForm, ErrorsField, LongTextField, SelectField, SubmitField, TextField } from 'uniforms-bootstrap5';
 import { Card, Col, Container, Row } from 'react-bootstrap';
 import SimpleSchema2Bridge from 'uniforms-bridge-simple-schema-2';
 import { _ } from 'meteor/underscore';
@@ -57,6 +57,7 @@ const AddNote = () => {
       }
     });
   };
+  const transform = (label) => ` ${label}`;
 
   return (ready ? (
     <Container style={pageStyle} id={PageIDs.addNotePage}>
@@ -71,7 +72,15 @@ const AddNote = () => {
                   <Col xs={6}><TextField id={ComponentIDs.addNoteFormPicture} name="image" showInlineError placeholder="Image Link" /></Col>
                 </Row>
                 <LongTextField id={ComponentIDs.addNoteFormDescription} name="description" placeholder="Describe the notes here" />
-                <RadioField id={ComponentIDs.addNoteRadio} name="course" showInlineError />
+                <Row id={ComponentIDs.addNoteRadio}>
+                  <SelectField
+                    name="course"
+                    showInlineError
+                    placeholder="Courses"
+                    checkboxes
+                    transform={transform}
+                  />
+                </Row>
                 <SubmitField id={ComponentIDs.addNoteFormSubmit} value="Submit" />
                 <ErrorsField />
               </Card.Body>
