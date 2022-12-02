@@ -5,7 +5,10 @@ import { Alert, Card, Col, Container, Row } from 'react-bootstrap';
 import SimpleSchema from 'simpl-schema';
 import SimpleSchema2Bridge from 'uniforms-bridge-simple-schema-2';
 import { AutoForm, ErrorsField, SubmitField, TextField } from 'uniforms-bootstrap5';
+import { Meteor } from 'meteor/meteor';
+import swal from 'sweetalert';
 import { ComponentIDs, PageIDs } from '../utilities/ids';
+import { addProfileMethod } from '../../startup/both/Methods';
 
 /*
  * SignUp component is similar to signin component, but we create a new user instead.
@@ -29,6 +32,13 @@ const SignUp = () => {
       } else {
         setError('');
         setRedirectToRef(true);
+      }
+    });
+    Meteor.call(addProfileMethod, { email }, (err) => {
+      if (err) {
+        swal('Error', err.message, 'error');
+      } else {
+        swal('Success', 'Profile added successfully', 'success');
       }
     });
   };

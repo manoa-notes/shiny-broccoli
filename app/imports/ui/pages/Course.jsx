@@ -3,11 +3,11 @@ import { useParams } from 'react-router';
 import { useTracker } from 'meteor/react-meteor-data';
 import { Meteor } from 'meteor/meteor';
 import { Button, Container, Row } from 'react-bootstrap';
+import { Link } from 'react-router-dom';
 import { Courses } from '../../api/course/Courses';
 import LoadingSpinner from '../components/LoadingSpinner';
 import { Notes } from '../../api/note/Note';
 import NoteCard from '../components/NoteCard';
-import { Link } from 'react-router-dom';
 import { PageIDs } from '../utilities/ids';
 
 const Course = () => {
@@ -51,8 +51,8 @@ const Course = () => {
     <Container className="py-3" id={PageIDs.listCoursesPage}>
       <h1>{course.name}</h1>
       <h2>Notes</h2>
-      <Row className="py-2">
-        {notes.map(note => <NoteCard note={note} />)}
+      <Row>
+        {notes.map(note => <NoteCard key={note._id} note={note} />)}
       </Row>
     </Container>
   ) : <LoadingSpinner />;

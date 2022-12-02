@@ -26,12 +26,9 @@ const AddNote = () => {
     // Note that this subscription will get cleaned up
     // when your component is unmounted or deps change.
     // Get access to Stuff documents.
-    const sub1 = Meteor.subscribe(Courses.userPublicationName);
-    const sub2 = Meteor.subscribe(Profiles.userPublicationName);
+    const sub = Meteor.subscribe(Courses.userPublicationName);
     // Determine if the subscription is ready
-    const rdy1 = sub1.ready();
-    const rdy2 = sub2.ready();
-    const rdy = rdy1 && rdy2;
+    const rdy = sub.ready();
     // Get the Stuff documents
     const courseItems = Courses.collection.find({}, { sort: { name: 1 } }).fetch();
     return {
@@ -46,9 +43,7 @@ const AddNote = () => {
   // On submit, insert the data.
   const submit = (data, formRef) => {
     const { title, course, image, description } = data;
-    const profile = Profiles.collection.findOne({ email: Meteor.user().username });
-    console.log(Profiles.collection.find().fetch());
-    const owner = `${profile.firstName} ${profile.lastName}`;
+    const owner = Meteor.user().username;
     Meteor.call(addNoteMethod, { title, course, owner, image, description }, (error) => {
       if (error) {
         swal('Error', error.message, 'error');

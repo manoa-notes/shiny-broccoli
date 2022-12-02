@@ -11,11 +11,11 @@ class ProfilesCollection {
     this.collection = new Mongo.Collection(this.name);
     // Define the structure of each document in the collection.
     this.schema = new SimpleSchema({
-      firstName: String,
-      lastName: String,
+      firstName: { type: String, optional: true },
+      lastName: { type: String, optional: true },
       email: { type: String, index: true, unique: true },
       bio: { type: String, optional: true },
-      picture: String,
+      picture: { type: String, optional: true },
       courseInterests: { type: Array, optional: true },
       'courseInterests.$': String,
     }, { tracker: Tracker });

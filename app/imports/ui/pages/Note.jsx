@@ -69,7 +69,7 @@ const Note = () => {
             style={{ fontSize: '40px' }}
             onChange={userRating => addRating(userRating)}
           />
-          <text style={{ fontSize: '25px', paddingLeft: '15px' }}>{Math.round(avgRating * 10) / 10}</text>
+          <span style={{ fontSize: '25px', paddingLeft: '15px' }}>{Math.round(avgRating * 10) / 10}</span>
         </Col>
       </Row>
       <Image src={note.image} alt="note" className="py-3 w-100" />
