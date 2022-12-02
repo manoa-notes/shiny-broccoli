@@ -70,14 +70,14 @@
     {
       "title": "Circuit Notes Week 4",
       "course": "EE 211",
-      "owner": "Philip Johnson",
+      "owner": "johnson@hawaii.edu",
       "image":"https://www.learn.org.au/wp-content/uploads/2016/02/Voila_Capture-2016-02-29_08-56-45_PM.png",
       "description": "Voltage divider notes"
     },
     {
       "title": "Circuit Notes Week 5",
       "course": "EE 211",
-      "owner": "Philip Johnson",
+      "owner": "johnson@hawaii.edu",
       "image":"https://www.learn.org.au/wp-content/uploads/2016/08/Voila_Capture-2016-08-16_08-14-04_PM.png",
       "description": "Solving DC circuit notes"
     }

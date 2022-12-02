@@ -27,7 +27,7 @@ const NoteCard = ({ note }) => {
   const avgRating = _.reduce(ratings, (memo, rating) => memo + rating.rating, 0) / numRatings;
 
   return ready ? (
-    <Col md={3}>
+    <Col md={3} className="py-2">
       <Card className="h-100">
         <Card.Header>
           <Image src={note.image} style={{ maxHeight: '200px' }} />
@@ -36,7 +36,7 @@ const NoteCard = ({ note }) => {
         </Card.Header>
         <Card.Body>
           <Card.Text>
-            <p>{note.description}</p>
+            {note.description} <br />
             <Rating
               initialRating={avgRating}
               emptySymbol={<StarFill color="gainsboro" />}

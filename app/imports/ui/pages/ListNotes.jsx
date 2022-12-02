@@ -35,8 +35,8 @@ const ListNotes = () => {
           <Button id={ComponentIDs.addNoteLink} variant="success" as={Link} to="/addNote">Add notes</Button>
         </Col>
       </Row>
-      <Row className="pt-2">
-        {notes.map(note => <NoteCard note={note} />)}
+      <Row>
+        {notes.map(note => <NoteCard key={note._id} note={note} />)}
       </Row>
     </Container>
   ) : <LoadingSpinner />);
