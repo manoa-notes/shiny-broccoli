@@ -1,6 +1,6 @@
 import React from 'react';
 import { Meteor } from 'meteor/meteor';
-import { Col, Container, Row } from 'react-bootstrap';
+import { Col, Container, Row, Table } from 'react-bootstrap';
 import { useTracker } from 'meteor/react-meteor-data';
 import Profiles from '../components/Profiles';
 import LoadingSpinner from '../components/LoadingSpinner';
@@ -26,12 +26,18 @@ const ListProfiles = () => {
     <Container className="py-3">
       <Row className="justify-content-center">
         <Col md={7}>
-          <Col className="text-center">
-            <h2>List Profiles</h2>
-          </Col>
-          <Row xs={1} md={2} lg={3} className="g-4">
-            {profiles.map((prof) => (<Col key={prof._id}><Profiles prof={prof} /></Col>))}
-          </Row>
+          <Col className="text-center"><h2>List Stuff (Admin)</h2></Col>
+          <Table striped bordered hover>
+            <thead>
+              <tr>
+                <th>Email</th>
+                <th>Remove</th>
+              </tr>
+            </thead>
+            <tbody>
+              {profiles.map((prof) => (<Col key={prof._id}><Profiles prof={prof} /></Col>))}
+            </tbody>
+          </Table>
         </Col>
       </Row>
     </Container>

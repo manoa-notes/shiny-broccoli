@@ -64,7 +64,7 @@ const Admin = () => {
       </Row>
       <h2 className="py-3">
         Edit ALL PROFILES
-        <Button className="ms-2" variant="success" as={Link} to="/profile">Edit Profile</Button>
+        <Button className="ms-2" variant="success" as={Link} to="/listprofiles">Edit Profile</Button>
       </h2>
     </Container>
   ) : <LoadingSpinner />;
