@@ -26,15 +26,13 @@ const Admin = () => {
     };
   }, []);
   let profile;
-  let email;
   let courses;
   if (ready) {
     profile = Profiles.collection.findOne({ email: Meteor.user().username });
-    email = profile.email;
     courses = profile.courseInterests;
   }
   const recommendedNotes = (courses !== undefined) ? Notes.collection.find({ course: { $in: courses } }).fetch() : {};
-  const userNotes = Notes.collection.find({ owner: email }).fetch();
+  const allNotes = Notes.collection.find({ }).fetch();
 
   return ready ? (
     <Container className="py-3">
@@ -51,12 +49,12 @@ const Admin = () => {
         }
       </Row>
       <Row className="py-3">
-        <h2>Your Notes.</h2>
+        <h2>ALL Notes</h2>
         {
-          userNotes.length > 0 ?
-            userNotes.map(note => <NoteCard key={note._id} note={note} />) : (
+          allNotes.length > 0 ?
+            allNotes.map(note => <NoteCard key={note._id} note={note} />) : (
               <p style={{ fontSize: '18px' }}>
-                EDIT ALL NOTES
+                You currently have no notes. Add some here:
                 <Button className="ms-2" variant="success" as={Link} to="/addNote">Add notes</Button>
               </p>
             )
@@ -64,6 +62,10 @@ const Admin = () => {
       </Row>
       <h2 className="py-3">
         Edit ALL PROFILES
+        <Button className="ms-2" variant="success" as={Link} to="/profile">Edit Profile</Button>
+      </h2>
+      <h2 className="py-3">
+        Edit ALL Courses
         <Button className="ms-2" variant="success" as={Link} to="/profile">Edit Profile</Button>
       </h2>
     </Container>
