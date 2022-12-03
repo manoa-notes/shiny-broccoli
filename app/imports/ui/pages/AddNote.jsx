@@ -12,7 +12,6 @@ import { ComponentIDs, PageIDs } from '../utilities/ids';
 import { Courses } from '../../api/course/Courses';
 import LoadingSpinner from '../components/LoadingSpinner';
 import { addNoteMethod } from '../../startup/both/Methods';
-import { Profiles } from '../../api/profiles/Profiles';
 
 const makeSchema = (courses) => new SimpleSchema({
   title: String,

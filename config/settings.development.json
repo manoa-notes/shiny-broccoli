@@ -5,11 +5,25 @@
   ],
   "defaultProfiles": [
     {
+      "firstName": "Admin",
+      "lastName": "Foo",
+      "email": "admin@foo.com",
+      "bio": "This is the admin account.",
+      "picture": "https://www.clipartkey.com/mpngs/m/267-2676184_handsome-squidward-clipart-png-download-handsome-squidward-transparent.png",
+      "courseInterests": [
+        "ICS 111",
+        "ICS 211"
+      ],
+      "role": "admin",
+      "password": "foo"
+    },
+    {
       "firstName": "Philip",
       "lastName": "Johnson",
       "email": "johnson@hawaii.edu",
       "bio": "I am a Professor and like to paddle outrigger canoes.",
       "picture": "https://github.com/philipmjohnson.png",
+      "role": "admin",
       "courseInterests": [
         "ICS 111",
         "ICS 211"

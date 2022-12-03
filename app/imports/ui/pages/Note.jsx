@@ -16,7 +16,7 @@ import { Profiles } from '../../api/profiles/Profiles';
 const Note = () => {
   const { _id } = useParams();
   // useTracker connects Meteor data to React components. https://guide.meteor.com/react.html#using-withTracker
-  const { ready, note, ratings, owner } = useTracker(() => {
+  const { ready, note, ratings } = useTracker(() => {
     // Note that this subscription will get cleaned up
     // when your component is unmounted or deps change.
     // Get access to Stuff documents.
@@ -31,14 +31,16 @@ const Note = () => {
     // Get the Stuff documents
     const noteItem = Notes.collection.findOne(_id);
     const ratingItems = Ratings.collection.find({ noteID: _id }).fetch();
-    const ownerItem = Meteor.user().username;
     return {
       note: noteItem,
       ratings: ratingItems,
-      owner: ownerItem,
       ready: rdy,
     };
   }, []);
+  let owner;
+  if (ready) {
+    owner = Meteor.user().username;
+  }
   const numRatings = ratings.length;
   const TotalRating = _.reduce(ratings, (memo, rating) => memo + rating.rating, 0);
   const avgRating = (numRatings === 0) ? 0 : TotalRating / numRatings;

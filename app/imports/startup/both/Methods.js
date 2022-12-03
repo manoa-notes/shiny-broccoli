@@ -50,6 +50,7 @@ Meteor.methods({
 });
 
 const addCourseMethod = 'Courses.add';
+const removeCourseMethod = 'Courses.remove';
 
 Meteor.methods({
   'Courses.add'({ name }) {
@@ -60,13 +61,29 @@ Meteor.methods({
     }
     Courses.collection.insert({ name, path });
   },
+  'Courses.remove'({ name }) {
+    // eslint-disable-next-line no-empty
+    if (Courses.collection.find({ name: name }).count() !== 0) {
+      throw new Meteor.Error(`The course '${name}' does not exists.`);
+    }
+    Courses.collection.remove({ name: name });
+  },
+
 });
 
 const addNoteMethod = 'Notes.add';
+const removeNoteMethod = 'Notes.remove';
 
 Meteor.methods({
   'Notes.add'({ title, course, owner, image, description }) {
     return Notes.collection.insert({ title, course, owner, image, description });
+  },
+  'Notes.remove'({ title }) {
+    // eslint-disable-next-line no-empty
+    if (Notes.collection.find({ title }).count() !== 0) {
+      throw new Meteor.Error(`The note '${title}' does not exists.`);
+    }
+    Notes.collection.remove({ title });
   },
 });
 
@@ -82,4 +99,11 @@ Meteor.methods({
   },
 });
 
-export { addProfileMethod, updateProfileMethod, addCourseMethod, addNoteMethod, addRatingMethod };
+export {
+  addProfileMethod,
+  updateProfileMethod,
+  addCourseMethod,
+  removeCourseMethod,
+  addNoteMethod,
+  removeNoteMethod,
+  addRatingMethod };
