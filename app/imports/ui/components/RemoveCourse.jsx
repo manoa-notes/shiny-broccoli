@@ -6,6 +6,7 @@ import SimpleSchema2Bridge from 'uniforms-bridge-simple-schema-2';
 import SimpleSchema from 'simpl-schema';
 import { Meteor } from 'meteor/meteor';
 import { removeCourseMethod } from '../../startup/both/Methods';
+import ListCourses from '../pages/ListCourses';
 
 // Create a schema to specify the structure of the data to appear in the form.
 const formSchema = new SimpleSchema({
@@ -44,6 +45,9 @@ const RemoveCourse = () => {
             </Card>
           </AutoForm>
         </Col>
+      </Row>
+      <Row>
+        <ListCourses />
       </Row>
     </Container>
   );

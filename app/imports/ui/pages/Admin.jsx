@@ -66,7 +66,7 @@ const Admin = () => {
       </h2>
       <h2 className="py-3">
         Edit ALL Courses
-        <Button className="ms-2" variant="success" as={Link} to="/profile">Edit Profile</Button>
+        <Button className="ms-2" variant="success" as={Link} to="/removeCourse">remove Course</Button>
       </h2>
     </Container>
   ) : <LoadingSpinner />;
