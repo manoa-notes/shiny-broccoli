@@ -61,6 +61,10 @@ const Admin = () => {
         }
       </Row>
       <h2 className="py-3">
+        Edit ALL NOTES
+        <Button className="ms-2" variant="success" as={Link} to="/removeNote">Edit Notes</Button>
+      </h2>
+      <h2 className="py-3">
         Edit ALL PROFILES
         <Button className="ms-2" variant="success" as={Link} to="/profile">Edit Profile</Button>
       </h2>
