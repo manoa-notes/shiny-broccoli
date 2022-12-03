@@ -23,6 +23,7 @@
       "email": "johnson@hawaii.edu",
       "bio": "I am a Professor and like to paddle outrigger canoes.",
       "picture": "https://github.com/philipmjohnson.png",
+      "role": "admin",
       "courseInterests": [
         "ICS 111",
         "ICS 211"
