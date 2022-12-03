@@ -19,6 +19,7 @@ import Course from '../pages/Course';
 import AddCourse from '../pages/AddCourse';
 import Note from '../pages/Note';
 import Admin from '../pages/Admin';
+import RemoveCourse from '../components/RemoveCourse';
 
 /* Top-level layout component for this application. Called in imports/startup/client/startup.jsx. */
 const App = () => (
@@ -41,6 +42,7 @@ const App = () => (
         <Route path="/courses" element={<ProtectedRoute><ListCourses /></ProtectedRoute>} />
         <Route path="/courses/:path" element={<ProtectedRoute><Course /></ProtectedRoute>} />
         <Route path="/addCourse" element={<ProtectedRoute><AddCourse /></ProtectedRoute>} />
+        <Route path="/removeCourse" element={<ProtectedRoute><RemoveCourse /></ProtectedRoute>} />
 
         {/* Note routes */}
         <Route path="/notes" element={<ProtectedRoute><ListNotes /></ProtectedRoute>} />
