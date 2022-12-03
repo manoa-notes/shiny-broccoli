@@ -8,7 +8,7 @@ import { Courses } from '../../api/course/Courses';
 import LoadingSpinner from '../components/LoadingSpinner';
 import { Notes } from '../../api/note/Note';
 import NoteCard from '../components/NoteCard';
-import { PageIDs } from '../utilities/ids';
+import { ComponentIDs, PageIDs } from '../utilities/ids';
 
 const Course = () => {
   const { path } = useParams();
@@ -35,20 +35,27 @@ const Course = () => {
 
   if (notes.length === 0) {
     return ready ? (
-      <Container className="py-3">
+      <Container className="py-3" id={PageIDs.coursePageEmpty}>
         <h1>{course.name}</h1>
         <h2>Notes</h2>
         <Row>
           <p style={{ fontSize: '18px' }}>
             There are currently no notes for this class. Add some here:
-            <Button className="ms-2" variant="success" as={Link} to="/addNote">Add notes</Button>
+            <Button
+              id={ComponentIDs.addNoteInCourseButton}
+              className="ms-2"
+              variant="success"
+              as={Link}
+              to="/addNote"
+            >Add notes
+            </Button>
           </p>
         </Row>
       </Container>
     ) : <LoadingSpinner />;
   }
   return ready ? (
-    <Container className="py-3" id={PageIDs.listCoursesPage}>
+    <Container className="py-3" id={PageIDs.coursePage}>
       <h1>{course.name}</h1>
       <h2>Notes</h2>
       <Row>
