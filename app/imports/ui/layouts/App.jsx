@@ -18,6 +18,7 @@ import ListNotes from '../pages/ListNotes';
 import Course from '../pages/Course';
 import AddCourse from '../pages/AddCourse';
 import Note from '../pages/Note';
+import Admin from '../pages/Admin';
 
 /* Top-level layout component for this application. Called in imports/startup/client/startup.jsx. */
 const App = () => (
@@ -25,13 +26,14 @@ const App = () => (
     <div className="d-flex flex-column min-vh-100">
       <NavBar />
       <Routes>
-        {/* Routes from Bowfolios template */}
+        {/* Routes from Rainbow-Notes template */}
         <Route exact path="/" element={<Landing />} />
         <Route path="/signin" element={<SignIn />} />
         <Route path="/signup" element={<SignUp />} />
         <Route path="/signout" element={<SignOut />} />
         <Route path="/home" element={<ProtectedRoute><Home /></ProtectedRoute>} />
         <Route path="/profile" element={<ProtectedRoute><Profile /></ProtectedRoute>} />
+        <Route path="/admin" element={<ProtectedRoute><Admin /></ProtectedRoute>} />
         <Route path="/notauthorized" element={<NotAuthorized />} />
         <Route path="*" element={<NotFound />} />
 
