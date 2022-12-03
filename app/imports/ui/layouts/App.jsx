@@ -20,6 +20,8 @@ import AddCourse from '../pages/AddCourse';
 import Note from '../pages/Note';
 import Admin from '../pages/Admin';
 import ListProfiles from '../pages/ListProfiles';
+import RemoveCourse from '../components/RemoveCourse';
+import RemoveNote from '../components/RemoveNote';
 
 /* Top-level layout component for this application. Called in imports/startup/client/startup.jsx. */
 const App = () => (
@@ -41,6 +43,7 @@ const App = () => (
         <Route path="/courses" element={<ProtectedRoute><ListCourses /></ProtectedRoute>} />
         <Route path="/courses/:path" element={<ProtectedRoute><Course /></ProtectedRoute>} />
         <Route path="/addCourse" element={<ProtectedRoute><AddCourse /></ProtectedRoute>} />
+        <Route path="/removeCourse" element={<ProtectedRoute><RemoveCourse /></ProtectedRoute>} />
 
         {/* Profile routes */}
         <Route path="/profile" element={<ProtectedRoute><Profile /></ProtectedRoute>} />
@@ -50,6 +53,7 @@ const App = () => (
         <Route path="/notes" element={<ProtectedRoute><ListNotes /></ProtectedRoute>} />
         <Route path="/notes/:_id" element={<ProtectedRoute><Note /></ProtectedRoute>} />
         <Route path="/addNote" element={<ProtectedRoute><AddNote /></ProtectedRoute>} />
+        <Route path="/removeNote" element={<ProtectedRoute><RemoveNote /></ProtectedRoute>} />
       </Routes>
       <Footer />
     </div>
