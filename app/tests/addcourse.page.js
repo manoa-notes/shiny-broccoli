@@ -19,6 +19,7 @@ class AddCoursePage {
     // Define the new course
     await testController.typeText(`#${ComponentIDs.addCourseName}`, name);
     await testController.click(`#${ComponentIDs.addCourseSubmit} input.btn.btn-primary`);
+    await testController.click(Selector('.swal-button--confirm'));
   }
 }
 

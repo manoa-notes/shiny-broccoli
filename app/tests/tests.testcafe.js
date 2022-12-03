@@ -67,14 +67,25 @@ test('Test the Courses page', async (testController) => {
   await addCoursePage.addCourse(testController);
 });
 
-test.only('Test Adding a Course then adding a Note to that course', async (testController) => {
+test('Test Adding a Course then adding a Note to that course', async (testController) => {
   await navBar.ensureLogout(testController);
   await navBar.gotoSignInPage(testController);
   await signInPage.signin(testController, credentials.username, credentials.password);
   await navBar.gotoListCoursesPage(testController);
-  // await listCoursesPage.addCourse(testController);
-  // await addCoursePage.addCourse(testController);
+  await listCoursesPage.addCourse(testController);
+  await addCoursePage.addCourse(testController);
   await listCoursesPage.gotoCourse(testController);
-  // await coursePage.isDisplayed(testController);
+  await coursePageEmpty.isDisplayed(testController);
+  await coursePageEmpty.addNote(testController);
+});
+test.only('Going to course list', async (testController) => {
+  await navBar.gotoListCoursesPage(testController);
+  await listCoursesPage.isDisplayed(testController);
+});
+test.only('Adding a Course', async (testController) => {
+  await listCoursesPage.addCourse(testController);
+  await addCoursePage.addCourse(testController);
+  await listCoursesPage.gotoCourse(testController);
+  await coursePageEmpty.isDisplayed(testController);
   await coursePageEmpty.addNote(testController);
 });
