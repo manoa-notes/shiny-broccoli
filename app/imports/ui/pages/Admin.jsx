@@ -51,19 +51,19 @@ const Admin = () => {
         }
       </Row>
       <Row className="py-3">
-        <h2>Your Notes</h2>
+        <h2>Your Notes.</h2>
         {
           userNotes.length > 0 ?
             userNotes.map(note => <NoteCard key={note._id} note={note} />) : (
               <p style={{ fontSize: '18px' }}>
-                You currently have no notes. Add some here:
+                EDIT ALL NOTES
                 <Button className="ms-2" variant="success" as={Link} to="/addNote">Add notes</Button>
               </p>
             )
         }
       </Row>
       <h2 className="py-3">
-        First time logging in? Edit your profile here:
+        Edit ALL PROFILES
         <Button className="ms-2" variant="success" as={Link} to="/profile">Edit Profile</Button>
       </h2>
     </Container>
