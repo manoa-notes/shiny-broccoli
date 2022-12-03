@@ -19,6 +19,7 @@ import Course from '../pages/Course';
 import AddCourse from '../pages/AddCourse';
 import Note from '../pages/Note';
 import Admin from '../pages/Admin';
+import ListProfiles from '../pages/ListProfiles';
 import RemoveCourse from '../components/RemoveCourse';
 import RemoveNote from '../components/RemoveNote';
 
@@ -34,7 +35,6 @@ const App = () => (
         <Route path="/signup" element={<SignUp />} />
         <Route path="/signout" element={<SignOut />} />
         <Route path="/home" element={<ProtectedRoute><Home /></ProtectedRoute>} />
-        <Route path="/profile" element={<ProtectedRoute><Profile /></ProtectedRoute>} />
         <Route path="/admin" element={<ProtectedRoute><Admin /></ProtectedRoute>} />
         <Route path="/notauthorized" element={<NotAuthorized />} />
         <Route path="*" element={<NotFound />} />
@@ -44,6 +44,10 @@ const App = () => (
         <Route path="/courses/:path" element={<ProtectedRoute><Course /></ProtectedRoute>} />
         <Route path="/addCourse" element={<ProtectedRoute><AddCourse /></ProtectedRoute>} />
         <Route path="/removeCourse" element={<ProtectedRoute><RemoveCourse /></ProtectedRoute>} />
+
+        {/* Profile routes */}
+        <Route path="/profile" element={<ProtectedRoute><Profile /></ProtectedRoute>} />
+        <Route path="/listprofile" element={<ProtectedRoute><ListProfiles /></ProtectedRoute>} />
 
         {/* Note routes */}
         <Route path="/notes" element={<ProtectedRoute><ListNotes /></ProtectedRoute>} />
