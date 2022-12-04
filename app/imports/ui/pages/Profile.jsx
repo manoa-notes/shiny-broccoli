@@ -12,6 +12,7 @@ import { Courses } from '../../api/course/Courses';
 import { Profiles } from '../../api/profiles/Profiles';
 import LoadingSpinner from '../components/LoadingSpinner';
 import { updateProfileMethod } from '../../startup/both/Methods';
+import { PageIDs } from '../utilities/ids';
 
 /* Create a schema to specify the structure of the data to appear in the form. */
 const makeSchema = (courses) => new SimpleSchema({
@@ -60,7 +61,7 @@ const Profile = () => {
   };
 
   return (ready ? (
-    <Container className="justify-content-center" style={pageStyle}>
+    <Container className="justify-content-center" style={pageStyle} id={PageIDs.profilePage}>
       <Col>
         <Col className="justify-content-center text-center"><h2>Your Profile</h2></Col>
         <AutoForm model={model} schema={bridge} onSubmit={data => submit(data)}>

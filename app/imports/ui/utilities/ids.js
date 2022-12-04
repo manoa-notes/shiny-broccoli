@@ -56,6 +56,7 @@ export const ComponentIDs = {
 };
 
 export const PageIDs = {
+  profilePage: 'profilePage',
   coursePage: 'coursePage',
   coursePageEmpty: 'coursePageEmpty',
   addCoursePage: 'addCoursePage',
