@@ -12,6 +12,7 @@ import { Notes } from '../../api/note/Note';
 import { Ratings } from '../../api/rating/Rating';
 import { addRatingMethod } from '../../startup/both/Methods';
 import { Profiles } from '../../api/profiles/Profiles';
+import { ComponentIDs, PageIDs } from '../utilities/ids';
 
 const Note = () => {
   const { _id } = useParams();
@@ -56,13 +57,13 @@ const Note = () => {
   };
 
   return ready ? (
-    <Container className="py-3">
+    <Container className="py-3" id={PageIDs.notePage}>
       <Row>
         <Col>
           <h2>{note.title}</h2>
           <h4>By: {note.owner}</h4>
         </Col>
-        <Col className="text-end">
+        <Col className="text-end" id={ComponentIDs.addRating}>
           <Rating
             initialRating={avgRating}
             emptySymbol={<StarFill color="gainsboro" />}

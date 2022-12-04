@@ -1,9 +1,9 @@
 import { Selector } from 'testcafe';
 import { ComponentIDs, PageIDs } from '../imports/ui/utilities/ids';
 
-class ListNotesPage {
+class NotePage {
   constructor() {
-    this.pageId = `#${PageIDs.listNotesPage}`;
+    this.pageId = `#${PageIDs.notePage}`;
     this.pageSelector = Selector(this.pageId);
   }
 
@@ -13,14 +13,9 @@ class ListNotesPage {
     await testController.wait(20000).expect(this.pageSelector.exists).ok();
   }
 
-  async gotoAddNotePage(testController) {
-    await testController.click(`#${ComponentIDs.addNoteLink}`);
-  }
-
-  async gotoNote(testController) {
-    const testNote = 'Test-Note';
-    const courseSelector = Selector(`#${ComponentIDs.seeNoteLink}`);
-    await testController.click(courseSelector.withText(testNote));
+  async rateNote(testController) {
+    const courseSelector = Selector(`#${ComponentIDs.addRating}`);
+    await testController.click(courseSelector.nth(0));
   }
 }
-export const listNotesPage = new ListNotesPage();
+export const notePage = new NotePage();

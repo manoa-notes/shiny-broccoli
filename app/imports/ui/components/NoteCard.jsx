@@ -60,14 +60,22 @@ const NoteCard = ({ note, removable }) => {
           </Card.Text>
           <Row>
             <Col>
-              <Button variant="success" as={Link} to={`/notes/${note._id}`}>See more</Button>
+              <Button
+                id={ComponentIDs.seeNoteLink}
+                variant="success"
+                as={Link}
+                to={`/notes/${note._id}`}
+              >
+                See more
+              </Button>
             </Col>
             {removable ? (
               <Col className="text-end">
                 <Button
                   variant="danger"
                   id={ComponentIDs.removeNote}
-                  onClick={() => handleRemove(note._id)}>
+                  onClick={() => handleRemove(note._id)}
+                >
                   <Trash />
                 </Button>
               </Col>

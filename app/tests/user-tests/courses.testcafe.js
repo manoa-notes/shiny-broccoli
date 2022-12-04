@@ -21,5 +21,6 @@ test('Test the Courses functionality', async (testController) => {
   await addCoursePage.isDisplayed(testController);
   await addCoursePage.addCourse(testController);
   await navBar.gotoListCoursesPage(testController);
+  await listCoursesPage.isDisplayed(testController);
   await listCoursesPage.gotoCourse(testController);
 });

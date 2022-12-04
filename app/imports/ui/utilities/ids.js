@@ -51,6 +51,8 @@ export const ComponentIDs = {
   adminCoursesLink: 'adminCoursesLink',
   adminNotesLink: 'adminNotesLink',
   adminProfilesLink: 'adminProfilesLink',
+  seeNoteLink: 'seeNoteLink',
+  addRating: 'addRating',
 };
 
 export const PageIDs = {
@@ -75,4 +77,5 @@ export const PageIDs = {
   adminListNotesPage: 'adminListNotesPage',
   adminListCoursesPage: 'adminListCoursesPage',
   adminListProfilesPage: 'adminListProfilesPage',
+  notePage: 'notePage',
 };

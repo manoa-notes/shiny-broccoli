@@ -1,6 +1,8 @@
 import { signInPage } from '../signin.page';
 import { navBar } from '../navbar.component';
-import { adminListNotesPage } from '../adminListNotes.page';
+import { listNotesPage } from '../listNotes.page';
+import { addNotePage } from '../addnote.page';
+import { notePage } from '../note.page';
 
 /* global fixture:false, test:false */
 
@@ -10,10 +12,16 @@ const credentials = { username: 'admin@foo.com', password: 'foo', firstName: 'Ad
 fixture('Rainbow Notes localhost test with default db')
   .page('http://localhost:3000');
 
-test('Test Admin Delete Note', async (testController) => {
+test('Test Notes Functionality', async (testController) => {
   await navBar.ensureLogout(testController);
   await navBar.gotoSignInPage(testController);
   await signInPage.signin(testController, credentials.username, credentials.password);
-  await navBar.gotoAdminListNotesPage(testController);
-  await adminListNotesPage.deleteNote(testController);
+  await navBar.gotoListNotesPage(testController);
+  await listNotesPage.isDisplayed(testController);
+  await listNotesPage.gotoAddNotePage(testController);
+  await addNotePage.isDisplayed(testController);
+  await addNotePage.addNote(testController);
+  await listNotesPage.gotoNote(testController);
+  await notePage.isDisplayed(testController);
+  await notePage.rateNote(testController);
 });
