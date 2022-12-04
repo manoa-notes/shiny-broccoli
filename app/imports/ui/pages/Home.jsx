@@ -42,7 +42,7 @@ const Home = () => {
         <h2>Recommended Notes</h2>
         {
           courses !== undefined ?
-            recommendedNotes.map(note => <NoteCard key={note._id} note={note} />) : (
+            recommendedNotes.map(note => <NoteCard key={note._id} note={note} removable={false} />) : (
               <p style={{ fontSize: '18px' }}>
                 Please update your profile in order to receive recommendations.
                 <Button className="ms-2" variant="success" as={Link} to="/profile">Edit Profile</Button>
@@ -54,7 +54,7 @@ const Home = () => {
         <h2>Your Notes</h2>
         {
           userNotes.length > 0 ?
-            userNotes.map(note => <NoteCard key={note._id} note={note} />) : (
+            userNotes.map(note => <NoteCard key={note._id} note={note} removable />) : (
               <p style={{ fontSize: '18px' }}>
                 You currently have no notes. Add some here:
                 <Button className="ms-2" variant="success" as={Link} to="/addNote">Add notes</Button>

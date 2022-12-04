@@ -22,14 +22,18 @@ const NavBar = () => {
         <Navbar.Toggle aria-controls={ComponentIDs.basicNavbarNav} />
         <Navbar.Collapse id={ComponentIDs.basicNavbarNav}>
           <Nav className="me-auto justify-content-start">
-            {currentUser ? ([
-              <Nav.Link id={ComponentIDs.homeLink} as={NavLink} to="/home" key="home">Home</Nav.Link>,
+            {currentUser ? (
+              <Nav.Link id={ComponentIDs.coursesLink} as={NavLink} to="/home" key="home">Home</Nav.Link>
+            ) : ''}
+            {!(Roles.userIsInRole(Meteor.userId(), 'admin')) ? ([
               <Nav.Link id={ComponentIDs.coursesLink} as={NavLink} to="/courses" key="courses">Courses</Nav.Link>,
               <Nav.Link id={ComponentIDs.notesLink} as={NavLink} to="/notes" key="notes">Notes</Nav.Link>,
             ]) : ''}
-            {Roles.userIsInRole(Meteor.userId(), 'admin') ? (
-              <Nav.Link id="list-stuff-admin-nav" as={NavLink} to="/admin" key="admin"><strong>Admin</strong></Nav.Link>
-            ) : ''}
+            {currentUser && Roles.userIsInRole(Meteor.userId(), 'admin') ? ([
+              <Nav.Link id="admin-courses-nav" as={NavLink} to="/admincourses" key="admincourses">Courses</Nav.Link>,
+              <Nav.Link id="admin-notes-nav" as={NavLink} to="/adminnotes" key="adminnotes">Notes</Nav.Link>,
+              <Nav.Link id="admin-profiles-nav" as={NavLink} to="/adminprofiles" key="adminprofiles">Profiles</Nav.Link>,
+            ]) : ''}
           </Nav>
           <Nav className="justify-content-end">
             {currentUser === '' ? (
