@@ -6,7 +6,7 @@ import { Meteor } from 'meteor/meteor';
 import LoadingSpinner from '../components/LoadingSpinner';
 import { Courses } from '../../api/course/Courses';
 import { Notes } from '../../api/note/Note';
-import { PageIDs } from '../utilities/ids';
+import { ComponentIDs, PageIDs } from '../utilities/ids';
 
 const ListCourses = () => {
   // useTracker connects Meteor data to React components. https://guide.meteor.com/react.html#using-withTracker
@@ -30,10 +30,16 @@ const ListCourses = () => {
   return (ready ? (
     <Container className="py-3" id={PageIDs.listCoursesPage}>
       <h1>Courses</h1>
-      <Row>
+      <Row id={ComponentIDs.courseListButtons}>
         {courses.map(course => (
           <Col md={3} className="d-grid py-2" key={course._id}>
-            <Button variant="success" size="lg" as={Link} to={`/courses/${course.path}`}>
+            <Button
+              id={ComponentIDs.courseButton}
+              variant="success"
+              size="lg"
+              as={Link}
+              to={`/courses/${course.path}`}
+            >
               {course.name} ({Notes.collection.find({ course: course.name }).fetch().length} notes)
             </Button>
           </Col>
@@ -41,7 +47,14 @@ const ListCourses = () => {
       </Row>
       <Row className="text-center py-4">
         <h4>Don&apos;t see a course? Add one here:
-          <Button className="ms-2" variant="success" as={Link} to="/addCourse">Add Course</Button>
+          <Button
+            className="ms-2"
+            variant="success"
+            as={Link}
+            to="/addCourse"
+            id={ComponentIDs.addCourseButton}
+          >Add Course
+          </Button>
         </h4>
       </Row>
     </Container>

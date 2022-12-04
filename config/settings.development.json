@@ -1,8 +1,4 @@
 {
-  "defaultAccounts": [
-    { "email": "admin@foo.com", "password": "changeme", "role": "admin" },
-    { "email": "john@foo.com", "password": "changeme" }
-  ],
   "defaultProfiles": [
     {
       "firstName": "Admin",
@@ -124,6 +120,10 @@
     {
       "name": "EE 211",
       "path": "EE211"
+    },
+    {
+      "name": "TestCourse-123",
+      "path": "TestCourse-123"
     }
   ],
   "loadAssetsFile":  false
