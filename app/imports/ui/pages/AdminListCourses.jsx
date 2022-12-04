@@ -1,14 +1,17 @@
 import React from 'react';
-import { Button, Col, Container, Row } from 'react-bootstrap';
+import { Button, ButtonGroup, Col, Container, Row } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 import { useTracker } from 'meteor/react-meteor-data';
 import { Meteor } from 'meteor/meteor';
+import { Trash } from 'react-bootstrap-icons';
+import swal from 'sweetalert';
 import LoadingSpinner from '../components/LoadingSpinner';
 import { Courses } from '../../api/course/Courses';
 import { Notes } from '../../api/note/Note';
-import { ComponentIDs, PageIDs } from '../utilities/ids';
+import { PageIDs } from '../utilities/ids';
+import { removeCourseMethod } from '../../startup/both/Methods';
 
-const ListCourses = () => {
+const AdminListCourses = () => {
   // useTracker connects Meteor data to React components. https://guide.meteor.com/react.html#using-withTracker
   const { ready, courses } = useTracker(() => {
     // Note that this subscription will get cleaned up
@@ -27,38 +30,37 @@ const ListCourses = () => {
       ready: rdy,
     };
   }, []);
+
+  const handleRemove = (_id) => {
+    Meteor.call(removeCourseMethod, { _id }, (error) => {
+      if (error) {
+        swal('Error', error.message, 'error');
+      }
+    });
+  };
+
   return (ready ? (
     <Container className="py-3" id={PageIDs.listCoursesPage}>
       <h1>Courses</h1>
-      <Row id={ComponentIDs.courseListButtons}>
+      <Row>
         {courses.map(course => (
           <Col md={3} className="d-grid py-2" key={course._id}>
-            <Button
-              id={ComponentIDs.courseButton}
-              variant="success"
-              size="lg"
-              as={Link}
-              to={`/courses/${course.path}`}
-            >
-              {course.name} ({Notes.collection.find({ course: course.name }).fetch().length} notes)
-            </Button>
+            <ButtonGroup>
+              <Button variant="success" size="lg" as={Link} to={`/courses/${course.path}`}>
+                {course.name} ({Notes.collection.find({ course: course.name }).fetch().length} notes)
+              </Button>
+              <Button className="flex-grow-0" variant="danger" onClick={() => handleRemove(course._id)}><Trash /></Button>
+            </ButtonGroup>
           </Col>
         ))}
       </Row>
       <Row className="text-center py-4">
         <h4>Don&apos;t see a course? Add one here:
-          <Button
-            className="ms-2"
-            variant="success"
-            as={Link}
-            to="/addCourse"
-            id={ComponentIDs.addCourseButton}
-          >Add Course
-          </Button>
+          <Button className="ms-2" variant="success" as={Link} to="/addCourse">Add Course</Button>
         </h4>
       </Row>
     </Container>
   ) : <LoadingSpinner />);
 };
 
-export default ListCourses;
+export default AdminListCourses;

@@ -5,11 +5,11 @@ import { useTracker } from 'meteor/react-meteor-data';
 import { Link } from 'react-router-dom';
 import { Notes } from '../../api/note/Note';
 import LoadingSpinner from '../components/LoadingSpinner';
-import NoteCard from '../components/NoteCard';
 import { ComponentIDs, PageIDs } from '../utilities/ids';
+import NoteCard from '../components/NoteCard';
 
 /* Renders a table containing all of the Stuff documents. Use <StuffItem> to render each row. */
-const ListNotes = () => {
+const AdminListNotes = () => {
   const { ready, notes } = useTracker(() => {
     // Note that this subscription will get cleaned up
     // when your component is unmounted or deps change.
@@ -36,10 +36,10 @@ const ListNotes = () => {
         </Col>
       </Row>
       <Row>
-        {notes.map(note => <NoteCard key={note._id} note={note} removable={false} />)}
+        {notes.map(note => <NoteCard key={note._id} note={note} removable />)}
       </Row>
     </Container>
   ) : <LoadingSpinner />);
 };
 
-export default ListNotes;
+export default AdminListNotes;
