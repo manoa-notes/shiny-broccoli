@@ -11,7 +11,7 @@ const credentials = { username: 'johnson@hawaii.edu', password: 'foo', firstName
 fixture('Rainbow Notes localhost test with default db')
   .page('http://localhost:3000');
 
-test('Test the Courses page functionality', async (testController) => {
+test('Test the Courses functionality', async (testController) => {
   await navBar.ensureLogout(testController);
   await navBar.gotoSignInPage(testController);
   await signInPage.signin(testController, credentials.username, credentials.password);
@@ -20,4 +20,6 @@ test('Test the Courses page functionality', async (testController) => {
   await listCoursesPage.addCourse(testController);
   await addCoursePage.isDisplayed(testController);
   await addCoursePage.addCourse(testController);
+  await navBar.gotoListCoursesPage(testController);
+  await listCoursesPage.gotoCourse(testController);
 });
