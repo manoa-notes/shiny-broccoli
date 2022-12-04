@@ -16,5 +16,9 @@ class ListNotesPage {
   async gotoAddNotePage(testController) {
     await testController.click(`#${ComponentIDs.addNoteLink}`);
   }
+
+  async seeNote(testController) {
+    await testController.click(`#${ComponentIDs.seeNoteButton}`);
+  }
 }
 export const listNotesPage = new ListNotesPage();

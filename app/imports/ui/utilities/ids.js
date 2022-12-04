@@ -46,9 +46,12 @@ export const ComponentIDs = {
   courseButton: 'courseButton',
   addNoteInCourseButton: 'addNoteInCourseButton',
   homeLink: 'homeLink',
+  seeNoteButton: 'seeNoteButton',
+  ratingSelector: 'ratingSelector',
 };
 
 export const PageIDs = {
+  notePage: 'notePage',
   coursePage: 'coursePage',
   coursePageEmpty: 'coursePageEmpty',
   addCoursePage: 'addCoursePage',

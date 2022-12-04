@@ -9,6 +9,7 @@ import { useTracker } from 'meteor/react-meteor-data';
 import { _ } from 'meteor/underscore';
 import { Ratings } from '../../api/rating/Rating';
 import LoadingSpinner from './LoadingSpinner';
+import { ComponentIDs } from '../utilities/ids';
 
 /** Renders a single note card. */
 const NoteCard = ({ note }) => {
@@ -47,7 +48,14 @@ const NoteCard = ({ note }) => {
             />
             {numRatings} ratings
           </Card.Text>
-          <Button variant="success" as={Link} to={`/notes/${note._id}`}>See more</Button>
+          <Button
+            variant="success"
+            as={Link}
+            to={`/notes/${note._id}`}
+            id={ComponentIDs.seeNoteButton}
+          >
+            See more
+          </Button>
         </Card.Body>
       </Card>
     </Col>
