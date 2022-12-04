@@ -90,6 +90,13 @@
       "owner": "johnson@hawaii.edu",
       "image":"https://www.learn.org.au/wp-content/uploads/2016/08/Voila_Capture-2016-08-16_08-14-04_PM.png",
       "description": "Solving DC circuit notes"
+    },
+    {
+      "title": "Test Note",
+      "course": "TestCourse-123",
+      "owner": "admin@foo.com",
+      "image":"http://farm4.staticflickr.com/3789/10177514664_0ff9a53cf8_z.jpg",
+      "description": "Basic Notes"
     }
   ],
   "defaultCourses": [

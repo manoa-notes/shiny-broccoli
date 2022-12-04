@@ -20,6 +20,24 @@ class NavBar {
     await testController.click(`#${ComponentIDs.notesLink}`);
   }
 
+  /* If logged in as admin, go to the admin list courses page */
+  async gotoAdminListCoursesPage(testController) {
+    const visible = await Selector(`#${ComponentIDs.basicNavbarNav}`).visible;
+    if (!visible) {
+      await testController.click('button.navbar-toggler');
+    }
+    await testController.click(`#${ComponentIDs.adminCoursesLink}`);
+  }
+
+  /* If logged in as admin, go to the admin list notes page */
+  async gotoAdminListNotesPage(testController) {
+    const visible = await Selector(`#${ComponentIDs.basicNavbarNav}`).visible;
+    if (!visible) {
+      await testController.click('button.navbar-toggler');
+    }
+    await testController.click(`#${ComponentIDs.adminNotesLink}`);
+  }
+
   /** If someone is logged in, then log them out, otherwise do nothing. */
   async ensureLogout(testController) {
     const visible = await Selector(`#${ComponentIDs.basicNavbarNav}`).visible;

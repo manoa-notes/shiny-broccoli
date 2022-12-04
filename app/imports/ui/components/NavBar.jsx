@@ -5,7 +5,7 @@ import { NavLink } from 'react-router-dom';
 import { Roles } from 'meteor/alanning:roles';
 import { Container, Image, Nav, Navbar, NavDropdown } from 'react-bootstrap';
 import { BoxArrowRight, PersonFill, PersonPlusFill } from 'react-bootstrap-icons';
-import { ComponentIDs } from '../utilities/ids';
+import { ComponentIDs, PageIDs } from '../utilities/ids';
 
 const NavBar = () => {
   // useTracker connects Meteor data to React components. https://guide.meteor.com/react.html#using-withTracker
@@ -30,9 +30,9 @@ const NavBar = () => {
               <Nav.Link id={ComponentIDs.notesLink} as={NavLink} to="/notes" key="notes">Notes</Nav.Link>,
             ]) : ''}
             {currentUser && Roles.userIsInRole(Meteor.userId(), 'admin') ? ([
-              <Nav.Link id="admin-courses-nav" as={NavLink} to="/admincourses" key="admincourses">Courses</Nav.Link>,
-              <Nav.Link id="admin-notes-nav" as={NavLink} to="/adminnotes" key="adminnotes">Notes</Nav.Link>,
-              <Nav.Link id="admin-profiles-nav" as={NavLink} to="/adminprofiles" key="adminprofiles">Profiles</Nav.Link>,
+              <Nav.Link id={ComponentIDs.adminCoursesLink} as={NavLink} to="/admincourses" key="admincourses">Courses</Nav.Link>,
+              <Nav.Link id={ComponentIDs.adminNotesLink} as={NavLink} to="/adminnotes" key="adminnotes">Notes</Nav.Link>,
+              <Nav.Link id={ComponentIDs.adminProfilesLink} as={NavLink} to="/adminprofiles" key="adminprofiles">Profiles</Nav.Link>,
             ]) : ''}
           </Nav>
           <Nav className="justify-content-end">

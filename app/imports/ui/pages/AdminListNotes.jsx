@@ -26,7 +26,7 @@ const AdminListNotes = () => {
   }, []);
 
   return (ready ? (
-    <Container className="py-3" id={PageIDs.listNotesPage}>
+    <Container className="py-3" id={PageIDs.adminListNotesPage}>
       <Row className="align-items-center">
         <Col md={2}>
           <h1>Notes</h1>
@@ -36,7 +36,13 @@ const AdminListNotes = () => {
         </Col>
       </Row>
       <Row>
-        {notes.map(note => <NoteCard key={note._id} note={note} removable />)}
+        {notes.map(note => (
+          <NoteCard
+            key={note._id}
+            note={note}
+            removable
+          />
+        ))}
       </Row>
     </Container>
   ) : <LoadingSpinner />);

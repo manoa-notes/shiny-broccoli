@@ -44,8 +44,9 @@
     "testcafe-single": "testcafe chrome tests/*.testcafe.js -t \"Test that addProject page works\"",
     "testcafe-ci": "testcafe chrome:headless tests/*.testcafe.js -q attemptLimit=5,successThreshold=2 --app \"meteor npm run start\"",
     "unimported": "npx unimported",
-    "testcafe-user": "testcafe chrome tests/user-test/*.testcafe.js",
-    "testcafe-admin": "testcafe chrome tests/admin-test/*.testcafe.js",
-    "testcafe-courses": "testcafe chrome tests/courses.testcafe.js"
+    "testcafe-admin-notes": "testcafe chrome tests/admin-test/admin-notes.testcafe.js",
+    "testcafe-admin-courses": "testcafe chrome tests/admin-test/admin-courses.testcafe.js",
+    "testcafe-user-courses": "testcafe chrome tests/user-tests/courses.testcafe.js",
+    "testcafe-user-notes": "testcafe chrome tests/user-tests/notes.testcafe.js"
   }
 }

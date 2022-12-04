@@ -11,6 +11,7 @@ import swal from 'sweetalert';
 import { Ratings } from '../../api/rating/Rating';
 import LoadingSpinner from './LoadingSpinner';
 import { removeNoteMethod } from '../../startup/both/Methods';
+import { ComponentIDs } from '../utilities/ids';
 
 /** Renders a single note card. */
 const NoteCard = ({ note, removable }) => {
@@ -63,7 +64,12 @@ const NoteCard = ({ note, removable }) => {
             </Col>
             {removable ? (
               <Col className="text-end">
-                <Button variant="danger" onClick={() => handleRemove(note._id)}><Trash /></Button>
+                <Button
+                  variant="danger"
+                  id={ComponentIDs.removeNote}
+                  onClick={() => handleRemove(note._id)}>
+                  <Trash />
+                </Button>
               </Col>
             ) : ''}
           </Row>
