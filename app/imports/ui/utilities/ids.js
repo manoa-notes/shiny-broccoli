@@ -39,9 +39,19 @@ export const ComponentIDs = {
   addNoteLink: 'addNoteLink',
   notesLink: 'notesLink',
   addNoteRadio: 'addNoteRadio',
+  addCourseName: 'addCourseName',
+  addCourseSubmit: 'addCourseSubmit',
+  addCourseButton: 'addCourseButton',
+  courseListButtons: 'courseListButtons',
+  courseButton: 'courseButton',
+  addNoteInCourseButton: 'addNoteInCourseButton',
+  homeLink: 'homeLink',
 };
 
 export const PageIDs = {
+  coursePage: 'coursePage',
+  coursePageEmpty: 'coursePageEmpty',
+  addCoursePage: 'addCoursePage',
   addProjectPage: 'addProjectPage',
   addNotePage: 'addNotePage',
   filterPage: 'filterPage',
