@@ -45,6 +45,7 @@ export const ComponentIDs = {
   courseListButtons: 'courseListButtons',
   courseButton: 'courseButton',
   addNoteInCourseButton: 'addNoteInCourseButton',
+  homeLink: 'homeLink',
 };
 
 export const PageIDs = {
