@@ -1,6 +1,18 @@
 {
   "defaultProfiles": [
     {
+      "firstName": "Test",
+      "lastName": "Foo",
+      "email": "testprofile@foo.com",
+      "bio": "This is a test profile meant to be deleted by testcafe test.",
+      "picture": "https://www.clipartkey.com/mpngs/m/267-2676184_handsome-squidward-clipart-png-download-handsome-squidward-transparent.png",
+      "courseInterests": [
+        "ICS 111",
+        "ICS 211"
+      ],
+      "password": "foo"
+    },
+    {
       "firstName": "Admin",
       "lastName": "Foo",
       "email": "admin@foo.com",

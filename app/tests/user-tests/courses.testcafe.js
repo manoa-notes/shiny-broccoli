@@ -12,14 +12,18 @@ fixture('Rainbow Notes localhost test with default db')
   .page('http://localhost:3000');
 
 test('Test the Courses functionality', async (testController) => {
+  // login
   await navBar.ensureLogout(testController);
   await navBar.gotoSignInPage(testController);
   await signInPage.signin(testController, credentials.username, credentials.password);
+  // navigate to course
   await navBar.gotoListCoursesPage(testController);
   await listCoursesPage.isDisplayed(testController);
+  // add a course
   await listCoursesPage.addCourse(testController);
   await addCoursePage.isDisplayed(testController);
   await addCoursePage.addCourse(testController);
+  // navigate to added course
   await navBar.gotoListCoursesPage(testController);
   await listCoursesPage.isDisplayed(testController);
   await listCoursesPage.gotoCourse(testController);

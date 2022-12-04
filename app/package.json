@@ -46,7 +46,8 @@
     "unimported": "npx unimported",
     "testcafe-admin-notes": "testcafe chrome tests/admin-test/admin-notes.testcafe.js",
     "testcafe-admin-courses": "testcafe chrome tests/admin-test/admin-courses.testcafe.js",
-    "testcafe-user-courses": "testcafe chrome tests/user-tests/courses.testcafe.js",
+    "testcafe-admin-profiles": "testcafe chrome tests/admin-test/admin-courses.testcafe.js",
+    "testcafe-user-courses": "testcafe chrome tests/admin-tests/profiles.testcafe.js",
     "testcafe-user-notes": "testcafe chrome tests/user-tests/notes.testcafe.js"
   }
 }

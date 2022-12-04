@@ -38,6 +38,14 @@ class NavBar {
     await testController.click(`#${ComponentIDs.adminNotesLink}`);
   }
 
+  async gotoAdminListProfilesPage(testController) {
+    const visible = await Selector(`#${ComponentIDs.basicNavbarNav}`).visible;
+    if (!visible) {
+      await testController.click('button.navbar-toggler');
+    }
+    await testController.click(`#${ComponentIDs.adminProfilesLink}`);
+  }
+
   /** If someone is logged in, then log them out, otherwise do nothing. */
   async ensureLogout(testController) {
     const visible = await Selector(`#${ComponentIDs.basicNavbarNav}`).visible;
