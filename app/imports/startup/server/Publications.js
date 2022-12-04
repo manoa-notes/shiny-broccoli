@@ -1,4 +1,5 @@
 import { Meteor } from 'meteor/meteor';
+import { Roles } from 'meteor/alanning:roles';
 import { Profiles } from '../../api/profiles/Profiles';
 import { Notes } from '../../api/note/Note';
 import { Courses } from '../../api/course/Courses';
@@ -20,7 +21,17 @@ Meteor.publish(Ratings.userPublicationName, () => Ratings.collection.find());
 // Recommended code to publish roles for each user.
 Meteor.publish(null, function () {
   if (this.userId) {
+    if (Roles.userIsInRole(this.userId, 'admin')) {
+      return Meteor.roleAssignment.find();
+    }
     return Meteor.roleAssignment.find({ 'user._id': this.userId });
+  }
+  return this.ready();
+});
+
+Meteor.publish(null, function () {
+  if (this.userId && Roles.userIsInRole(this.userId, 'admin')) {
+    return Meteor.users.find();
   }
   return this.ready();
 });

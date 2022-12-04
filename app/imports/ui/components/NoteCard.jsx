@@ -1,17 +1,19 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
-import { Button, Card, Col, Image } from 'react-bootstrap';
+import { Button, Card, Col, Image, Row } from 'react-bootstrap';
 import Rating from 'react-rating';
-import { StarFill } from 'react-bootstrap-icons';
+import { StarFill, Trash } from 'react-bootstrap-icons';
 import { Meteor } from 'meteor/meteor';
 import { useTracker } from 'meteor/react-meteor-data';
 import { _ } from 'meteor/underscore';
+import swal from 'sweetalert';
 import { Ratings } from '../../api/rating/Rating';
 import LoadingSpinner from './LoadingSpinner';
+import { removeNoteMethod } from '../../startup/both/Methods';
 
 /** Renders a single note card. */
-const NoteCard = ({ note }) => {
+const NoteCard = ({ note, removable }) => {
   const { ready, ratings } = useTracker(() => {
     const sub = Meteor.subscribe(Ratings.userPublicationName);
     // Determine if the subscription is ready
@@ -25,6 +27,14 @@ const NoteCard = ({ note }) => {
   }, []);
   const numRatings = ratings.length;
   const avgRating = _.reduce(ratings, (memo, rating) => memo + rating.rating, 0) / numRatings;
+
+  const handleRemove = (_id) => {
+    Meteor.call(removeNoteMethod, { _id }, (error) => {
+      if (error) {
+        swal('Error', error.message, 'error');
+      }
+    });
+  };
 
   return ready ? (
     <Col md={3} className="py-2">
@@ -47,7 +57,16 @@ const NoteCard = ({ note }) => {
             />
             {numRatings} ratings
           </Card.Text>
-          <Button variant="success" as={Link} to={`/notes/${note._id}`}>See more</Button>
+          <Row>
+            <Col>
+              <Button variant="success" as={Link} to={`/notes/${note._id}`}>See more</Button>
+            </Col>
+            {removable ? (
+              <Col className="text-end">
+                <Button variant="danger" onClick={() => handleRemove(note._id)}><Trash /></Button>
+              </Col>
+            ) : ''}
+          </Row>
         </Card.Body>
       </Card>
     </Col>
@@ -64,6 +83,7 @@ NoteCard.propTypes = {
     description: PropTypes.string,
     _id: PropTypes.string,
   }).isRequired,
+  removable: PropTypes.bool.isRequired,
 };
 
 export default NoteCard;

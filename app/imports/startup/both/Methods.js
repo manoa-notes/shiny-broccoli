@@ -29,23 +29,25 @@ import { Ratings } from '../../api/rating/Rating';
  */
 
 const addProfileMethod = 'Profiles.add';
-
-Meteor.methods({
-  'Profiles.add'({ email }) {
-    Profiles.collection.insert({ email });
-  },
-});
-
 const updateProfileMethod = 'Profiles.update';
+const removeProfileMethod = 'Profiles.remove';
 
 /**
  * The server-side Profiles.update Meteor Method is called by the client-side Home page after pushing the update button.
  * Its purpose is to update the Profiles, ProfilesInterests, and ProfilesProjects collections to reflect the
  * updated situation specified by the user.
  */
+
 Meteor.methods({
+  'Profiles.add'({ email }) {
+    Profiles.collection.insert({ email });
+  },
   'Profiles.update'({ firstName, lastName, email, bio, picture, courseInterests }) {
     Profiles.collection.update({ email }, { $set: { firstName, lastName, bio, picture, courseInterests } });
+  },
+  'Profiles.remove'({ _id, email }) {
+    Profiles.collection.remove(_id);
+    Meteor.users.remove({ username: email });
   },
 });
 
@@ -61,12 +63,12 @@ Meteor.methods({
     }
     Courses.collection.insert({ name, path });
   },
-  'Courses.remove'({ name }) {
-    // eslint-disable-next-line no-empty
-    if (Courses.collection.find({ name: name }).count() !== 0) {
-      throw new Meteor.Error(`The course '${name}' does not exists.`);
+  'Courses.remove'({ _id }) {
+    const course = Courses.collection.findOne(_id);
+    if (Notes.collection.find({ course: course.name }).count() !== 0) {
+      throw new Meteor.Error(`The course '${course.name}' still has notes.`);
     }
-    Courses.collection.remove({ name: name });
+    Courses.collection.remove({ _id });
   },
 
 });
@@ -78,12 +80,9 @@ Meteor.methods({
   'Notes.add'({ title, course, owner, image, description }) {
     return Notes.collection.insert({ title, course, owner, image, description });
   },
-  'Notes.remove'({ title }) {
-    // eslint-disable-next-line no-empty
-    if (Notes.collection.find({ title }).count() !== 0) {
-      throw new Meteor.Error(`The note '${title}' does not exists.`);
-    }
-    Notes.collection.remove({ title });
+  'Notes.remove'({ _id }) {
+    Notes.collection.remove({ _id });
+    Ratings.collection.remove({ noteID: _id });
   },
 });
 
@@ -102,6 +101,7 @@ Meteor.methods({
 export {
   addProfileMethod,
   updateProfileMethod,
+  removeProfileMethod,
   addCourseMethod,
   removeCourseMethod,
   addNoteMethod,
