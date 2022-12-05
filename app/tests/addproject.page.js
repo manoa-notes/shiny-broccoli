@@ -7,7 +7,7 @@ class AddProjectPage {
     this.pageSelector = Selector(this.pageId);
   }
 
-  /** Checks that this page is currently displayed. */
+  /** Checks that this addProjectPage is currently displayed. */
   async isDisplayed(testController) {
     await testController.expect(this.pageSelector.exists).ok();
   }
