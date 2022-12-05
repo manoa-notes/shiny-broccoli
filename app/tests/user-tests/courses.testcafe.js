@@ -2,6 +2,7 @@ import { signInPage } from '../signin.page';
 import { navBar } from '../navbar.component';
 import { listCoursesPage } from '../listCourses.page';
 import { addCoursePage } from '../addcourse.page';
+import { coursePage } from '../course.page';
 
 /* global fixture:false, test:false */
 
@@ -27,4 +28,24 @@ test('Test the Courses functionality', async (testController) => {
   await navBar.gotoListCoursesPage(testController);
   await listCoursesPage.isDisplayed(testController);
   await listCoursesPage.gotoCourse(testController);
+});
+
+test.only('Test the Courses Availability', async (testController) => {
+  // login availability
+  await navBar.ensureLogout(testController);
+  await navBar.gotoSignInPage(testController);
+  await signInPage.isDisplayed(testController);
+  await signInPage.signin(testController, credentials.username, credentials.password);
+  // navigate to list courses and check availability
+  await navBar.gotoListCoursesPage(testController);
+  await listCoursesPage.isDisplayed(testController);
+  // navigate to addCourse and check availability
+  await listCoursesPage.addCourse(testController);
+  await addCoursePage.isDisplayed(testController);
+  // navigate to listCourse again and check availability
+  await navBar.gotoListCoursesPage(testController);
+  await listCoursesPage.isDisplayed(testController);
+  // navigate to a course and check availability
+  await listCoursesPage.gotoCourse(testController);
+  await coursePage.isDisplayed(testController);
 });
