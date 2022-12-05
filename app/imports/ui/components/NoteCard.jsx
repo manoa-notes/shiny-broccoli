@@ -41,7 +41,7 @@ const NoteCard = ({ note, removable }) => {
     <Col md={3} className="py-2">
       <Card className="h-100">
         <Card.Header>
-          <Image src={note.image} style={{ maxHeight: '200px' }} />
+          <Image src={note.image} style={{ maxHeight: '200px', maxWidth: '100px' }} />
           <Card.Title>{note.title}</Card.Title>
           <Card.Subtitle>{note.owner}</Card.Subtitle>
         </Card.Header>
