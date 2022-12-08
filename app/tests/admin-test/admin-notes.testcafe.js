@@ -18,3 +18,11 @@ test('Test Admin Delete Note', async (testController) => {
   await adminListNotesPage.isDisplayed(testController);
   await adminListNotesPage.deleteNote(testController);
 });
+
+test.only('Test Admin Note Page Availability', async (testController) => {
+  await navBar.ensureLogout(testController);
+  await navBar.gotoSignInPage(testController);
+  await signInPage.signinAdmin(testController, credentials.username, credentials.password);
+  await navBar.gotoAdminListNotesPage(testController);
+  await adminListNotesPage.isDisplayed(testController);
+});

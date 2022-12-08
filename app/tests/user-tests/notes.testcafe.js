@@ -30,3 +30,16 @@ test('Test Notes Functionality', async (testController) => {
   await notePage.isDisplayed(testController);
   await notePage.rateNote(testController);
 });
+
+test.only('Test Notes Availability', async (testController) => {
+  // login
+  await navBar.ensureLogout(testController);
+  await navBar.gotoSignInPage(testController);
+  await signInPage.signinUser(testController, credentials.username, credentials.password);
+  // navigate to list Notes
+  await navBar.gotoListNotesPage(testController);
+  await listNotesPage.isDisplayed(testController);
+  // add a Note
+  await listNotesPage.gotoAddNotePage(testController);
+  await addNotePage.isDisplayed(testController);
+});

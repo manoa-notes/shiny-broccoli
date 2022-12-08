@@ -21,3 +21,13 @@ test('Test Admin Delete Profile', async (testController) => {
   // delete testprofile@foo.com
   await adminListProfilesPage.deleteProfile(testController);
 });
+
+test.only('Test Admin Profile Page Availability', async (testController) => {
+  // login
+  await navBar.ensureLogout(testController);
+  await navBar.gotoSignInPage(testController);
+  await signInPage.signinAdmin(testController, credentials.username, credentials.password);
+  // navigate to profile page
+  await navBar.gotoAdminListProfilesPage(testController);
+  await adminListProfilesPage.isDisplayed(testController);
+});

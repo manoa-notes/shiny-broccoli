@@ -18,3 +18,11 @@ test('Test Admin Delete Course', async (testController) => {
   await adminListCoursesPage.isDisplayed(testController);
   await adminListCoursesPage.deleteCourse(testController);
 });
+
+test.only('Test Admin Course Page Availability', async (testController) => {
+  await navBar.ensureLogout(testController);
+  await navBar.gotoSignInPage(testController);
+  await signInPage.signinAdmin(testController, credentials.username, credentials.password);
+  await navBar.gotoAdminListCoursesPage(testController);
+  await adminListCoursesPage.isDisplayed(testController);
+});
