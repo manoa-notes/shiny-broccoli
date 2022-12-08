@@ -49,6 +49,8 @@
     "testcafe-admin-profiles": "testcafe chrome tests/admin-test/admin-courses.testcafe.js",
     "testcafe-user-courses": "testcafe chrome tests/user-tests/courses.testcafe.js",
     "testcafe-user-notes": "testcafe chrome tests/user-tests/notes.testcafe.js",
-    "testcafe-user-home": "testcafe chrome tests/user-tests/home.testcafe.js"
+    "testcafe-user-home": "testcafe chrome tests/user-tests/home.testcafe.js",
+    "testcafe-ci-edit": "testcafe chrome:headless tests/user-tests/*.testcafe.js -q attemptLimit=5,successThreshold=2 --app \"meteor npm run start\"",
+    "testcafe-ci-edit2": "testcafe chrome:headless tests/admin-test/*.testcafe.js -q attemptLimit=5,successThreshold=2 --app \"meteor npm run start\""
   }
 }
