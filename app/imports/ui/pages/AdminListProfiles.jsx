@@ -8,6 +8,7 @@ import { Roles } from 'meteor/alanning:roles';
 import LoadingSpinner from '../components/LoadingSpinner';
 import { Profiles } from '../../api/profiles/Profiles';
 import { removeProfileMethod } from '../../startup/both/Methods';
+import { PageIDs } from '../utilities/ids';
 
 /* Renders a table containing all of the Stuff documents. Use <StuffItem> to render each row. */
 const AdminListProfiles = () => {
@@ -35,7 +36,7 @@ const AdminListProfiles = () => {
   };
 
   return (ready ? (
-    <Container className="py-3">
+    <Container className="py-3" id={PageIDs.adminListProfilesPage}>
       <Row className="justify-content-center">
         <Col md={6}>
           <Col className="text-center"><h2>Profiles</h2></Col>

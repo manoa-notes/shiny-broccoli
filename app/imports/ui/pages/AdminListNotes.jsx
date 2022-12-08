@@ -40,7 +40,7 @@ const AdminListNotes = () => {
   }, [notes, search]);
 
   return (ready ? (
-    <Container className="py-3" id={PageIDs.listNotesPage}>
+    <Container className="py-3" id={PageIDs.adminListNotesPage}>
       <Row className="align-items-center">
         <Col md={2}>
           <h1>Notes</h1>
@@ -51,6 +51,13 @@ const AdminListNotes = () => {
       </Row>
       <SearchBar handleSearch={handleSearch} />
       <Row>
+        {notes.map(note => (
+          <NoteCard
+            key={note._id}
+            note={note}
+            removable
+          />
+        ))}
         {showItems.length > 0 ? (
           showItems.map(note => <NoteCard key={note._id} note={note} removable />)
         ) : (

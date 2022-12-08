@@ -7,7 +7,7 @@ class LandingPage {
     this.pageSelector = Selector(this.pageId);
   }
 
-  /** Asserts that this page is currently displayed. */
+  /** Asserts that this landingPage is currently displayed. */
   async isDisplayed(testController) {
     // This is first test to be run. Wait 70 seconds to avoid timeouts with GitHub Actions.
     await testController.wait(70000).expect(this.pageSelector.exists).ok();

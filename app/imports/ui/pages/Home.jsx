@@ -7,6 +7,7 @@ import { Notes } from '../../api/note/Note';
 import LoadingSpinner from '../components/LoadingSpinner';
 import { Profiles } from '../../api/profiles/Profiles';
 import NoteCard from '../components/NoteCard';
+import { PageIDs } from '../utilities/ids';
 
 /* Renders the Home Page: what appears after the user logs in. */
 const Home = () => {
@@ -37,7 +38,7 @@ const Home = () => {
   const userNotes = Notes.collection.find({ owner: email }).fetch();
 
   return ready ? (
-    <Container className="py-3">
+    <Container className="py-3" id={PageIDs.homePage}>
       <Row className="py-3">
         <h2>Recommended Notes</h2>
         {

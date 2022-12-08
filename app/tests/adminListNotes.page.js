@@ -1,13 +1,13 @@
 import { Selector } from 'testcafe';
 import { ComponentIDs, PageIDs } from '../imports/ui/utilities/ids';
 
-class ListNotesPage {
+class AdminListNotesPage {
   constructor() {
-    this.pageId = `#${PageIDs.listNotesPage}`;
+    this.pageId = `#${PageIDs.adminListNotesPage}`;
     this.pageSelector = Selector(this.pageId);
   }
 
-  /** Asserts that this USER listNotesPage is currently displayed. */
+  /** Asserts that this adminListNotesPage is currently displayed. */
   async isDisplayed(testController) {
     // This is first test to be run. Wait 20 seconds to avoid timeouts with GitHub Actions.
     await testController.wait(20000).expect(this.pageSelector.exists).ok();
@@ -17,10 +17,10 @@ class ListNotesPage {
     await testController.click(`#${ComponentIDs.addNoteLink}`);
   }
 
-  async gotoNote(testController) {
-    const testNote = `Hello-World-${new Date().getDate()}`;
-    const courseSelector = Selector(`#${ComponentIDs.seeNoteLink}`);
-    await testController.click(courseSelector.withText(testNote));
+  async deleteNote(testController) {
+    const testCourse = 'Test Note';
+    const courseSelector = Selector(`#${ComponentIDs.removeNote} btn.btn-danger`);
+    await testController.click(courseSelector.withText(testCourse));
   }
 }
-export const listNotesPage = new ListNotesPage();
+export const adminListNotesPage = new AdminListNotesPage();

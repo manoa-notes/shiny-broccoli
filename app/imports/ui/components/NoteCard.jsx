@@ -10,6 +10,7 @@ import { _ } from 'meteor/underscore';
 import swal from 'sweetalert';
 import { Ratings } from '../../api/rating/Rating';
 import { removeNoteMethod } from '../../startup/both/Methods';
+import { ComponentIDs } from '../utilities/ids';
 
 /** Renders a single note card. */
 const NoteCard = ({ note, removable }) => {
@@ -59,6 +60,31 @@ const NoteCard = ({ note, removable }) => {
               className="pe-2"
             />
             {numRatings} ratings
+          </Card.Text>
+          <Row>
+            <Col>
+              <Button
+                id={ComponentIDs.seeNoteLink}
+                variant="success"
+                as={Link}
+                to={`/notes/${note._id}`}
+              >
+                See more
+              </Button>
+            </Col>
+            {removable ? (
+              <Col className="text-end">
+                <Button
+                  variant="danger"
+                  id={ComponentIDs.removeNote}
+                  onClick={() => handleRemove(note._id)}
+                >
+                  <Trash />
+                </Button>
+              </Col>
+            ) : ''}
+          </Row>
+        </Card.Body>
           </Col>
         </Row>
         <Row className="px-3 pb-3">

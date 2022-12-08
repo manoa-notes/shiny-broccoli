@@ -3,6 +3,15 @@ import { ComponentIDs } from '../imports/ui/utilities/ids';
 
 class NavBar {
   /* If logged in, go to the list courses page */
+  async gotoHomePage(testController) {
+    const visible = await Selector(`#${ComponentIDs.basicNavbarNav}`).visible;
+    if (!visible) {
+      await testController.click('button.navbar-toggler');
+    }
+    await testController.click(`#${ComponentIDs.homeLink}`);
+  }
+
+  /* If logged in, go to the list courses page */
   async gotoListCoursesPage(testController) {
     const visible = await Selector(`#${ComponentIDs.basicNavbarNav}`).visible;
     if (!visible) {
@@ -18,6 +27,32 @@ class NavBar {
       await testController.click('button.navbar-toggler');
     }
     await testController.click(`#${ComponentIDs.notesLink}`);
+  }
+
+  /* If logged in as admin, go to the admin list courses page */
+  async gotoAdminListCoursesPage(testController) {
+    const visible = await Selector(`#${ComponentIDs.basicNavbarNav}`).visible;
+    if (!visible) {
+      await testController.click('button.navbar-toggler');
+    }
+    await testController.click(`#${ComponentIDs.adminCoursesLink}`);
+  }
+
+  /* If logged in as admin, go to the admin list notes page */
+  async gotoAdminListNotesPage(testController) {
+    const visible = await Selector(`#${ComponentIDs.basicNavbarNav}`).visible;
+    if (!visible) {
+      await testController.click('button.navbar-toggler');
+    }
+    await testController.click(`#${ComponentIDs.adminNotesLink}`);
+  }
+
+  async gotoAdminListProfilesPage(testController) {
+    const visible = await Selector(`#${ComponentIDs.basicNavbarNav}`).visible;
+    if (!visible) {
+      await testController.click('button.navbar-toggler');
+    }
+    await testController.click(`#${ComponentIDs.adminProfilesLink}`);
   }
 
   /** If someone is logged in, then log them out, otherwise do nothing. */

@@ -46,9 +46,17 @@ export const ComponentIDs = {
   courseButton: 'courseButton',
   addNoteInCourseButton: 'addNoteInCourseButton',
   homeLink: 'homeLink',
+  removeCourse: 'removeCourse',
+  removeNote: 'removeNote',
+  adminCoursesLink: 'adminCoursesLink',
+  adminNotesLink: 'adminNotesLink',
+  adminProfilesLink: 'adminProfilesLink',
+  seeNoteLink: 'seeNoteLink',
+  addRating: 'addRating',
 };
 
 export const PageIDs = {
+  profilePage: 'profilePage',
   coursePage: 'coursePage',
   coursePageEmpty: 'coursePageEmpty',
   addCoursePage: 'addCoursePage',
@@ -67,4 +75,8 @@ export const PageIDs = {
   signUpPage: 'signUpPage',
   listNotesPage: 'listNotesPage',
   listCoursesPage: 'listCoursesPage',
+  adminListNotesPage: 'adminListNotesPage',
+  adminListCoursesPage: 'adminListCoursesPage',
+  adminListProfilesPage: 'adminListProfilesPage',
+  notePage: 'notePage',
 };

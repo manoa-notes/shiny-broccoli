@@ -8,7 +8,7 @@ import swal from 'sweetalert';
 import LoadingSpinner from '../components/LoadingSpinner';
 import { Courses } from '../../api/course/Courses';
 import { Notes } from '../../api/note/Note';
-import { PageIDs } from '../utilities/ids';
+import { ComponentIDs, PageIDs } from '../utilities/ids';
 import { removeCourseMethod } from '../../startup/both/Methods';
 
 const AdminListCourses = () => {
@@ -40,7 +40,7 @@ const AdminListCourses = () => {
   };
 
   return (ready ? (
-    <Container className="py-3" id={PageIDs.listCoursesPage}>
+    <Container className="py-3" id={PageIDs.adminListCoursesPage}>
       <h1>Courses</h1>
       <Row>
         {courses.map(course => (
@@ -49,7 +49,14 @@ const AdminListCourses = () => {
               <Button variant="success" size="lg" as={Link} to={`/courses/${course.path}`}>
                 {course.name} ({Notes.collection.find({ course: course.name }).fetch().length} notes)
               </Button>
-              <Button className="flex-grow-0" variant="danger" onClick={() => handleRemove(course._id)}><Trash /></Button>
+              <Button
+                className="flex-grow-0"
+                variant="danger"
+                onClick={() => handleRemove(course._id)}
+                id={ComponentIDs.removeCourse}
+              >
+                <Trash />
+              </Button>
             </ButtonGroup>
           </Col>
         ))}

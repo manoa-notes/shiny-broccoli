@@ -1,27 +1,22 @@
 import { Selector } from 'testcafe';
 import { ComponentIDs, PageIDs } from '../imports/ui/utilities/ids';
 
-class ListCoursesPage {
+class AdminListProfilesPage {
   constructor() {
-    this.pageId = `#${PageIDs.listCoursesPage}`;
+    this.pageId = `#${PageIDs.adminListProfilesPage}`;
     this.pageSelector = Selector(this.pageId);
   }
 
-  /** Asserts that this USER listCoursesPage is currently displayed. */
+  /** Asserts that this adminListProfilesPage is currently displayed. */
   async isDisplayed(testController) {
     // This is first test to be run. Wait 20 seconds to avoid timeouts with GitHub Actions.
     await testController.wait(20000).expect(this.pageSelector.exists).ok();
   }
 
-  async addCourse(testController) {
-    await testController.click(`#${ComponentIDs.addCourseButton}`);
-  }
-
-  async gotoCourse(testController) {
-    const testCourse = 'EE 160';
-    const courseSelector = Selector(`#${ComponentIDs.courseButton}`);
+  async deleteProfile(testController) {
+    const testCourse = 'testprofile@foo.com';
+    const courseSelector = Selector(`#${ComponentIDs.removeNote} btn.btn-danger`);
     await testController.click(courseSelector.withText(testCourse));
   }
 }
-
-export const listCoursesPage = new ListCoursesPage();
+export const adminListProfilesPage = new AdminListProfilesPage();
