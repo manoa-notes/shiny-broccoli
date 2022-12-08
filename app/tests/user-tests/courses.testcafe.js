@@ -42,9 +42,8 @@ test.only('Test the Courses Availability', async (testController) => {
   // navigate to addCourse and check availability
   await listCoursesPage.addCourse(testController);
   await addCoursePage.isDisplayed(testController);
-  // navigate to listCourse again and check availability
+  // navigate to listCourse again
   await navBar.gotoListCoursesPage(testController);
-  await listCoursesPage.isDisplayed(testController);
   // navigate to a course and check availability
   await listCoursesPage.gotoCourse(testController);
   await coursePage.isDisplayed(testController);

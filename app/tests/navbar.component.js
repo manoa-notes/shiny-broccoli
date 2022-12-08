@@ -3,6 +3,15 @@ import { ComponentIDs } from '../imports/ui/utilities/ids';
 
 class NavBar {
   /* If logged in, go to the list courses page */
+  async gotoHomePage(testController) {
+    const visible = await Selector(`#${ComponentIDs.basicNavbarNav}`).visible;
+    if (!visible) {
+      await testController.click('button.navbar-toggler');
+    }
+    await testController.click(`#${ComponentIDs.homeLink}`);
+  }
+
+  /* If logged in, go to the list courses page */
   async gotoListCoursesPage(testController) {
     const visible = await Selector(`#${ComponentIDs.basicNavbarNav}`).visible;
     if (!visible) {

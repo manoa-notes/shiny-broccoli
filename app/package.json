@@ -48,6 +48,7 @@
     "testcafe-admin-courses": "testcafe chrome tests/admin-test/admin-courses.testcafe.js",
     "testcafe-admin-profiles": "testcafe chrome tests/admin-test/admin-courses.testcafe.js",
     "testcafe-user-courses": "testcafe chrome tests/user-tests/courses.testcafe.js",
-    "testcafe-user-notes": "testcafe chrome tests/user-tests/notes.testcafe.js"
+    "testcafe-user-notes": "testcafe chrome tests/user-tests/notes.testcafe.js",
+    "testcafe-user-home": "testcafe chrome tests/user-tests/home.testcafe.js"
   }
 }

@@ -28,5 +28,5 @@ test('Test Notes Functionality', async (testController) => {
   await navBar.gotoListNotesPage(testController);
   await listNotesPage.gotoNote(testController);
   await notePage.isDisplayed(testController);
-  // await notePage.rateNote(testController);
+  await notePage.rateNote(testController);
 });

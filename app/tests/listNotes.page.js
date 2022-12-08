@@ -18,7 +18,7 @@ class ListNotesPage {
   }
 
   async gotoNote(testController) {
-    const testNote = 'Test-Note';
+    const testNote = `Hello-World-${new Date().getDate()}`;
     const courseSelector = Selector(`#${ComponentIDs.seeNoteLink}`);
     await testController.click(courseSelector.withText(testNote));
   }

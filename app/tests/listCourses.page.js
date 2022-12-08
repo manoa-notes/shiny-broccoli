@@ -18,7 +18,7 @@ class ListCoursesPage {
   }
 
   async gotoCourse(testController) {
-    const testCourse = 'Test-Course ABC123';
+    const testCourse = 'EE 160';
     const courseSelector = Selector(`#${ComponentIDs.courseButton}`);
     await testController.click(courseSelector.withText(testCourse));
   }
