@@ -9,7 +9,6 @@ import { useTracker } from 'meteor/react-meteor-data';
 import { _ } from 'meteor/underscore';
 import swal from 'sweetalert';
 import { Ratings } from '../../api/rating/Rating';
-import LoadingSpinner from './LoadingSpinner';
 import { removeNoteMethod } from '../../startup/both/Methods';
 
 /** Renders a single note card. */
@@ -39,14 +38,18 @@ const NoteCard = ({ note, removable }) => {
   return ready ? (
     <Col md={3} className="py-2">
       <Card className="h-100">
+        <Image height={200} src={note.image} />
         <Card.Header>
-          <Image src={note.image} style={{ maxHeight: '200px', maxWidth: '100px' }} />
-          <Card.Title>{note.title}</Card.Title>
+          <Card.Title className="overflow-wrap">{note.title}</Card.Title>
           <Card.Subtitle>{note.owner}</Card.Subtitle>
         </Card.Header>
-        <Card.Body>
+        <Card.Body className="pb-0">
           <Card.Text>
-            {note.description} <br />
+            {note.description}
+          </Card.Text>
+        </Card.Body>
+        <Row className="px-3 pb-2">
+          <Col>
             <Rating
               initialRating={avgRating}
               emptySymbol={<StarFill color="gainsboro" />}
@@ -56,21 +59,21 @@ const NoteCard = ({ note, removable }) => {
               className="pe-2"
             />
             {numRatings} ratings
-          </Card.Text>
-          <Row>
-            <Col>
-              <Button variant="success" as={Link} to={`/notes/${note._id}`}>See more</Button>
+          </Col>
+        </Row>
+        <Row className="px-3 pb-3">
+          <Col>
+            <Button variant="success" as={Link} to={`/notes/${note._id}`}>See more</Button>
+          </Col>
+          {removable ? (
+            <Col className="text-end">
+              <Button variant="danger" onClick={() => handleRemove(note._id)}><Trash /></Button>
             </Col>
-            {removable ? (
-              <Col className="text-end">
-                <Button variant="danger" onClick={() => handleRemove(note._id)}><Trash /></Button>
-              </Col>
-            ) : ''}
-          </Row>
-        </Card.Body>
+          ) : ''}
+        </Row>
       </Card>
     </Col>
-  ) : <LoadingSpinner />;
+  ) : '';
 };
 
 // Require a document to be passed to this component.

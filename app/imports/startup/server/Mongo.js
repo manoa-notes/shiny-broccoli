@@ -35,24 +35,8 @@ if (Meteor.users.find().count() === 0) {
   }
 }
 
-/**
- * If the loadAssetsFile field in settings.development.json is true, then load the data in private/data.json.
- * This approach allows you to initialize your system with large amounts of data.
- * Note that settings.development.json is limited to 64,000 characters.
- * We use the "Assets" capability in Meteor.
- * For more info on assets, see https://docs.meteor.com/api/assets.html
- * User count check is to make sure we don't load the file twice, which would generate errors due to duplicate info.
- */
-if ((Meteor.settings.loadAssetsFile) && (Meteor.users.find().count() < 7)) {
-  const assetsFileName = 'data.json';
-  console.log(`Loading data from private/${assetsFileName}`);
-  const jsonData = JSON.parse(Assets.getText(assetsFileName));
-  jsonData.profiles.map(profile => addProfile(profile));
-}
-
 // Initialize the database with a default data document.
 const addCourse = (course) => {
-  console.log(`  Adding: ${course.name}`);
   Courses.collection.insert(course);
 };
 
@@ -60,12 +44,14 @@ const addCourse = (course) => {
 if (Courses.collection.find().count() === 0) {
   if (Meteor.settings.defaultCourses) {
     console.log('Creating default courses.');
-    Meteor.settings.defaultCourses.forEach(course => addCourse(course));
+    Meteor.settings.defaultCourses.forEach(course => {
+      console.log(`  Adding: ${course.name}`);
+      addCourse(course);
+    });
   }
 }
 
 const addNote = (note) => {
-  console.log(`  Adding: ${note.title}`);
   Notes.collection.insert(note);
 };
 
@@ -73,6 +59,23 @@ const addNote = (note) => {
 if (Notes.collection.find().count() === 0) {
   if (Meteor.settings.defaultNotes) {
     console.log('Creating default notes.');
-    Meteor.settings.defaultNotes.forEach(note => addNote(note));
+    Meteor.settings.defaultNotes.forEach(note => {
+      console.log(`  Adding: ${note.title}`);
+      addNote(note);
+    });
   }
+}
+
+if ((Meteor.settings.loadCoursesFile) && (Courses.collection.find().count() < 10)) {
+  const assetsFileName = 'courses.json';
+  console.log(`Loading courses from private/${assetsFileName}`);
+  const jsonData = JSON.parse(Assets.getText(assetsFileName));
+  jsonData.courses.map(course => addCourse(course));
+}
+
+if ((Meteor.settings.loadNotesFile) && (Notes.collection.find().count() < 10)) {
+  const assetsFileName = 'notes.json';
+  console.log(`Loading notes from private/${assetsFileName}`);
+  const jsonData = JSON.parse(Assets.getText(assetsFileName));
+  jsonData.notes.map(note => addNote(note));
 }
