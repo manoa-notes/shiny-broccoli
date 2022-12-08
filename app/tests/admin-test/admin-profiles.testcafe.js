@@ -14,7 +14,7 @@ test('Test Admin Delete Profile', async (testController) => {
   // login
   await navBar.ensureLogout(testController);
   await navBar.gotoSignInPage(testController);
-  await signInPage.signin(testController, credentials.username, credentials.password);
+  await signInPage.signinAdmin(testController, credentials.username, credentials.password);
   // navigate to profile page
   await navBar.gotoAdminListProfilesPage(testController);
   await adminListProfilesPage.isDisplayed(testController);

@@ -1,8 +1,4 @@
 {
-  "defaultAccounts": [
-    { "email": "admin@foo.com", "password": "changeme", "role": "admin" },
-    { "email": "john@foo.com", "password": "changeme" }
-  ],
   "defaultProfiles": [
     {
       "firstName": "Admin",
@@ -16,6 +12,18 @@
       ],
       "role": "admin",
       "password": "foo"
+    },
+    {
+      "firstName": "User",
+      "lastName": "Foo",
+      "email": "user@foo.com",
+      "bio": "For testing user functionality",
+      "picture": "https://simg.nicepng.com/png/small/179-1795474_handsome-squidward-png-handsome-squidward.png",
+      "courseInterests": [
+        "ICS 111",
+        "ICS 211",
+        "EE 160"
+      ]
     },
     {
       "firstName": "Philip",

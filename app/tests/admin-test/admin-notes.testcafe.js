@@ -13,7 +13,7 @@ fixture('Rainbow Notes localhost test with default db')
 test('Test Admin Delete Note', async (testController) => {
   await navBar.ensureLogout(testController);
   await navBar.gotoSignInPage(testController);
-  await signInPage.signin(testController, credentials.username, credentials.password);
+  await signInPage.signinAdmin(testController, credentials.username, credentials.password);
   await navBar.gotoAdminListNotesPage(testController);
   await adminListNotesPage.isDisplayed(testController);
   await adminListNotesPage.deleteNote(testController);
