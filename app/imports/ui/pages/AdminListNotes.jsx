@@ -32,7 +32,6 @@ const AdminListNotes = () => {
   }, []);
 
   useEffect(() => {
-    console.log(`Search: ${search}`);
     if (search === '') {
       setShowItems(notes);
     } else {
