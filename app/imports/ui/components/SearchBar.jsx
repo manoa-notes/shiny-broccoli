@@ -10,10 +10,10 @@ const SearchBar = ({ handleSearch }) => {
       <Col md={6}>
         <form onSubmit={(event) => {
           event.preventDefault();
-          return handleSearch(filter.trim());
+          return handleSearch(filter.trim().toLowerCase());
         }}
         >
-          <InputGroup className="mb-3" onSubmit={() => handleSearch(filter.trim())}>
+          <InputGroup className="mb-3" onSubmit={() => handleSearch(filter.trim().toLowerCase())}>
             <Form.Control
               placeholder="Search"
               aria-label="Search"
