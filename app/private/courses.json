@@ -1,0 +1,68 @@
+{
+  "courses": [
+    {
+      "name": "EE 160",
+      "path": "EE160"
+    },
+    {
+      "name": "EE 205",
+      "path": "EE205"
+    },
+    {
+      "name": "EE 211",
+      "path": "EE211"
+    },
+    {
+      "name": "EE 213",
+      "path": "EE213"
+    },
+    {
+      "name": "EE 324",
+      "path": "EE324"
+    },
+    {
+      "name": "EE 345",
+      "path": "EE345"
+    },
+    {
+      "name": "EE 362",
+      "path": "EE362"
+    },
+    {
+      "name": "EE 367",
+      "path": "EE367"
+    },
+    {
+      "name": "EE 371",
+      "path": "EE371"
+    },
+    {
+      "name": "EE 468",
+      "path": "EE468"
+    },
+    {
+      "name": "EE 480",
+      "path": "EE480"
+    },
+    {
+      "name": "EE 495",
+      "path": "EE495"
+    },
+    {
+      "name": "PHYS 272",
+      "path": "PHYS 272"
+    },
+    {
+      "name": "PHYS 274",
+      "path": "PHYS 274"
+    },
+    {
+      "name": "PHYS 430",
+      "path": "PHYS 430"
+    },
+    {
+      "name": "MATH 244",
+      "path": "MATH244"
+    }
+  ]
+}

@@ -5,7 +5,7 @@ import { Col, Container } from 'react-bootstrap';
 const Footer = () => (
   <footer className="footer mt-auto py-3 bg-dark">
     <Container>
-      <Col className="text-center" style={{ color: 'white' }}>
+      <Col className="text-center" style={{ color: '#DADED4' }}>
         Rainbow Notes
         {' '}
         <br />
@@ -17,7 +17,7 @@ const Footer = () => (
         Created by: Alex Bozyck, Marc Ivan Manalac, Linda Nguyen, AJ Patalinghog, and Joshua Aaron Subia
         {' '}
         <br />
-        <a style={{ color: 'white' }} href="https://rainbow-notes.github.io">https://rainbow-notes.github.io</a>
+        <a style={{ color: '#DADED4' }} href="https://rainbow-notes.github.io">https://rainbow-notes.github.io</a>
       </Col>
     </Container>
   </footer>
