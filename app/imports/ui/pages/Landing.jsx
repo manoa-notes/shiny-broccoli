@@ -1,5 +1,5 @@
 import React from 'react';
-import { Col, Container, Form, Image, InputGroup, Row, Button } from 'react-bootstrap';
+import { Col, Container, Image, Row } from 'react-bootstrap';
 import { PageIDs } from '../utilities/ids';
 
 /* A simple static component to render some text for the landing page. */
@@ -25,23 +25,6 @@ const Landing = () => (
             <h2>
               at the click of a button.
             </h2>
-            <br />
-            <br />
-          </Container>
-          <Container className="justify-content-center text-center">
-            <Row>
-              <Form>
-                <InputGroup size="lg">
-                  <Form.Control placeholder="Search for your course code here to get started" />
-                  <Button
-                    variant="success"
-                    type="submit"
-                  >
-                    SHOOTS
-                  </Button>
-                </InputGroup>
-              </Form>
-            </Row>
           </Container>
         </div>
       </Container>
@@ -51,18 +34,18 @@ const Landing = () => (
         <h2>HOW TO GET STARTED</h2>
         <Row>
           <Col className="pb-4">
-            <h3>STEP 1: Searching for your course</h3>
-            <Image style={{ border: '10px solid var(--green-leaf)', padding: 0 }} src="/images/list-course-page.png" className="w-100" />
+            <h3>STEP 1: Search for your course</h3>
+            <Image style={{ border: '10px solid var(--green-leaf)', padding: 0 }} src="/images/list-courses-page.png" className="w-100" />
           </Col>
           <Col className="pb-4">
-            <h3>STEP 2: Share your notes</h3>
-            <Image style={{ border: '10px solid var(--green-leaf)', padding: 0 }} src="/images/add-notes-page.png" className="w-100" />
+            <h3>STEP 2: Click on a note</h3>
+            <Image style={{ border: '10px solid var(--green-leaf)', padding: 0 }} src="/images/list-notes-page.png" className="w-100" />
           </Col>
         </Row>
         <Row className="pb-4">
           <Col>
             <h3>STEP 3: Review Notes</h3>
-            <Image style={{ border: '10px solid var(--green-leaf)', padding: 0 }} src="/images/sample-note-1.jpg" width={400} />
+            <Image style={{ border: '10px solid var(--green-leaf)', padding: 0 }} src="/images/sample-note.jpg" width={400} />
           </Col>
         </Row>
       </Container>

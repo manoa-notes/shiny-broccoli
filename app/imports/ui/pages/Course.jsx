@@ -37,8 +37,7 @@ const Course = () => {
   if (notes.length === 0) {
     return ready ? (
       <Container className="py-3" id={PageIDs.coursePageEmpty}>
-        <h1>{course.name}</h1>
-        <h2>Notes</h2>
+        <h1>{course} Notes</h1>
         <Row>
           <p style={{ fontSize: '18px' }}>
             There are currently no notes for this class. Add some here:
@@ -57,18 +56,9 @@ const Course = () => {
   }
   return ready ? (
     <Container className="py-3" id={PageIDs.coursePage}>
-      <h1>{course.name}</h1>
-      <h2>Notes</h2>
+      <h1>{course} Notes</h1>
       <Row>
-        {
-          notes.length > 0 ?
-            notes.map(note => <NoteCard key={note._id} note={note} />) : (
-              <p style={{ fontSize: '18px' }}>
-                There are currently no notes for this class. Add some here:
-                <Button className="ms-2" variant="success" as={Link} to="/addNote">Add notes</Button>
-              </p>
-            )
-        }
+        {notes.map(note => <NoteCard key={note._id} note={note} removable={false} />)}
       </Row>
     </Container>
   ) : <LoadingSpinner />;
