@@ -10,7 +10,7 @@ import { ComponentIDs, PageIDs } from '../utilities/ids';
 
 const ListCourses = () => {
   // useTracker connects Meteor data to React components. https://guide.meteor.com/react.html#using-withTracker
-  const { ready, courses } = useTracker(() => {
+  const { ready, courses, currentUser } = useTracker(() => {
     // Note that this subscription will get cleaned up
     // when your component is unmounted or deps change.
     // Get access to Stuff documents.
@@ -20,10 +20,13 @@ const ListCourses = () => {
     const rdy1 = sub1.ready();
     const rdy2 = sub2.ready();
     const rdy = rdy1 && rdy2;
+
+    const user = Meteor.user() ? Meteor.user().username : '';
     // Get the Stuff documents
     const courseItems = Courses.collection.find({}, { sort: { name: 1 } }).fetch();
     return {
       courses: courseItems,
+      currentUser: user,
       ready: rdy,
     };
   }, []);
@@ -45,18 +48,20 @@ const ListCourses = () => {
           </Col>
         ))}
       </Row>
-      <Row className="text-center py-4">
-        <h4>Don&apos;t see a course? Add one here:
-          <Button
-            className="ms-2"
-            variant="success"
-            as={Link}
-            to="/addCourse"
-            id={ComponentIDs.addCourseButton}
-          >Add Course
-          </Button>
-        </h4>
-      </Row>
+      { currentUser ? (
+        <Row className="text-center py-4">
+          <h4>Don&apos;t see a course? Add one here:
+            <Button
+              className="ms-2"
+              variant="success"
+              as={Link}
+              to="/addCourse"
+              id={ComponentIDs.addCourseButton}
+            >Add Course
+            </Button>
+          </h4>
+        </Row>
+      ) : ''}
     </Container>
   ) : <LoadingSpinner />);
 };

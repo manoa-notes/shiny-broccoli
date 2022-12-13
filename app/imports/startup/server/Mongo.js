@@ -1,9 +1,11 @@
 import { Meteor } from 'meteor/meteor';
 import { Accounts } from 'meteor/accounts-base';
 import { Roles } from 'meteor/alanning:roles';
+import { _ } from 'meteor/underscore';
 import { Profiles } from '../../api/profiles/Profiles';
 import { Courses } from '../../api/course/Courses';
 import { Notes } from '../../api/note/Note';
+import { Ratings } from '../../api/rating/Rating';
 
 /* eslint-disable no-console */
 
@@ -66,6 +68,16 @@ if (Notes.collection.find().count() === 0) {
   }
 }
 
+const addRatings = (notes) => {
+  const ratings = [1, 2, 2, 3, 3, 3, 4, 4, 4, 4, 5, 5, 5, 5, 5];
+  const owners = Profiles.collection.find().fetch();
+  notes.map(note => (
+    owners.map(owner => (
+      Ratings.collection.insert({ noteID: note._id, ownerID: owner.email, rating: _.sample(ratings) })
+    ))
+  ));
+};
+
 if ((Meteor.settings.loadCoursesFile) && (Courses.collection.find().count() < 10)) {
   const assetsFileName = 'courses.json';
   console.log(`Loading courses from private/${assetsFileName}`);
@@ -78,4 +90,6 @@ if ((Meteor.settings.loadNotesFile) && (Notes.collection.find().count() < 10)) {
   console.log(`Loading notes from private/${assetsFileName}`);
   const jsonData = JSON.parse(Assets.getText(assetsFileName));
   jsonData.notes.map(note => addNote(note));
+  const notes = Notes.collection.find().fetch();
+  addRatings(notes);
 }

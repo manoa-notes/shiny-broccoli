@@ -16,17 +16,20 @@ const ListNotes = () => {
 
   const handleSearch = (input) => { setSearch(`${input}`); };
 
-  const { ready, notes } = useTracker(() => {
+  const { ready, notes, currentUser } = useTracker(() => {
     // Note that this subscription will get cleaned up
     // when your component is unmounted or deps change.
     // Get access to Stuff documents.
     const sub = Meteor.subscribe(Notes.userPublicationName);
     // Determine if the subscription is ready
     const rdy = sub.ready();
+
+    const user = Meteor.user() ? Meteor.user().username : '';
     // Get the Stuff documents
     const notesItems = Notes.collection.find({}).fetch();
     return {
       notes: notesItems,
+      currentUser: user,
       ready: rdy,
     };
   }, []);
@@ -45,9 +48,11 @@ const ListNotes = () => {
         <Col md={2}>
           <h1>Notes</h1>
         </Col>
-        <Col className="text-end">
-          <Button id={ComponentIDs.addNoteLink} variant="success" as={Link} to="/addNote">Add notes</Button>
-        </Col>
+        { currentUser ? (
+          <Col className="text-end">
+            <Button id={ComponentIDs.addNoteLink} variant="success" as={Link} to="/addNote">Add notes</Button>
+          </Col>
+        ) : ''}
       </Row>
       <SearchBar handleSearch={handleSearch} />
       <Row>
