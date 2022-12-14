@@ -33,6 +33,3 @@ test('Test that signup page, then logout works', async (testController) => {
   await navBar.logout(testController);
   await signOutPage.isDisplayed(testController);
 });
-
-
-
